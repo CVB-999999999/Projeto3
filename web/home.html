@@ -11,96 +11,118 @@
 </head>
 
 <body>
-    <div>
-        <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="./img/owl.svg" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
-                    A tutoring Company
-                </a>
-                <!-- Collapse button when low width -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
-                    <!-- Nav bar buttons Left -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">About us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Contact us</a>
-                        </li>
-                    </ul>
-                    <!-- Login Button -->
-                    <button type="button" class="btn btn-light rounded-pill" style="width:120px"> Log in </button>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="javascript:void(0)">
+                <img src="./img/owl.svg" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
+                A tutoring Company
+            </a>
+            <!-- Collapse button when low width -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <!-- Nav bar buttons Left -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Contact us</a>
+                    </li>
+                </ul>
+                <!-- Login Button -->
+                <button type="button" class="btn btn-light rounded-pill" style="width:120px"> Log in </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel single img -->
+    <div id="demo" class="carousel slide text-center" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./img/tutoring.jpg" alt="smart people">
+                <!-- Caption -->
+                <div class="carousel-caption">
+                    <h3 class="shadow-lg">Creating smart people since 1999</h3>
                 </div>
             </div>
-        </nav>
-
-        <!-- IMG start -->
-        <div style="margin-top: 40px;">
-            <img src="./img/tutoring.jpg" style="width: 100%;">
         </div>
+    </div>
 
-        <!-- Grid to show what they tutor -->
-        <div class="row text-center" style="margin: 3%;">
-            <div class="col-md">
-                <h2> First to third cycle </h2>
-                <ul>
-                    <li> Tutoring to all subjects</li>
-                    <li> Preperation to final exams</li>
-                </ul>
+    <!-- Grid to show what they tutor -->
+    <div class="row text-center  m-5">
+        <div class="col-lg-4 mt-3">
+            <h2> First to third cycle </h2>
+            <ul>
+                <li> Tutoring to all subjects</li>
+                <li> Preperation to final exams</li>
+            </ul>
 
+        </div>
+        <div class="col-lg-4 mt-3">
+            <h2> Secondary school </h2>
+            <ul>
+                <li> Tutoring to all subjects</li>
+                <li> Preperation to final exams</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 mt-3">
+            <h2> Higher education </h2>
+            <ul>
+                <li> Tutoring to all math subjects</li>
+                <li> Tutoring to all computing subjects</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- More info -->
+    <div class="text-center">
+        <button class="btn btn-dark rounded-pill" style="width: 250px; height: 50px;">
+            <h5>More information</h5>
+        </button>
+    </div>
+
+    <!-- Why us -->
+    <div class="text-center m-5">
+        <h1 style="margin-bottom: 1%;"> Why Us?</h1>
+
+        <!-- Grid with markting -->
+        <div class="row">
+            <div class="col-lg-4 mt-3">
+                <h2> High Success Rate </h2>
+                Our students are 30% more likelly to success in their education than our competition
             </div>
-            <div class="col-md">
-                <h2> Secondary school </h2>
-                <ul>
-                    <li> Tutoring to all subjects</li>
-                    <li> Preperation to final exams</li>
-                </ul>
+            <div class="col-lg-4 mt-3">
+                <h2> Ease of Use </h2>
+                As we have all our resouces online our students can study wherever they want
             </div>
-            <div class="col-md">
-                <h2> Higher education </h2>
-                <ul>
-                    <li> Tutoring to all math subjects</li>
-                    <li> Tutoring to all computing subjects</li>
-                </ul>
+            <div class="col-lg-4 mt-3">
+                <h2> High Quality Resources </h2>
+                All our resources are made by teachers curently teaching the subjects to ensure that they are correct
+                and up-to-date
             </div>
         </div>
+    </div>
 
-        <!-- More info -->
-        <div class="text-center">
-            <!--h3 > For more information contact us using the button bellow</h3-->
-            <button class="btn btn-dark rounded-pill" style="width: 200px; height: 50px;">
-                <h5>More information</h5>
-            </button>
+    <!-- Footer -->
+    <div class="mt-4 p-3 bg-dark text-white text-center">
+        <div class="row">
+            <div class="col">
+                <h4>Company</h4>
+                <p><a href="#">About us</a></p>
+                <p><a href="https://gdpr-info.eu/">Terms and Conditions</a></p>
+                <p><a href="https://gdpr-info.eu/">Privacy Policy</a></p>
+            </div>
+            <div class="col">
+                <h4>Social Media</h4>
+                <p><a href="https://www.facebook.com">Facebook</a></p>
+                <p><a href="https://www.linkedin.com">Linked in</a></p>
+            </div>
+            <div class="col">
+                A Tutoring Company
+            </div>
         </div>
-
-        <!-- Why us -->
-        <div class="text-center" style="margin: 3%;">
-            <h1 style="margin-bottom: 1%;"> Why Us?</h1>
-            <h2>Marketing Point 1</h2>
-            At aliquam et eligendi similique cum repudiandae. Modi accusamus sed omnis incidunt sit mollitia. Quibusdam
-            eos necessitatibus repellendus. Alias ut ut non ratione suscipit quod id..
-            <h2>Marketing Point 2</h2>
-            Aut suscipit veritatis nihil incidunt minus repellat odit. Impedit qui ab voluptatem voluptatem laudantium
-            officia rerum. Omnis illum perferendis voluptas cupiditate quasi maiores maiores laudantium. Fuga facere
-            molestiae at voluptas quia cum. Ut voluptatem voluptates neque aliquam odit. Aperiam magnam deleniti rerum
-            quos laudantium eligendi ex dolor.
-            <h2>Marketing Point 3</h2>
-            Ducimus rerum dicta ut. Dolores excepturi dolores illo asperiores cupiditate corrupti. Suscipit totam quia
-            unde autem. Dolor atque aperiam debitis et. Ipsum nisi sed qui hic. Aliquam eaque soluta explicabo autem
-            nulla ipsam.
-            <h2>Marketing Point 4</h2>
-            Eum qui voluptas deleniti illum. Voluptate et maiores veniam repellat veniam ut quos. Numquam temporibus ut
-            qui architecto qui cupiditate. Et impedit rerum corporis laboriosam recusandae vitae.
-            Error eos optio voluptatibus ab voluptatibus eaque voluptatum aliquid. Et et rerum omnis quo. Et qui ut
-            voluptas labore nihil iusto. Accusamus reiciendis velit qui sunt sunt quae.
-
-        </div>
+    </div>
 </body>
 
 </html>

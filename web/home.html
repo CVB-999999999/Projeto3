@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/p3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>A Tutoring Company</title>
+    <title>Home | A Tutoring Company</title>
 </head>
 
 <body>
@@ -49,29 +51,30 @@
         </div>
     </div>
 
-    <!-- Grid to show what they tutor -->
-    <div class="row text-center  m-5">
-        <div class="col-lg-4 mt-3">
-            <h2> First to third cycle </h2>
-            <ul>
-                <li> Tutoring to all subjects</li>
-                <li> Preperation to final exams</li>
-            </ul>
-
-        </div>
-        <div class="col-lg-4 mt-3">
-            <h2> Secondary school </h2>
-            <ul>
-                <li> Tutoring to all subjects</li>
-                <li> Preperation to final exams</li>
-            </ul>
-        </div>
-        <div class="col-lg-4 mt-3">
-            <h2> Higher education </h2>
-            <ul>
-                <li> Tutoring to all math subjects</li>
-                <li> Tutoring to all computing subjects</li>
-            </ul>
+    <!-- Cards to show what they tutor -->
+    <div class="container mx-auto mt-5">
+        <div class="row row-cols-md-3">
+            <div class="card wh-card">
+                <h2 class="card-title mx-auto text-center"> First to third cycle </h2>
+                <ul class="card-body mx-auto">
+                    <li> Tutoring to all subjects</li>
+                    <li> Preperation to final exams</li>
+                </ul>
+            </div>
+            <div class="card wh-card">
+                <h2 class="card-title mx-auto text-center"> Secondary school </h2>
+                <ul class="card-body mx-auto">
+                    <li> Tutoring to all subjects</li>
+                    <li> Preperation to final exams</li>
+                </ul>
+            </div>
+            <div class="card wh-card">
+                <h2 class="card-title mx-auto text-center"> Higher education </h2>
+                <ul class="card-body mx-auto">
+                    <li> Tutoring to all math subjects</li>
+                    <li> Tutoring to all computing subjects</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -83,23 +86,28 @@
     </div>
 
     <!-- Why us -->
-    <div class="text-center p-5">
-        <h1 style="margin-bottom: 1%;"> Why Us?</h1>
-
-        <!-- Grid with markting -->
-        <div class="row">
-            <div class="col-lg-4 mt-3">
-                <h2> High Success Rate </h2>
-                Our students are 30% more likelly to success in their education than our competition
+    <!-- Cards with markting -->
+    <div class="container mx-auto mt-5">
+        <h1 class="text-center" style="margin-bottom: 2%;"> Why Us?</h1>
+        <div class="row row-cols-md-3">
+            <div class="card wh-card">
+                <h2 class="card-title mx-auto text-center"></i> High Success Rate </h2>
+                <div class="card-body mx-auto">
+                    Our students are 30% more likelly to success in their education than our competition
+                </div>
             </div>
-            <div class="col-lg-4 mt-3">
-                <h2> Ease of Use </h2>
-                As we have all our resouces online our students can study wherever they want
+            <div class="card wh-card">
+                <h2 class="card-title mx-auto text-center"></i> Best Resources </h2>
+                <div class="card-body mx-auto">
+                    All our resources are made by teachers curently teaching the subjects to ensure that they are
+                    the best possible
+                </div>
             </div>
-            <div class="col-lg-4 mt-3">
-                <h2> High Quality Resources </h2>
-                All our resources are made by teachers curently teaching the subjects to ensure that they are correct
-                and up-to-date
+            <div class="card wh-card">
+                <h2 class="card-title mx-auto text-center"> Ease of Use </h2>
+                <div class="card-body mx-auto">
+                    As we have all our resouces online our students can study whenever they want
+                </div>
             </div>
         </div>
     </div>
@@ -113,11 +121,14 @@
                     <li>
                         <h4>Company</h4>
                     </li>
-                    <li><a href="#" style="color: rgb(160, 160, 160); text-decoration: none;">About us</a></li>
-                    <li><a href="https://gdpr-info.eu/" style="color: rgb(160, 160, 160); text-decoration: none;">Terms
+                    <li><a href="./contactus.html" class="link-grey">About
+                            us</a></li>
+                    <li><a href="./contactus.html" class="link-grey">Contact
+                            us</a></li>
+                    <li><a href="https://gdpr-info.eu/" class="link-grey">Terms
                             and Conditions</a></li>
                     <li><a href="https://gdpr-info.eu/"
-                            style="color: rgb(160, 160, 160); text-decoration: none;">Privacy Policy</a></li>
+                            class="link-grey">Privacy Policy</a></li>
                 </ul>
             </div>
             <!-- Social Media -->
@@ -127,9 +138,9 @@
                         <h4>Social Media</h4>
                     </li>
                     <li><a href="https://www.facebook.com"
-                            style="color: rgb(160, 160, 160); text-decoration: none;">Facebook</a></li>
+                            class="link-grey">Facebook</a></li>
                     <li><a href="https://www.linkedin.com"
-                            style="color: rgb(160, 160, 160); text-decoration: none;">Linked in</a></li>
+                            class="link-grey">Linked in</a></li>
                 </ul>
             </div>
             <!-- Company name -->

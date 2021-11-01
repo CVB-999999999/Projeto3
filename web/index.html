@@ -12,7 +12,7 @@
     <title>Home | A Tutoring Company</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
@@ -39,7 +39,7 @@
     </nav>
 
     <!-- Carousel single img -->
-    <div id="demo" class="carousel slide text-center" data-bs-ride="carousel">
+    <div id="imgStart" class="carousel slide text-center" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="./img/tutoring.jpg" alt="smart people">
@@ -112,11 +112,8 @@
         </div>
     </div>
 
-    <!-- Whitespace to make the footer go in the right place -->
-    <div style="min-height: calc(100vh - 200px)"></div>
-
     <!-- Footer -->
-    <div class="mt-4 p-3 bg-dark text-white">
+    <footer class="mt-4 p-3 bg-dark text-white">
         <div class="row">
             <!-- About us -->
             <div class="col-md-3 ps-5">
@@ -147,12 +144,12 @@
                 </ul>
             </div>
             <!-- Company name -->
-            <div class="col-md-5 ps-5 text-center">
+            <div class="col-md-5 ps-5 mx-auto">
                 <img src="./img/owl.svg" style="width: 80px;">
                 A Tutoring Company
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>

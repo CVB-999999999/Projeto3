@@ -52,7 +52,6 @@ Route::get('app/Models/categories/{category:slug}', function (Category $category
     return view('userposts', ['posts' => $category->posts]);
 });
 
-
 //Verify php settings
 //Route::get('/test', function () {
 //    phpinfo();

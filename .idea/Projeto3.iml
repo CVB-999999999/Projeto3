@@ -126,6 +126,13 @@
       <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/seld/jsonlint" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/seld/phar-utils" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/barryvdh/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/barryvdh/laravel-ide-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/justinrainbow/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/react/promise" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -120,6 +120,13 @@
       <path value="$PROJECT_DIR$/proj3/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/proj3/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/proj3/vendor/composer" />
+      <path value="$PROJECT_DIR$/proj3/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/proj3/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/proj3/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/proj3/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/proj3/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/proj3/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/proj3/vendor/react/promise" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

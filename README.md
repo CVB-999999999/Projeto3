@@ -11,3 +11,16 @@ que gerir todos os acessos, criar permissões para os explicadores e para os alu
 * PHP
 * Javascript
 * MySQL
+* 
+## Funcionalidades Programadas
+#### Alunos
+* Download de PDFs
+* Submissão da resolução dos PDFs
+* Verificação do resultado da avaliação
+#### Admin
+* Crição de utilizadores
+* Alteração de permissões
+#### Explicador
+* Upload dos PDFs
+* Download das resoluções
+* Submissão da nota da resolução

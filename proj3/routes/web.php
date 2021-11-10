@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
@@ -29,14 +30,16 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 });
 
-// Register
-Route::get('register', [RegisterController::class, 'create']);
-Route::post('register', [RegisterController::class, 'store']);
+// Register (when admin dash implemented change middleware)
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
+// Session Controller
+// Logout
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');;
 // Login
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');;
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');;
 
 // Load All User Related Posts
 Route::get('/userposts', function () {
@@ -52,11 +55,11 @@ Route::get('/post/{post:slug}', function (Post $post) {
 
 
 // Fetch all posts based on a category
-Route::get('categories/{category:slug}', function (Category $category){
+Route::get('categories/{category:slug}', function (Category $category) {
     return view('userposts', ['posts' => $category->posts->load(['category', 'author'])]);
 });
 
-Route::get('authors/{author:username}', function (User $author){
+Route::get('authors/{author:username}', function (User $author) {
     return view('userposts', ['posts' => $author->posts->load(['category', 'author'])]);
 });
 

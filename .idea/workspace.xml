@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Projeto3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/contactus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/contactus.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/register/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/register/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,11 +181,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="advanced.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/proj3/resources/views/sessions" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/register" />
     </key>
   </component>
@@ -204,6 +206,7 @@
       <workItem from="1636456834473" duration="2317000" />
       <workItem from="1636474147693" duration="1016000" />
       <workItem from="1636477265958" duration="27000" />
+      <workItem from="1636567995235" duration="10307000" />
     </task>
     <servers />
   </component>

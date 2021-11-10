@@ -2,7 +2,7 @@
 <x-header>
     <x-slot name="content">
         <!-- Title and Includes -->
-        <title>Register | A Tutoring Company</title>
+        <title>Login | A Tutoring Company</title>
     </x-slot>
 </x-header>
 
@@ -10,24 +10,13 @@
 <x-navfoot>
     <x-slot name="content">
 
-        <form method="POST" action="/register" style="max-width: 300px; margin:auto;">
+        <form method="POST" action="/login" style="max-width: 300px; margin:auto;">
         @csrf
         <!-- Logo -->
             <div class="mt-3">
                 <img src="/images/owl.svg" alt="Avatar Logo" style="width:300px;" class="rounded-pill">
-                <h2 class="text-center text-dark bold"> Register </h2>
+                <h2 class="text-center text-dark bold"> Login </h2>
 
-            </div>
-
-            <!-- Name field -->
-            <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="name" name="name"
-                       value=" {{ old('name') }}" required>
-
-                @error('name')
-                <p class="text-danger"><small> {{ $message }} </small></p>
-                @enderror
             </div>
 
             <!-- Email Field -->
@@ -53,14 +42,6 @@
                 @enderror
             </div>
 
-            <!-- Phone Field -->
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone:</label>
-                <input type="tel" class="form-control" name="phone" id="phone">
-                @error('phone')
-                <p class="text-danger"><small> {{ $message }} </small></p>
-                @enderror
-            </div>
             <!-- Submit -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

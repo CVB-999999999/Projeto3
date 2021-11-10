@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -36,20 +38,26 @@ Route::get('/login', function () {
     return view('login');
 });
 
-
-// Stuff
+// Load All User Related Posts
 Route::get('/userposts', function () {
-    $posts = Post::all();
+    $posts = Post::latest()->with('category', 'author')->get();
 
     return view('userposts', ['posts' => $posts]);
 });
 
+// Fetch a Post
 Route::get('/post/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 });
 
-Route::get('app/Models/categories/{category:slug}', function (Category $category){
-    return view('userposts', ['posts' => $category->posts]);
+
+// Fetch all posts based on a category
+Route::get('categories/{category:slug}', function (Category $category){
+    return view('userposts', ['posts' => $category->posts->load(['category', 'author'])]);
+});
+
+Route::get('authors/{author:username}', function (User $author){
+    return view('userposts', ['posts' => $author->posts->load(['category', 'author'])]);
 });
 
 //Verify php settings

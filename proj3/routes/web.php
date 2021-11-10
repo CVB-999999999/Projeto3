@@ -38,7 +38,6 @@ Route::get('/login', function () {
     return view('login');
 });
 
-
 // Load All User Related Posts
 Route::get('/userposts', function () {
     $posts = Post::latest()->with('category', 'author')->get();
@@ -47,10 +46,10 @@ Route::get('/userposts', function () {
 });
 
 // Fetch a Post
-
 Route::get('/post/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 });
+
 
 // Fetch all posts based on a category
 Route::get('categories/{category:slug}', function (Category $category){
@@ -60,7 +59,6 @@ Route::get('categories/{category:slug}', function (Category $category){
 Route::get('authors/{author:username}', function (User $author){
     return view('userposts', ['posts' => $author->posts->load(['category', 'author'])]);
 });
-
 
 //Verify php settings
 //Route::get('/test', function () {

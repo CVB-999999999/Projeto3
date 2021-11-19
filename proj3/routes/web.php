@@ -29,10 +29,13 @@ Route::get('/contactus', function () {
 Route::get('/aboutus', function () {
     return view('aboutUs');
 });
+Route::get('/admin/dashboard', function () {
+    return view('adminDash');
+})->middleware('auth');
 
-// Register (when admin dash implemented change middleware)
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+// Register
+Route::get('register', [RegisterController::class, 'create'])->middleware('auth');
+Route::post('register', [RegisterController::class, 'store'])->middleware('auth');
 
 // Session Controller
 // Logout
@@ -67,3 +70,9 @@ Route::get('authors/{author:username}', function (User $author) {
 //Route::get('/test', function () {
 //    phpinfo();
 //});
+
+// List all students
+Route::get('admin/users', function () {
+    $users = DB::table('users')->get();
+    return view('userlist', ['users' => $users]);
+});

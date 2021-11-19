@@ -1,7 +1,7 @@
 <x-header>
     <x-slot name="content">
         <!-- Title and Includes -->
-        <title>Login | A Tutoring Company</title>
+        <title>Home | A Tutoring Company</title>
     </x-slot>
 </x-header>
 

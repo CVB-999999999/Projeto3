@@ -36,12 +36,12 @@ class RegisterController extends Controller
         $user = User::create($attributes);
 
         // Login the user (testing only)
-        auth()->login($user);
+        //auth()->login($user);
 
         // Success Message
         session()->flash('success', 'A new account has been created');
 
         // Redirect
-        return redirect('/');
+        return redirect('/admin/dashboard');
     }
 }

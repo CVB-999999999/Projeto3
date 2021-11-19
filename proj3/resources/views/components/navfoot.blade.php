@@ -34,6 +34,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end p-3 text-center" aria-labelledby="dropdownMenuButton1">
                         <li><h5> {{ Auth::user()->email }} </h5></li>
+                        <hr>
                         <li><a class="dropdown-item" href="#">Go to Dashboard</a></li>
                         <li><a class="dropdown-item" href="#">Change Password</a></li>
                         <li>
@@ -51,7 +52,7 @@
 
 <!-- Success Message -->
 @if (session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" style="margin: 0">
+    <div class="alert alert-success alert-dismissible fade show" style="margin: 0; padding: 0.5rem; vertical-align: center">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <p><i class="bi bi-check-circle-fill"></i> {{ session('success') }} </p>
     </div>

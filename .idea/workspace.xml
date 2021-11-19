@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/proj3/resources/views/adminDash.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proj3/resources/views/userlist.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/public/css/p3.css" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/css/p3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/register/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/register/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/storage/framework/sessions/GipGzY9Y5BpqOtlGH8uS6EsmWRpPvHt33DpnLLjH" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,6 +208,12 @@
       <workItem from="1636474147693" duration="1016000" />
       <workItem from="1636477265958" duration="27000" />
       <workItem from="1636567995235" duration="10307000" />
+      <workItem from="1636720805451" duration="308000" />
+      <workItem from="1636730747771" duration="670000" />
+      <workItem from="1636800913801" duration="681000" />
+      <workItem from="1637325863162" duration="2445000" />
+      <workItem from="1637330655718" duration="627000" />
+      <workItem from="1637355839808" duration="4312000" />
     </task>
     <servers />
   </component>

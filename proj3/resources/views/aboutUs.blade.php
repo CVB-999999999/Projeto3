@@ -29,21 +29,21 @@
                     <img src="/images/review1.jpg" class="d-block w-10 mx-auto" alt="review1" style="width: 100%;">
                     <!-- Caption -->
                     <div class="carousel-caption">
-                        <h3 class="shadow-lg">They help me finish my course for basicly no cost</h3>
+                        <h3 class="shadow-lg">Caption 1</h3>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="/images/review2.jpg" class="d-block w-10 mx-auto" alt="review1" style="width: 100%;">
                     <!-- Caption -->
                     <div class="carousel-caption">
-                        <h3 class="shadow-lg">Before I did not know how to read, now I'm addicted to books</h3>
+                        <h3 class="shadow-lg">Caption 2</h3>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="/images/review3.jpg" class="d-block w-10 mx-auto" alt="review1" style="width: 100%;">
                     <!-- Caption -->
                     <div class="carousel-caption">
-                        <h3 class="shadow-lg">Now I can count to 100</h3>
+                        <h3 class="shadow-lg">Caption 3</h3>
                     </div>
                 </div>
             </div>

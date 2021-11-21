@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Models\Post;
@@ -37,12 +38,32 @@ Route::get('/admin/dashboard', function () {
 Route::get('register', [RegisterController::class, 'create'])->middleware('auth');
 Route::post('register', [RegisterController::class, 'store'])->middleware('auth');
 
-// Session Controller
 // Logout
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');;
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
 // Login
-Route::get('login', [SessionsController::class, 'create'])->middleware('guest');;
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');;
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+
+// Reset Paswd
+// Get Reset Token
+Route::get('/forgot-password', function () {
+    return view('sessions.forgot-password');
+})->middleware('guest')->name('password.request');
+Route::post('/forgot-password', [SessionsController::class, 'resetPasswd'])->middleware('guest')->name('password.request');
+// Input Reset Token
+Route::get('/reset-password', function () {
+    return view('sessions.reset-password');
+})->middleware('guest')->name('password.request');
+Route::post('/reset-password', [SessionsController::class, 'resetPasswdFinal'])->middleware('guest')->name('password.request');
+
+// Change Passwd
+Route::get('change-password', function (){
+    return view('sessions.change-password');
+})->middleware('auth');
+Route::post('/change-password', [SessionsController::class, 'UpdatePassword'])->middleware('auth');
+
+Route::post('admin-change-password', [SessionsController::class, 'resetPasswdAdmin'])->middleware('auth');
 
 // Load All User Related Posts
 Route::get('/userposts', function () {
@@ -51,11 +72,11 @@ Route::get('/userposts', function () {
     return view('userposts', ['posts' => $posts]);
 });
 
+
 // Fetch a Post
 Route::get('/post/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 });
-
 
 // Fetch all posts based on a category
 Route::get('categories/{category:slug}', function (Category $category) {
@@ -66,13 +87,10 @@ Route::get('authors/{author:username}', function (User $author) {
     return view('userposts', ['posts' => $author->posts->load(['category', 'author'])]);
 });
 
+// List all students
+Route::get('admin/users', [ListController::class, 'userList']);
+
 //Verify php settings
 //Route::get('/test', function () {
 //    phpinfo();
 //});
-
-// List all students
-Route::get('admin/users', function () {
-    $users = DB::table('users')->get();
-    return view('userlist', ['users' => $users]);
-});

@@ -68,8 +68,7 @@ Route::post('admin-change-password', [SessionsController::class, 'resetPasswdAdm
 // Load All User Related Posts
 Route::get('/userposts', function () {
     $posts = Post::latest()->with('category', 'author')->get();
-
-    return view('userposts', ['posts' => $posts]);
+    return view('userposts', ['posts' => $posts,'categories' => Category::all()]);
 });
 
 
@@ -80,11 +79,11 @@ Route::get('/post/{post:slug}', function (Post $post) {
 
 // Fetch all posts based on a category
 Route::get('categories/{category:slug}', function (Category $category) {
-    return view('userposts', ['posts' => $category->posts->load(['category', 'author'])]);
+    return view('userposts', ['posts' => $category->posts->load(['category', 'author']),'currentCategory'=>$category,'categories' => Category::all()]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
-    return view('userposts', ['posts' => $author->posts->load(['category', 'author'])]);
+    return view('userposts', ['posts' => $author->posts->load(['category', 'author']),'categories' => Category::all()]);
 });
 
 // List all students

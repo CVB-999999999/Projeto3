@@ -17,6 +17,6 @@ class ListController extends Controller
             $users->orWhere('phone', 'like', '%' . request('search') . '%');
         }
 
-        return view('userlist', ['users' => $users->get()]);
+        return view('userlist', ['users' => $users->paginate(10)]);
     }
 }

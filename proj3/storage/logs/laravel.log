@@ -10419,3 +10419,35 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
+[2021-11-26 21:20:52] local.ERROR: There are no commands defined in the "verdon" namespace.
+
+Did you mean this?
+    vendor {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"verdon\" namespace.
+
+Did you mean this?
+    vendor at /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php:612)
+[stacktrace]
+#0 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php(663): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php(255): Symfony\\Component\\Console\\Application->find()
+#2 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php(167): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/laravel/framework/src/Illuminate/Console/Application.php(94): Symfony\\Component\\Console\\Application->run()
+#4 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#5 /home/c/Documentos/GitHub/Projeto3/proj3/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 
+[2021-11-26 21:20:57] local.ERROR: There are no commands defined in the "verdor" namespace.
+
+Did you mean this?
+    vendor {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"verdor\" namespace.
+
+Did you mean this?
+    vendor at /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php:612)
+[stacktrace]
+#0 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php(663): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php(255): Symfony\\Component\\Console\\Application->find()
+#2 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/symfony/console/Application.php(167): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/laravel/framework/src/Illuminate/Console/Application.php(94): Symfony\\Component\\Console\\Application->run()
+#4 /home/c/Documentos/GitHub/Projeto3/proj3/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#5 /home/c/Documentos/GitHub/Projeto3/proj3/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 

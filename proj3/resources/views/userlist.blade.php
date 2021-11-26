@@ -64,6 +64,9 @@
                 </div>
 
             @endforeach
+            <div class="m-5">
+                {{$users->links()}}
+            </div>
         </div>
     </x-slot>
 </x-navfoot>

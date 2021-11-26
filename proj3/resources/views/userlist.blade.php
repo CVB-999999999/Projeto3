@@ -1,15 +1,14 @@
 <x-header>
     <x-slot name="content">
         <!-- Title and Includes -->
-        <title>Student List | A Tutoring Company</title>
+        <title>User List | A Tutoring Company</title>
+        <link rel="stylesheet" href="css/p3.css">
     </x-slot>
 </x-header>
 
 <x-navfoot>
     <x-slot name="content">
-
-        <div class="container mb-3">
-
+        <div class="container">
             <!-- Search Field -->
             <div>
                 <form method="GET" action="#">
@@ -45,13 +44,19 @@
                         <div class="collapse" id='item{{$key}}'>
                             <div class="card card-body">
                                 <div class="list-group">
-                                    <button type="button"class="list-group-item list-group-item-action"> Change Disciplines</button>
-                                    <form  method="POST" action="/admin-change-password" >
+                                    <button type="button" class="list-group-item list-group-item-action"> Change
+                                        Disciplines
+                                    </button>
+                                    <form method="POST" action="/admin-change-password">
                                         @csrf
-                                        <button type="submit" class="list-group-item list-group-item-action"> Reset Password</button>
+                                        <button type="submit" class="list-group-item list-group-item-action"> Reset
+                                            Password
+                                        </button>
                                         <input type="hidden" value="{{ $user->email }}" name="email">
                                     </form>
-                                    <button type="button" class="list-group-item list-group-item-action"> Disable account</button>
+                                    <button type="button" class="list-group-item list-group-item-action"> Disable
+                                        account
+                                    </button>
                                 </div>
                             </div>
                         </div>

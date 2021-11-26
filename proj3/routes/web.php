@@ -69,7 +69,7 @@ Route::post('admin-change-password', [SessionsController::class, 'resetPasswdAdm
 Route::get('/userposts', function () {
     $posts = Post::latest()->with('category', 'author')->get();
     return view('userposts', ['posts' => $posts,'categories' => Category::all()]);
-});
+})->middleware('auth');
 
 
 // Fetch a Post

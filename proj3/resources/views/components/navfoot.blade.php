@@ -38,7 +38,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Go to Dashboard</a></li>
+                        <li><a class="dropdown-item" href="/userposts">Go to Dashboard</a></li>
                         <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
                         <li>
                             <form method="POST" action="/logout" class="dropdown-item">
@@ -55,7 +55,7 @@
     </div>
 </nav>
 
-<!-- Success Message -->
+{{--<!-- Success Message -->--}}
 @if (session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show"
          style="margin: 0; padding: 0.5rem; vertical-align: center">
@@ -64,6 +64,7 @@
     </div>
 @endif
 
+<!-- Content -->
 {{ $content }}
 
 <!-- Footer -->

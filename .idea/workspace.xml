@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/change-password.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/forgot-password.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/reset-password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/adminDash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/adminDash.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/userlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userlist.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +209,7 @@
       <workItem from="1637355839808" duration="4524000" />
       <workItem from="1637405332562" duration="1180000" />
       <workItem from="1637506621420" duration="20226000" />
+      <workItem from="1637927424827" duration="3401000" />
     </task>
     <servers />
   </component>

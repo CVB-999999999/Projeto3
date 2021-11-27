@@ -64,6 +64,15 @@
     </div>
 @endif
 
+{{--<!-- Error Message -->--}}
+@if (session()->has('error'))
+    <div class="alert alert-danger alert-dismissible fade show"
+         style="margin: 0; padding: 0.5rem; vertical-align: center">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <p><i class="bi bi-x-circle-fill"></i> {{ session('error') }} </p>
+    </div>
+@endif
+
 <!-- Content -->
 {{ $content }}
 

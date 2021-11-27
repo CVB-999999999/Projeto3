@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 class ListController extends Controller
 {
     public function userList() {
-        $users = DB::table('users');
+        $users = DB::table('users')
+            ->orderByDesc('updated_at');
 
         // Search stuff
         if (request('search')) {
@@ -17,6 +18,6 @@ class ListController extends Controller
             $users->orWhere('phone', 'like', '%' . request('search') . '%');
         }
 
-        return view('userlist', ['users' => $users->paginate(10)]);
+        return view('admin.userlist', ['users' => $users->paginate(10)]);
     }
 }

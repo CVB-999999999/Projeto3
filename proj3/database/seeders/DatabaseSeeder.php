@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
         $tutor = Tutor::factory(5)->create();
 
         $user = User::factory()->create([
-            'name' => 'Paulo'
+            'name' => 'Paulo',
+            'active' => false
         ]);
 
         $user = User::factory()->create([

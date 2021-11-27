@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
@@ -31,7 +32,7 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 });
 Route::get('/admin/dashboard', function () {
-    return view('adminDash');
+    return view('admin.adminDash');
 })->middleware('auth');
 
 // Register
@@ -88,6 +89,8 @@ Route::get('authors/{author:username}', function (User $author) {
 
 // List all students
 Route::get('admin/users', [ListController::class, 'userList']);
+// Change user status (active/inactive)
+Route::post('/admin-toogle-status', [EditController::class, 'toggleUser']);
 
 //Verify php settings
 //Route::get('/test', function () {

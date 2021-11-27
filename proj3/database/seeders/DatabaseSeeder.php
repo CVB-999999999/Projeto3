@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tutor;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
@@ -20,10 +21,19 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Post::truncate();
         Category::truncate();
+        Tutor::truncate();
+
+        $tutor = Tutor::factory(5)->create();
 
         $user = User::factory()->create([
             'name' => 'Paulo'
         ]);
+
+        $user = User::factory()->create([
+            'email' => 'teste@teste.com',
+            'password' => bcrypt('teste1234')
+        ]);
+
         Post::factory(5)->create([
             'user_id' => $user->id
         ]);

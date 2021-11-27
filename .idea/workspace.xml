@@ -3,10 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userlist.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/bootstrap/cache/packages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/bootstrap/cache/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +218,9 @@
       <workItem from="1637405332562" duration="1180000" />
       <workItem from="1637506621420" duration="20226000" />
       <workItem from="1637927424827" duration="3401000" />
-      <workItem from="1637960911588" duration="1133000" />
+      <workItem from="1637960911588" duration="1733000" />
+      <workItem from="1638010858717" duration="1373000" />
+      <workItem from="1638031615749" duration="3792000" />
     </task>
     <servers />
   </component>

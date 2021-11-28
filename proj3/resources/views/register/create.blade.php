@@ -42,17 +42,6 @@
                 @enderror
             </div>
 
-            <!-- Password Field-->
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="password" name="password"
-                       required>
-
-                @error('password')
-                <p class="text-danger"><small> {{ $message }} </small></p>
-                @enderror
-            </div>
-
             <!-- Phone Field -->
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone:</label>

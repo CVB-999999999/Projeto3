@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminForceResetPasswd;
+use App\Mail\ResetPassword;
+use App\Mail\StatusToggle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class EditController extends Controller
 {
@@ -40,6 +44,8 @@ class EditController extends Controller
         DB::table('users')
             ->where('email', $attributes['email'])
             ->update(['active' => $active, 'updated_at' => now()]);
+
+        Mail::to($attributes['email'])->send(new StatusToggle($active));
 
         // Return operation status
         return redirect('/admin/users')->with(['success' => 'Users status updated successfully']);

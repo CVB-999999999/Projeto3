@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminForceResetPasswd;
+use App\Mail\ResetPassword;
+use App\Mail\UpdatedProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 
 class SessionsController extends Controller
@@ -60,8 +64,11 @@ class SessionsController extends Controller
             'created_at' => now()
         ]);
 
+        Mail::to($attributes['email'])->send(new ResetPassword($token));
+
         // Simulate user getting new email
-        return redirect('/')->with('success', $token);
+        //return redirect('/')->with('success', $token);
+        return redirect('/reset-password')->with('success', 'Please check you email for more information');
     }
 
     public function resetPasswdFinal() {
@@ -100,6 +107,8 @@ class SessionsController extends Controller
                     ->where('email', $attributes['email'])
                     ->update(['password' => bcrypt($attributes['password']), 'updated_at' => now()]);
 
+                Mail::to($attributes['email'])->send(new UpdatedProfile());
+
                 return redirect('/')->with('success', 'Your password has been changed');
             }
         }
@@ -121,8 +130,10 @@ class SessionsController extends Controller
             ->where('email', $attributes['email'])
             ->update(['password' => bcrypt($new_password), 'updated_at' => now()]);
 
+        Mail::to($attributes['email'])->send(new AdminForceResetPasswd($str));
+
         // Simulate user getting new email
-        return redirect('/admin/dashboard')->with('success', 'A password has been changed to ' . $new_password);
+        return back()->with('success', 'The password has been changed successfully');
     }
 
     // Update Passwd
@@ -144,6 +155,8 @@ class SessionsController extends Controller
             $affected = DB::table('users')
                 ->where('email', Auth::user()->getEmailForPasswordReset())
                 ->update(['password' => bcrypt($new_password), 'updated_at' => now()]);
+
+            Mail::to(Auth::user()->getEmailForPasswordReset())->send(new UpdatedProfile());
 
             return redirect('/')->with('success', 'You password has been changed');
 

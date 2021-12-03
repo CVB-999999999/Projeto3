@@ -46,7 +46,7 @@ class RegisterController extends Controller
         // Success Message
         session()->flash('success', 'A new account has been created');
 
-        Mail::to($attributes['email'])->send(new NewAccount($str));
+        Mail::to($attributes['email'])->queue(new NewAccount($str));
 
         // Redirect
         return redirect('/admin/dashboard');

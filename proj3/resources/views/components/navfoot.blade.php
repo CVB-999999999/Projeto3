@@ -38,7 +38,14 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="/userposts">Go to Dashboard</a></li>
+                        <?php if(Auth::user()->type == 1) { //  Tutor dashboard
+                            $href = '/tutor/dashboard';
+                        } if (Auth::user()->type == 2) {    //  Admin Dashboard
+                            $href = '/admin/dashboard';
+                        } if (Auth::user()->type == 0) {    //  User dashboard
+                            $href = '/userposts';
+                        }?>
+                        <li><a class="dropdown-item" href="{{ $href }}">Go to Dashboard</a></li>
                         <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
                         <li>
                             <form method="POST" action="/logout" class="dropdown-item">

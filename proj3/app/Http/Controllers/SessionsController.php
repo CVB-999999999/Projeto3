@@ -22,13 +22,17 @@ class SessionsController extends Controller
         return redirect('/')->with('success', 'You have been logged out successfully');
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     // Load Log in page
+    // -----------------------------------------------------------------------------------------------------------------
     public function create()
     {
         return view('sessions.login');
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     // Log in
+    // -----------------------------------------------------------------------------------------------------------------
     public function store()
     {
 
@@ -50,7 +54,9 @@ class SessionsController extends Controller
             ->withErrors(['email' => 'Your provided credentials could not be verified']);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     // Reset passwd
+    // -----------------------------------------------------------------------------------------------------------------
     public function resetPasswd()
     {
         $attributes = request()->validate(['email' => 'required|exists:users,email']);
@@ -64,19 +70,23 @@ class SessionsController extends Controller
             'created_at' => now()
         ]);
 
-        Mail::to($attributes['email'])->send(new ResetPassword($token));
+        Mail::to($attributes['email'])->queue(new ResetPassword($token));
 
         // Simulate user getting new email
         //return redirect('/')->with('success', $token);
         return redirect('/reset-password')->with('success', 'Please check you email for more information');
     }
 
-    public function resetPasswdFinal() {
+    // -----------------------------------------------------------------------------------------------------------------
+    // Receives the new password to update DB
+    // -----------------------------------------------------------------------------------------------------------------
+    public function resetPasswdFinal()
+    {
         // Verify inputs
         $attributes = request()->validate([
             'email' => 'required|email|max:255',
             'token' => 'required',
-            'password' =>['required', 'max:255', 'min:7']]);
+            'password' => ['required', 'max:255', 'min:7']]);
 
         // Get token data
         $resetData = DB::table('password_resets')
@@ -100,14 +110,14 @@ class SessionsController extends Controller
             return back()
                 ->withInput()
                 ->withErrors(['token' => 'Your token has expired or could not be verified']);
-        } else if($difference->days == 0) {
+        } else if ($difference->days == 0) {
             // Double check if right token
-            if($attributes['token'] == $resetData[0]->token) {
+            if ($attributes['token'] == $resetData[0]->token) {
                 DB::table('users')
                     ->where('email', $attributes['email'])
                     ->update(['password' => bcrypt($attributes['password']), 'updated_at' => now()]);
 
-                Mail::to($attributes['email'])->send(new UpdatedProfile());
+                Mail::to($attributes['email'])->queue(new UpdatedProfile());
 
                 return redirect('/')->with('success', 'Your password has been changed');
             }
@@ -119,24 +129,27 @@ class SessionsController extends Controller
             ->withErrors(['token' => 'Unknown error verifying your token please refresh the page and try again']);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     // Reset passwd Admin
+    // -----------------------------------------------------------------------------------------------------------------
     public function resetPasswdAdmin()
     {
         $attributes = request()->validate(['email' => 'required|exists:users,email']);
-        $str=rand();
+        $str = rand();
         $new_password = md5($str);
 
         $affected = DB::table('users')
             ->where('email', $attributes['email'])
             ->update(['password' => bcrypt($new_password), 'updated_at' => now()]);
 
-        Mail::to($attributes['email'])->send(new AdminForceResetPasswd($str));
+        Mail::to($attributes['email'])->queue(new AdminForceResetPasswd($str));
 
         // Simulate user getting new email
         return back()->with('success', 'The password has been changed successfully');
     }
-
+    // -----------------------------------------------------------------------------------------------------------------
     // Update Passwd
+    // -----------------------------------------------------------------------------------------------------------------
     public function UpdatePassword()
     {
         // Verify inputs
@@ -156,7 +169,7 @@ class SessionsController extends Controller
                 ->where('email', Auth::user()->getEmailForPasswordReset())
                 ->update(['password' => bcrypt($new_password), 'updated_at' => now()]);
 
-            Mail::to(Auth::user()->getEmailForPasswordReset())->send(new UpdatedProfile());
+            Mail::to(Auth::user()->getEmailForPasswordReset())->queue(new UpdatedProfile());
 
             return redirect('/')->with('success', 'You password has been changed');
 

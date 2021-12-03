@@ -43,9 +43,12 @@
             </div>
 
             <!-- Submit -->
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a type="button" class="btn btn-primary" href="/forgot-password">Reset Password</a>
-
+            <div class="mx-3">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div class="m-3">
+                <a type="button" class="btn btn-primary" href="/forgot-password">Reset Password</a>
+            </div>
         </form>
 
     </x-slot>

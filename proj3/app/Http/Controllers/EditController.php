@@ -45,7 +45,7 @@ class EditController extends Controller
             ->where('email', $attributes['email'])
             ->update(['active' => $active, 'updated_at' => now()]);
 
-        Mail::to($attributes['email'])->send(new StatusToggle($active));
+        Mail::to($attributes['email'])->queue(new StatusToggle($active));
 
         // Return operation status
         return redirect('/admin/users')->with(['success' => 'Users status updated successfully']);

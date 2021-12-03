@@ -10,7 +10,7 @@
 <x-navfoot>
     <x-slot name="content">
 
-        <form method="POST" action="/register" style="max-width: 300px; margin:auto;">
+        <form class="mb-5 mx-auto" method="POST" action="/admin/register" style="max-width: 300px;">
         @csrf
         <!-- Logo -->
             <div class="mt-3">
@@ -50,6 +50,20 @@
                 <p class="text-danger"><small> {{ $message }} </small></p>
                 @enderror
             </div>
+
+            <!-- Type field -->
+            <div class="mb-3">
+                <label for="type" class="form-label">User Type:</label>
+                <select name="type" class="form-select" aria-label="Default select example" id="type">
+                    <option selected>Chose an option:</option>
+                    <option value="0">Student</option>
+                    <option value="1">Tutor</option>
+                </select>
+                @error('phone')
+                <p class="text-danger"><small> {{ $message }} </small></p>
+                @enderror
+            </div>
+
             <!-- Submit -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

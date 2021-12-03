@@ -23,8 +23,6 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         Tutor::truncate();
 
-        $tutor = Tutor::factory(5)->create();
-
         $user = User::factory()->create([
             'name' => 'Paulo',
             'active' => false
@@ -32,43 +30,26 @@ class DatabaseSeeder extends Seeder
 
         $user = User::factory()->create([
             'email' => 'teste@example.com',
-            'password' => bcrypt('teste1234')
+            'password' => bcrypt('teste1234'),
+            'type' => 0
+        ]);
+
+        $user = User::factory()->create([
+            'email' => 'tutor@example.com',
+            'password' => bcrypt('tutor1234'),
+            'type' => 1
+        ]);
+
+        $user = User::factory()->create([
+            'email' => 'admin@example.com',
+            'password' => bcrypt('admin1234'),
+            'type' => 2
         ]);
 
         Post::factory(5)->create([
             'user_id' => $user->id
         ]);
+
         Post::factory(5)->create();
-        //Post::factory(5)->create();
-        /*$user = User::factory()->create();
-
-        $mat = Category::create([
-            'name' => 'Matemática',
-            'slug' => 'mat'
-        ]);
-
-        $pt = Category::create([
-            'name' => 'Português',
-            'slug' => 'pt'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $mat->id,
-            'title' => 'My First Post',
-            'slug' => 'my-first-post',
-            'excerpt' => 'first post',
-            'body' => 'This is my first post'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $pt->id,
-            'title' => 'My Second Post',
-            'slug' => 'my-second-post',
-            'excerpt' => 'second post',
-            'body' => 'This is my second post'
-        ]);
-        */
     }
 }

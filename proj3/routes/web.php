@@ -36,8 +36,8 @@ Route::get('/admin/dashboard', function () {
 })->middleware('auth');
 
 // Register
-Route::get('register', [RegisterController::class, 'create'])->middleware('auth');
-Route::post('register', [RegisterController::class, 'store'])->middleware('auth');
+Route::get('admin/register', [RegisterController::class, 'create'])->middleware('auth');
+Route::post('admin/register', [RegisterController::class, 'store'])->middleware('auth');
 
 // Logout
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
@@ -89,6 +89,8 @@ Route::get('authors/{author:username}', function (User $author) {
 
 // List all students
 Route::get('admin/users', [ListController::class, 'userList']);
+// List all tutors
+Route::get('admin/tutors', [ListController::class, 'tutorList']);
 // Change user status (active/inactive)
 Route::post('/admin-toogle-status', [EditController::class, 'toggleUser']);
 

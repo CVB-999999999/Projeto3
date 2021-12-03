@@ -22,6 +22,7 @@ class RegisterController extends Controller
             'name' => ['required', 'max:255', 'min:3'],
             'email' => 'required|email|max:255|unique:users,email',
             'phone' => 'numeric',
+            'type' => 'numeric|min:0|max:1',
         ]);
 
         $str=rand();

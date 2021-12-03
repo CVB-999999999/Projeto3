@@ -19,8 +19,8 @@
                 <div class="col-sm-6 mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"> Create new Students</h5>
-                            <a class="stretched-link" href="/register"></a>
+                            <h5 class="card-title"> Create new Users</h5>
+                            <a class="stretched-link" href="/admin/register"></a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="col-sm-6 mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"> Create new Tutors</h5>
+                            <h5 class="card-title"> n/a</h5>
                             <a class="stretched-link" href="/"></a>
                         </div>
                     </div>

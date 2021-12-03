@@ -1,6 +1,7 @@
 <x-layout>
         <article>
             <h1><?= $post->title ?></h1>
+            <img src="/storage/{{ $post->arquivo }}" alt="" class="rounded-xl">
             <p>
             By <a href="/authors/{{ $post->author->username }}">{{ $post->author->username }}</a> in <a href="/categories/{{ $post->category->slug }}"> {{ $post->category->name}} </a>
             </p>

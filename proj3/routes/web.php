@@ -9,7 +9,8 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
-
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\CreatePost;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,6 +87,8 @@ Route::get('categories/{category:slug}', function (Category $category) {
 Route::get('authors/{author:username}', function (User $author) {
     return view('userposts', ['posts' => $author->posts->load(['category', 'author']),'categories' => Category::all()]);
 });
+Route::get('createpost',[CreatePost::class,'create']);
+Route::post('createpost',[CreatePost::class,'store']);
 
 // List all students
 Route::get('admin/users', [ListController::class, 'userList']);

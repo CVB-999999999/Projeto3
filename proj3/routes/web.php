@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CreatePost;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,11 +35,11 @@ Route::get('/aboutus', function () {
 });
 Route::get('/admin/dashboard', function () {
     return view('admin.adminDash');
-})->middleware('auth');
+})->middleware('role:2');
 
 // Register
-Route::get('admin/register', [RegisterController::class, 'create'])->middleware('auth');
-Route::post('admin/register', [RegisterController::class, 'store'])->middleware('auth');
+Route::get('admin/register', [RegisterController::class, 'create'])->middleware('role:2');
+Route::post('admin/register', [RegisterController::class, 'store'])->middleware('role:2');
 
 // Logout
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
@@ -60,19 +61,19 @@ Route::get('/reset-password', function () {
 Route::post('/reset-password', [SessionsController::class, 'resetPasswdFinal'])->middleware('guest')->name('password.request');
 
 // Change Passwd
-Route::get('change-password', function (){
+Route::get('change-password', function () {
     return view('sessions.change-password');
 })->middleware('auth');
 Route::post('/change-password', [SessionsController::class, 'UpdatePassword'])->middleware('auth');
 
+// Admin Force reset password
 Route::post('admin-change-password', [SessionsController::class, 'resetPasswdAdmin'])->middleware('auth');
 
 // Load All User Related Posts
 Route::get('/userposts', function () {
     $posts = Post::latest()->with('category', 'author')->get();
-    return view('userposts', ['posts' => $posts,'categories' => Category::all()]);
+    return view('userposts', ['posts' => $posts, 'categories' => Category::all()]);
 })->middleware('auth');
-
 
 // Fetch a Post
 Route::get('/post/{post:slug}', function (Post $post) {
@@ -81,23 +82,29 @@ Route::get('/post/{post:slug}', function (Post $post) {
 
 // Fetch all posts based on a category
 Route::get('categories/{category:slug}', function (Category $category) {
-    return view('userposts', ['posts' => $category->posts->load(['category', 'author']),'currentCategory'=>$category,'categories' => Category::all()]);
+    return view('userposts', ['posts' => $category->posts->load(['category', 'author']), 'currentCategory' => $category, 'categories' => Category::all()]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
-    return view('userposts', ['posts' => $author->posts->load(['category', 'author']),'categories' => Category::all()]);
+    return view('userposts', ['posts' => $author->posts->load(['category', 'author']), 'categories' => Category::all()]);
 });
-Route::get('createpost',[CreatePost::class,'create']);
-Route::post('createpost',[CreatePost::class,'store']);
+Route::get('createpost', [CreatePost::class, 'create']);
+Route::post('createpost', [CreatePost::class, 'store']);
 
 // List all students
-Route::get('admin/users', [ListController::class, 'userList']);
+Route::get('admin/users', [ListController::class, 'userList'])->middleware('role:2');
 // List all tutors
-Route::get('admin/tutors', [ListController::class, 'tutorList']);
+Route::get('admin/tutors', [ListController::class, 'tutorList'])->middleware('role:2');
 // Change user status (active/inactive)
-Route::post('/admin-toogle-status', [EditController::class, 'toggleUser']);
+Route::post('/admin-toogle-status', [EditController::class, 'toggleUser'])->middleware('role:2');
 
-//Verify php settings
-//Route::get('/test', function () {
-//    phpinfo();
-//});
+// Edit Categories
+Route::get('admin/disciplines', [ListController::class, 'catgList'])->middleware('role:2');
+// Disable Category
+Route::post('admin/disciplines', [EditController::class, 'toggleCatg'])->middleware('role:2');
+
+// Create Category
+Route::get('admin/create/discipline', function () {
+    return view('admin.addCatg');
+})->middleware('role:2');
+Route::post('admin/create/discipline', [RegisterController::class, 'createDisc'])->middleware('role:2');

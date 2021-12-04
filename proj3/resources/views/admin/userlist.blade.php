@@ -1,7 +1,7 @@
 <x-header>
     <x-slot name="content">
         <!-- Title and Includes -->
-        <title>User List | A Tutoring Company</title>
+        <title>{{ $type }} List | A Tutoring Company</title>
         <link rel="stylesheet" href="css/p3.css">
     </x-slot>
 </x-header>
@@ -10,6 +10,9 @@
     <x-slot name="content">
 
         <div class="container">
+
+            <h1 class="text-center m-3">ATC {{ $type }} List</h1>
+
             <!-- Search Field -->
             <div>
                 <form method="GET" action="#">
@@ -35,11 +38,11 @@
                                 <p> Created on: {{ $user->created_at }} </p>
                                 <p> Last Updated: {{ $user->updated_at }} </p>
                                 <p> Status:
-                                    {{--                                    Convert Boolean to something easier to read --}}
+                                    {{-- Convert Boolean to something easier to read --}}
                                     @php if($user->active == true) {
                                         echo ' Active';
                                     } else {
-                                        echo 'Inactive';
+                                        echo ' Inactive';
                                     } @endphp
                                 </p>
                             </div>
@@ -49,24 +52,66 @@
                                 data-bs-target='#item{{$key}}' aria-expanded="false" aria-controls="collapseExample">
                             <i class="bi bi-gear-fill"></i> Options
                         </button>
+
                         <div class="collapse" id='item{{$key}}'>
                             <div class="card card-body">
                                 <div class="list-group">
+
+                                    <!-- Change disciplines TO-DO -->
                                     <button type="button" class="list-group-item list-group-item-action">
                                         Change Disciplines
                                     </button>
-                                    <form method="POST" action="/admin-change-password">
-                                        @csrf
-                                        <button type="submit" class="list-group-item list-group-item-action">
-                                            Reset password
-                                        </button>
-                                        <input type="hidden" value="{{ $user->email }}" name="email">
-                                    </form>
+
+                                    <!-- Button trigger modal -->
                                     <button type="button" class="list-group-item list-group-item-action"
-                                            data-bs-toggle="modal" data-bs-target="#confirmModal{{ $user->id }}"> Change account Status
+                                            data-bs-toggle="modal" data-bs-target="#confirmModalPWD{{ $user->id }}">
+                                        Reset password
                                     </button>
 
-                                    <!-- Modal -->
+                                    <!-- Confirm Change Modal -->
+                                    <div class="modal fade" id="confirmModalPWD{{ $user->id }}" tabindex="-1"
+                                         aria-labelledby="confirmModalPWD{{ $user->id }}Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="confirmModalPWD{{ $user->id }}Label">
+                                                        Are you sure you want to change the password of this user?
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p> Name: {{ $user->name }} </p>
+                                                    <p> Email: {{ $user->email }}</p>
+                                                    <p> Status:
+                                                        @php if($user->active == true) {
+                                                            echo ' Active';
+                                                        } else {
+                                                            echo ' Inactive';
+                                                        } @endphp
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">No
+                                                    </button>
+                                                    <form method="POST" action="/admin-change-password">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                                        <input type="hidden" value="{{ $user->email }}" name="email">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Toggle Account Status -->
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                            data-bs-toggle="modal" data-bs-target="#confirmModal{{ $user->id }}">
+                                        Change account Status
+                                    </button>
+
+                                    <!-- Modal To Confirm User Status Toggle -->
                                     <div class="modal fade" id="confirmModal{{ $user->id }}" tabindex="-1"
                                          aria-labelledby="confirmModalLabel{{ $user->id }}" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -82,7 +127,7 @@
                                                     <p> Name: {{ $user->name }} </p>
                                                     <p> Email: {{ $user->email }}</p>
 
-{{--                                                Show current status e new status --}}
+                                                    {{-- Show current status e new status --}}
                                                     @php if ( $user->active == true ) {
                                                         echo '<p> Current Status: Active </p>';
                                                         echo '<p><strong> New Status: Inactive </strong></p>';
@@ -94,14 +139,11 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">
-                                                        No
-                                                    </button>
+                                                            data-bs-dismiss="modal"> No </button>
+
                                                     <form method="POST" action="/admin-toogle-status">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-danger">
-                                                            Yes
-                                                        </button>
+                                                        <button type="submit" class="btn btn-danger"> Yes </button>
                                                         <input type="hidden" value="{{ $user->email }}" name="email">
                                                         <input type="hidden" value="{{ $user->active }}" name="active">
                                                     </form>
@@ -109,7 +151,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

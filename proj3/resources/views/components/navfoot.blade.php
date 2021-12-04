@@ -1,9 +1,28 @@
+<?php
+if (Auth::user() != null) {
+    if(Auth::user()->type == 1) { //  Tutor dashboard
+        $href = '/tutor/dashboard';
+    } if (Auth::user()->type == 2) {    //  Admin Dashboard
+        $href = '/admin/dashboard';
+    } if (Auth::user()->type == 0) {    //  User dashboard
+        $href = '/userposts';
+    }
+} else {
+    $href = '/';
+}
+?>
+
 <body class="d-flex flex-column min-vh-100">
 <!-- Nav Bar -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <!-- Logo -->
+        @guest
         <a class="navbar-brand" href="/">
+        @endguest
+        @auth
+        <a class="navbar-brand" href=" {{ $href }} ">
+        @endauth
             <img src="/images/owl.svg" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
             A tutoring Company
         </a>
@@ -38,13 +57,6 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <?php if(Auth::user()->type == 1) { //  Tutor dashboard
-                            $href = '/tutor/dashboard';
-                        } if (Auth::user()->type == 2) {    //  Admin Dashboard
-                            $href = '/admin/dashboard';
-                        } if (Auth::user()->type == 0) {    //  User dashboard
-                            $href = '/userposts';
-                        }?>
                         <li><a class="dropdown-item" href="{{ $href }}">Go to Dashboard</a></li>
                         <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
                         <li>

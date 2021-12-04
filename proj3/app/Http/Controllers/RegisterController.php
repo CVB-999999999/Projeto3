@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Mail\AdminForceResetPasswd;
 use App\Mail\NewAccount;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
+    //------------------------------------------------------------------------------------------------------------------
+    // Return view to register the user
+    //------------------------------------------------------------------------------------------------------------------
     public function create() {
         return view('register.create');
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     // Create the user
+    //------------------------------------------------------------------------------------------------------------------
     public function store() {
 
         // Validate request atributes
@@ -40,9 +46,6 @@ class RegisterController extends Controller
         // Insert in BD
         $user = User::create($attributes);
 
-        // Login the user (testing only)
-        //auth()->login($user);
-
         // Success Message
         session()->flash('success', 'A new account has been created');
 
@@ -50,5 +53,22 @@ class RegisterController extends Controller
 
         // Redirect
         return redirect('/admin/dashboard');
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Create Category
+    //------------------------------------------------------------------------------------------------------------------
+    public function createDisc() {
+        // Validate request atributes
+        $attributes = request()->validate([
+            'name' => ['required', 'max:255', 'min:3'],
+            'slug' => 'required|max:255|unique:categories,slug',
+            'grade' => 'max:255|min:1',
+        ]);
+
+        // Insert in BD
+        Category::create($attributes);
+
+        return redirect('/admin/disciplines')->with('success', 'Discipline Created Successfully');
     }
 }

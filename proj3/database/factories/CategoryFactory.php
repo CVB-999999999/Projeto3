@@ -18,7 +18,8 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'slug' => $this->faker->slug
+            'slug' => $this->faker->slug,
+            'grade' => $this->faker->numberBetween(1,12),
         ];
     }
 }

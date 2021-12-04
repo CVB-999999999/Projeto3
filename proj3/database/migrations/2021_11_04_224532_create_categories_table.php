@@ -15,8 +15,10 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('slug')->unique();
+            $table->string('name');                             //  Category name
+            $table->string('slug')->unique();                   //  Discipline code
+            $table->boolean('active')->default(true);     //  Indicates if the category is in use
+            $table->string('grade')->default(null);       //  Grade where the class is taught
             $table->timestamps();
         });
     }

@@ -90,20 +90,20 @@ unset($__errorArgs, $__bag); ?>
             </div>
 
             <!-- Phone Field -->
-        <!--div class="mb-3">
+            <div class="mb-3">
                 <label for="phone" class="form-label">Phone:</label>
-                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter Phone Number">
+                <input type="tel" class="form-control" name="phone" id="phone">
                 <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-            <p class="text-danger"> <small> <?php echo e($message); ?> </small> </p>
+                <p class="text-danger"><small> <?php echo e($message); ?> </small></p>
                 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-            </div-->
+            </div>
             <!-- Submit -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

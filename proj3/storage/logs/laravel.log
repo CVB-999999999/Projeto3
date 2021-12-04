@@ -3,7 +3,8 @@
 #0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php(138): Illuminate\\View\\FileViewFinder->find()
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(932): Illuminate\\View\\Factory->make()
-#3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\outes\\web.php(44): view()
+#3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+outes\\web.php(44): view()
 #4 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(238): Illuminate\\Routing\\RouteFileRegistrar->{closure}()
 #5 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(208): Illuminate\\Routing\\Route->runCallable()
 #6 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(695): Illuminate\\Routing\\Route->run()
@@ -49,9 +50,11 @@
 #46 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #47 {main}
 "} 
-[2021-11-09 19:46:53] local.ERROR: Property [title] does not exist on this collection instance. (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\post.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Property [title] does not exist on this collection instance. (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\post.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php:950)
+[2021-11-09 19:46:53] local.ERROR: Property [title] does not exist on this collection instance. (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\post.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Property [title] does not exist on this collection instance. (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\post.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php:950)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/post.blade.php(8): Illuminate\\Support\\Collection->__get()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/post.blade.php(8): Illuminate\\Support\\Collection->__get()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -170,7 +173,8 @@
 #0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php(138): Illuminate\\View\\FileViewFinder->find()
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(932): Illuminate\\View\\Factory->make()
-#3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\outes\\web.php(44): view()
+#3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+outes\\web.php(44): view()
 #4 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(238): Illuminate\\Routing\\RouteFileRegistrar->{closure}()
 #5 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(208): Illuminate\\Routing\\Route->runCallable()
 #6 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(695): Illuminate\\Routing\\Route->run()
@@ -216,7 +220,8 @@
 #46 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #47 {main}
 "} 
-[2021-11-09 19:48:56] local.ERROR: Undefined variable $posts (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2070673144 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#294</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-09 19:48:56] local.ERROR: Undefined variable $posts (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2070673144 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#294</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-2070673144\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -258,9 +263,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-800387893\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $posts (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:7)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $posts (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:7)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(7): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(7): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -374,7 +382,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-09 19:49:22] local.ERROR: Undefined variable $post (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\post.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/post.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-442379681 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#294</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-09 19:49:22] local.ERROR: Undefined variable $post (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\post.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/post.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-442379681 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#294</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-442379681\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -416,9 +425,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-641870025\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $post (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\post.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/post.blade.php:8)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $post (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\post.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/post.blade.php:8)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/post.blade.php(8): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/post.blade.php(8): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -532,7 +544,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-09 19:49:37] local.ERROR: Undefined variable $posts (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-186863251 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#294</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-09 19:49:37] local.ERROR: Undefined variable $posts (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-186863251 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#294</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-186863251\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -574,9 +587,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-138982594\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $posts (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:7)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $posts (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:7)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(7): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(7): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -6123,7 +6139,8 @@
 #54 /home/c/Documentos/GitHub/Projeto3/proj3/server.php(21): require_once('...')
 #55 {main}
 "} 
-[2021-11-25 14:55:03] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1938362244 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#314</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 14:55:03] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1938362244 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#314</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1938362244\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -6453,9 +6470,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-653957715\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":7,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:7)
+"}},"userId":7,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:7)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(7): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(7): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -6569,7 +6589,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:29:12] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2116948246 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:29:12] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2116948246 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-2116948246\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -6611,9 +6632,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-2098107118\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:25)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:25)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -6727,7 +6751,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:29:24] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1102578116 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:29:24] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1102578116 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1102578116\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -6769,9 +6794,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-521372076\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:25)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:25)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -6885,7 +6913,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:30:13] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-801852750 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:30:13] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-801852750 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-801852750\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -6927,9 +6956,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-629615905\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:24)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:24)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(24): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(24): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -7043,7 +7075,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:31:18] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1051692050 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:31:18] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1051692050 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1051692050\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -7213,9 +7246,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-492894452\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:25)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:25)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -7329,7 +7365,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:31:27] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-600141380 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:31:27] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-600141380 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-600141380\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -7499,9 +7536,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1186501653\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:25)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:25)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -7615,7 +7655,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:32:26] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-803243897 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:32:26] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-803243897 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-803243897\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -7785,9 +7826,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-181635794\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:25)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:25)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -7901,7 +7945,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:33:13] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-861407820 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:33:13] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-861407820 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-861407820\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -8071,9 +8116,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-286228638\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:23)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:23)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -8187,7 +8235,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:33:17] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-541991952 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:33:17] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-541991952 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-541991952\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -8357,9 +8406,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1506557633\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:23)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:23)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -8473,7 +8525,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:33:22] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1504295582 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:33:22] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1504295582 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1504295582\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -8643,9 +8696,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-624133412\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:23)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:23)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -8759,7 +8815,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:34:15] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1406212770 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:34:15] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1406212770 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1406212770\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -8929,9 +8986,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1126838605\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:23)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:23)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -9045,7 +9105,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:35:08] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-989623872 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:35:08] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-989623872 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-989623872\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -9087,9 +9148,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1047726514\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:23)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:23)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -9203,7 +9267,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:35:18] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1891260892 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:35:18] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1891260892 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#317</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1891260892\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -9373,9 +9438,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-923009384\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:23)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:23)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -9489,7 +9557,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:41:09] local.ERROR: Undefined variable $cateogry (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-200889672 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#314</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:41:09] local.ERROR: Undefined variable $cateogry (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-200889672 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#314</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-200889672\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -10145,9 +10214,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-118738604\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $cateogry (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:22)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $cateogry (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:22)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(22): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(22): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
@@ -10261,7 +10333,8 @@
 #53 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\server.php(21): require_once('...')
 #54 {main}
 "} 
-[2021-11-25 21:53:52] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-153856556 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-11-25 21:53:52] local.ERROR: Undefined variable $categories (View: C:\Users\Paulo Garrido\Desktop\proj3\resources\views\userposts.blade.php) {"view":{"view":"C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-153856556 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#316</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-153856556\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -10303,9 +10376,12 @@
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1390883404\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php:26)
+"}},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable $categories (View: C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views\\userposts.blade.php) at C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php:26)
 [stacktrace]
-#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\esources\\views/userposts.blade.php(26): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#0 C:\\Users\\Paulo Garrido\\Desktop\\proj3\
+esources\\views/userposts.blade.php(26): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('...')
 #2 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\Users\\Paulo Garrido\\Desktop\\proj3\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()

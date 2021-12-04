@@ -24,21 +24,21 @@
         <!-- Cards to show what they tutor -->
         <div class="container mx-auto mt-5">
             <div class="row row-cols-md-3">
-                <div class="card wh-card">
+                <div class="card wh-card border-white">
                     <h2 class="card-title mx-auto text-center"> First to third cycle </h2>
                     <ul class="card-body mx-auto">
                         <li> Tutoring to all subjects</li>
                         <li> Preperation to final exams</li>
                     </ul>
                 </div>
-                <div class="card wh-card">
+                <div class="card wh-card border-white">
                     <h2 class="card-title mx-auto text-center"> Secondary school </h2>
                     <ul class="card-body mx-auto">
                         <li> Tutoring to all subjects</li>
                         <li> Preperation to final exams</li>
                     </ul>
                 </div>
-                <div class="card wh-card">
+                <div class="card wh-card border-white">
                     <h2 class="card-title mx-auto text-center"> Higher education </h2>
                     <ul class="card-body mx-auto">
                         <li> Tutoring to all math subjects</li>
@@ -50,30 +50,30 @@
 
         <!-- More info -->
         <div class="text-center">
-            <button class="btn btn-dark rounded-pill" style="width: 250px; height: 50px;">
+            <a class="btn btn-dark rounded-pill" href="/contactus" style="width: 15rem; height: 3rem;">
                 <h5>More information</h5>
-            </button>
+            </a>
         </div>
 
         <!-- Why us -->
         <!-- Cards with markting -->
-        <div class="container mx-auto mt-5">
+        <div class="container mx-auto mt-5 mb-5">
             <h1 class="text-center" style="margin-bottom: 2%;"> Why Us?</h1>
             <div class="row row-cols-md-3">
-                <div class="card wh-card">
+                <div class="card wh-card border-white">
                     <h2 class="card-title mx-auto text-center"></i> High Success Rate </h2>
                     <div class="card-body mx-auto">
                         Our students are 30% more likelly to success in their education than our competition
                     </div>
                 </div>
-                <div class="card wh-card">
+                <div class="card wh-card border-white">
                     <h2 class="card-title mx-auto text-center"></i> Best Resources </h2>
                     <div class="card-body mx-auto">
                         All our resources are made by teachers curently teaching the subjects to ensure that they are
                         the best possible
                     </div>
                 </div>
-                <div class="card wh-card">
+                <div class="card wh-card border-white">
                     <h2 class="card-title mx-auto text-center"> Ease of Use </h2>
                     <div class="card-body mx-auto">
                         As we have all our resouces online our students can study whenever they want

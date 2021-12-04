@@ -28,19 +28,31 @@
             @endguest
             @auth
                 <div class="dropdown navbar-nav">
-                    <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }}
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end p-3 text-center" aria-labelledby="dropdownMenuButton1">
+                    <button class="btn btn--outline-secondary nav-link rounded-3" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end p-3 text-center dropdown-menu-dark"
+                        aria-labelledby="dropdownMenuButton1">
                         <li><h5> {{ Auth::user()->email }} </h5></li>
-                        <hr>
-                        <li><a class="dropdown-item" href="#">Go to Dashboard</a></li>
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <?php if(Auth::user()->type == 1) { //  Tutor dashboard
+                            $href = '/tutor/dashboard';
+                        } if (Auth::user()->type == 2) {    //  Admin Dashboard
+                            $href = '/admin/dashboard';
+                        } if (Auth::user()->type == 0) {    //  User dashboard
+                            $href = '/userposts';
+                        }?>
+                        <li><a class="dropdown-item" href="{{ $href }}">Go to Dashboard</a></li>
+                        <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
                         <li>
                             <form method="POST" action="/logout" class="dropdown-item">
                                 @csrf
-                                <button class="btn btn-dark rounded-pill mt-3" type="submit" style="width: 10rem"> Log Out</button>
+                                <button class="btn btn-dark rounded-pill mt-3" type="submit" style="width: 10rem"> Log
+                                    Out
+                                </button>
                             </form>
                         </li>
                     </ul>
@@ -50,18 +62,29 @@
     </div>
 </nav>
 
-<!-- Success Message -->
+{{--<!-- Success Message -->--}}
 @if (session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" style="margin: 0; padding: 0.5rem; vertical-align: center">
+    <div class="alert alert-success alert-dismissible fade show"
+         style="margin: 0; padding: 0.5rem; vertical-align: center">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <p><i class="bi bi-check-circle-fill"></i> {{ session('success') }} </p>
     </div>
 @endif
 
+{{--<!-- Error Message -->--}}
+@if (session()->has('error'))
+    <div class="alert alert-danger alert-dismissible fade show"
+         style="margin: 0; padding: 0.5rem; vertical-align: center">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <p><i class="bi bi-x-circle-fill"></i> {{ session('error') }} </p>
+    </div>
+@endif
+
+<!-- Content -->
 {{ $content }}
 
 <!-- Footer -->
-<footer class="mt-4 p-3 bg-dark text-white">
+<footer class="footer mt-auto p-3 bg-dark text-white">
     <div class="row">
         <!-- About us -->
         <div class="col-md-3 ps-5">

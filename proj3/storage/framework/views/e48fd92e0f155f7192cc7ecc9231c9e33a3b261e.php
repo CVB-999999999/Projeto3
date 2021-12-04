@@ -6,7 +6,7 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('content', null, []); ?> 
         <!-- Title and Includes -->
-        <title>Login | A Tutoring Company</title>
+        <title>Home | A Tutoring Company</title>
      <?php $__env->endSlot(); ?>
  <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>

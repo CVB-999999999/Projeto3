@@ -57,10 +57,16 @@
                             <div class="card card-body">
                                 <div class="list-group">
 
-                                    <!-- Change disciplines TO-DO -->
-                                    <button type="button" class="list-group-item list-group-item-action">
+                                    <!-- Change disciplines -->
+                                    @php $lk = 'users';
+                                        if ($user->type == 1) {
+                                        $lk = 'tutors';
+                                    }
+                                    @endphp
+                                    <a href="/admin/{{ $lk }}/{{ $user->id }}" type="button"
+                                       class="list-group-item list-group-item-action">
                                         Change Disciplines
-                                    </button>
+                                    </a>
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="list-group-item list-group-item-action"
@@ -139,11 +145,12 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal"> No </button>
+                                                            data-bs-dismiss="modal"> No
+                                                    </button>
 
                                                     <form method="POST" action="/admin-toogle-status">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-danger"> Yes </button>
+                                                        <button type="submit" class="btn btn-danger"> Yes</button>
                                                         <input type="hidden" value="{{ $user->email }}" name="email">
                                                         <input type="hidden" value="{{ $user->active }}" name="active">
                                                     </form>

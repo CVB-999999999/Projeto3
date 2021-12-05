@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/admin/addCatg.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proj3/resources/views/admin/usersCategList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/factories/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2021_11_04_224532_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/migrations/2021_11_04_224532_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/adminDash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/adminDash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Models/Tutor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2021_11_27_173018_create_tutors_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/userlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/userlist.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +186,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="de.espend.idea.laravel.ui.TemplateSettingsForm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -233,7 +229,8 @@
       <workItem from="1638121963607" duration="10944000" />
       <workItem from="1638544643720" duration="2455000" />
       <workItem from="1638563766641" duration="1715000" />
-      <workItem from="1638612786934" duration="15979000" />
+      <workItem from="1638612786934" duration="16408000" />
+      <workItem from="1638721799640" duration="10189000" />
     </task>
     <servers />
   </component>

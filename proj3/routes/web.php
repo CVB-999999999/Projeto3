@@ -98,6 +98,11 @@ Route::get('admin/tutors', [ListController::class, 'tutorList'])->middleware('ro
 // Change user status (active/inactive)
 Route::post('/admin-toogle-status', [EditController::class, 'toggleUser'])->middleware('role:2');
 
+// List Assigned categories to tutor
+Route::get('admin/tutors/{user:id}', [ListController::class, 'tutorCatgList']);
+// List Assigned categories to student
+Route::get('admin/users/{user:id}', [ListController::class, 'stdCatgList']);
+
 // Edit Categories
 Route::get('admin/disciplines', [ListController::class, 'catgList'])->middleware('role:2');
 // Disable Category

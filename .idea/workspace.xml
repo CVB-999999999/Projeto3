@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCategList.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCatgAdd.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proj3/resources/views/admin/userCatgAdd.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Models/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Models/Registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/userlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/userlist.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/usersCategList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/usersCategList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/AssignController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/AssignController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +223,8 @@
       <workItem from="1638721799640" duration="10267000" />
       <workItem from="1638801637384" duration="8326000" />
       <workItem from="1638876147310" duration="1303000" />
-      <workItem from="1639046764157" duration="18194000" />
+      <workItem from="1639046764157" duration="18403000" />
+      <workItem from="1639068701919" duration="617000" />
     </task>
     <servers />
   </component>

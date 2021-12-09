@@ -120,7 +120,7 @@ class AssignController extends Controller
 
         if ($ver->isEmpty()) {
             $tutor = Registration::create([
-                'tutorId' => $attributes['user'],
+                'tutorId' => $attributes['tutor'],
                 'categoryId' => $attributes['disc'],
                 'userId' => $attributes['user']
             ]);

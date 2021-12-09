@@ -27,7 +27,9 @@ class AssignController extends Controller
             ->select('categories.id');
 
         // Get categories to display
-        $categories = Category::whereNotIn('id', $query)->get();
+        $categories = Category::whereNotIn('id', $query)
+            ->where('active', '=', true)
+            ->get();
         $assign = Category::whereIn('id', $query)->get();
 
         return view('admin.tutorCatgAdd', ['user' => $user, 'discs' => $categories, 'assigns' => $assign]);
@@ -52,7 +54,9 @@ class AssignController extends Controller
             ->select('categories.id');
 
         // Get categories to display
-        $categories = Category::whereNotIn('id', $query)->get();
+        $categories = Category::whereNotIn('id', $query)
+            ->where('active', '=', true)
+            ->get();
         $assign = Category::whereIn('id', $query)->get();
 
         $tList = $assign;
@@ -64,6 +68,7 @@ class AssignController extends Controller
             $tList = DB::table('tutoring')
                 ->join('users', 'tutoring.tutorId', '=', 'users.id')
                 ->where('type', '=', 1)
+                ->where('users.active', '=', true)
                 ->where('categoryId', '=', request('discipline'))
                 ->select('name', 'users.id')
                 ->get();
@@ -84,6 +89,7 @@ class AssignController extends Controller
             'disc' => 'required|exists:categories,id'
         ]);
 
+        // Verify if the assigment has already been done
         $ver = Tutoring::where('tutorId', $attributes['user'])
             ->where('categoryId', $attributes['disc'])
             ->get();
@@ -95,7 +101,7 @@ class AssignController extends Controller
             ]);
             return redirect('/admin/tutors');
         } else {
-            return back()->with(['error' => 'Discipline association status has already been created']);
+            return back()->with(['error' => 'Discipline association has already been created']);
         }
     }
 
@@ -111,8 +117,7 @@ class AssignController extends Controller
             'tutor' => 'required|exists:users,id'
         ]);
 
-
-
+        // Verify if the assigment has already been done
         $ver = Registration::where('tutorId', $attributes['tutor'])
             ->where('categoryId', $attributes['disc'])
             ->where('userid', $attributes['user'])
@@ -126,7 +131,7 @@ class AssignController extends Controller
             ]);
             return redirect('/admin/users');
         } else {
-            return back()->with(['error' => 'Discipline association status has already been created']);
+            return back()->with(['error' => 'Discipline association has already been created']);
         }
     }
 }

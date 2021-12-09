@@ -36,7 +36,7 @@ if (Auth::user() != null) {
             <ul class="navbar-nav me-auto">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="contactus">Contact us</a>
+                        <a class="nav-link" href="/contactus">Contact us</a>
                     </li>
                 @endguest
             </ul>
@@ -104,9 +104,9 @@ if (Auth::user() != null) {
                 <li>
                     <h4>Company</h4>
                 </li>
-                <li><a href="aboutus" class="link-grey">About
+                <li><a href="/aboutus" class="link-grey">About
                         us</a></li>
-                <li><a href="contactus" class="link-grey">Contact
+                <li><a href="/contactus" class="link-grey">Contact
                         us</a></li>
                 <li><a href="https://gdpr-info.eu/" class="link-grey">Terms
                         and Conditions</a></li>

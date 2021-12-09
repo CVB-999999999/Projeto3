@@ -14,14 +14,16 @@ class RegisterController extends Controller
     //------------------------------------------------------------------------------------------------------------------
     // Return view to register the user
     //------------------------------------------------------------------------------------------------------------------
-    public function create() {
+    public function create()
+    {
         return view('register.create');
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Create the user
     //------------------------------------------------------------------------------------------------------------------
-    public function store() {
+    public function store()
+    {
 
         // Validate request atributes
         $attributes = request()->validate([
@@ -31,7 +33,8 @@ class RegisterController extends Controller
             'type' => 'numeric|min:0|max:1',
         ]);
 
-        $str=rand();
+        // Generate Passwd
+        $str = rand();
 
         // Encrypt password
         $attributes['password'] = bcrypt($str);
@@ -39,7 +42,7 @@ class RegisterController extends Controller
         // Create username from email
         $prefix = substr($attributes['email'], 0, strrpos($attributes['email'], '@'));
 
-        $username = array('username'=>$prefix);
+        $username = array('username' => $prefix);
 
         $attributes = array_merge($attributes, $username);
 
@@ -49,16 +52,24 @@ class RegisterController extends Controller
         // Success Message
         session()->flash('success', 'A new account has been created');
 
+        // Email credentials to user
         Mail::to($attributes['email'])->queue(new NewAccount($str));
 
-        // Redirect
-        return redirect('/admin/dashboard');
+        // Redirect to discipline association/assignment page
+        if ($user->type == 0) {
+            // Student
+            return redirect('/admin/users/' . $user->id);
+        } else {
+            // Tutor
+            return redirect('/admin/tutors/' . $user->id);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // Create Category
     //------------------------------------------------------------------------------------------------------------------
-    public function createDisc() {
+    public function createDisc()
+    {
         // Validate request atributes
         $attributes = request()->validate([
             'name' => ['required', 'max:255', 'min:3'],

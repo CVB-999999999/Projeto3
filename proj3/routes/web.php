@@ -32,22 +32,26 @@ Route::get('/contactus', function () {
     return view('contactus');
 });
 Route::get('/aboutus', function () {
-    return view('aboutUs');
+    $users = User::where('type', 1)
+        ->where('active', true)
+        ->get();
+
+    return view('aboutUs', ['users' => $users]);
 });
 Route::get('/admin/dashboard', function () {
     return view('admin.adminDash');
 })->middleware('role:2');
 
 // Register
-Route::get('admin/register', [RegisterController::class, 'create'])->middleware('role:2');
-Route::post('admin/register', [RegisterController::class, 'store'])->middleware('role:2');
+Route::get('/admin/register', [RegisterController::class, 'create'])->middleware('role:2');
+Route::post('/admin/register', [RegisterController::class, 'store'])->middleware('role:2');
 
 // Logout
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 // Login
-Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 
 // Reset Paswd
 // Get Reset Token
@@ -62,13 +66,13 @@ Route::get('/reset-password', function () {
 Route::post('/reset-password', [SessionsController::class, 'resetPasswdFinal'])->middleware('guest')->name('password.request');
 
 // Change Passwd
-Route::get('change-password', function () {
+Route::get('/change-password', function () {
     return view('sessions.change-password');
 })->middleware('auth');
 Route::post('/change-password', [SessionsController::class, 'UpdatePassword'])->middleware('auth');
 
 // Admin Force reset password
-Route::post('admin-change-password', [SessionsController::class, 'resetPasswdAdmin'])->middleware('auth');
+Route::post('/admin-change-password', [SessionsController::class, 'resetPasswdAdmin'])->middleware('auth');
 
 // Load All User Related Posts
 Route::get('/userposts', function () {
@@ -82,47 +86,47 @@ Route::get('/post/{post:slug}', function (Post $post) {
 });
 
 // Fetch all posts based on a category
-Route::get('categories/{category:slug}', function (Category $category) {
+Route::get('/categories/{category:slug}', function (Category $category) {
     return view('userposts', ['posts' => $category->posts->load(['category', 'author']), 'currentCategory' => $category, 'categories' => Category::all()]);
 });
 
-Route::get('authors/{author:username}', function (User $author) {
+Route::get('/authors/{author:username}', function (User $author) {
     return view('userposts', ['posts' => $author->posts->load(['category', 'author']), 'categories' => Category::all()]);
 });
-Route::get('createpost', [CreatePost::class, 'create']);
-Route::post('createpost', [CreatePost::class, 'store']);
+Route::get('/createpost', [CreatePost::class, 'create']);
+Route::post('/createpost', [CreatePost::class, 'store']);
 
 // List all students
-Route::get('admin/users', [ListController::class, 'userList'])->middleware('role:2');
+Route::get('/admin/users', [ListController::class, 'userList'])->middleware('role:2');
 // List all tutors
-Route::get('admin/tutors', [ListController::class, 'tutorList'])->middleware('role:2');
+Route::get('/admin/tutors', [ListController::class, 'tutorList'])->middleware('role:2');
 // Change user status (active/inactive)
 Route::post('/admin-toogle-status', [EditController::class, 'toggleUser'])->middleware('role:2');
 
 // List Assigned categories to tutor
-Route::get('admin/tutors/{user:id}', [ListController::class, 'tutorCatgList']);
+Route::get('/admin/tutors/{user:id}', [ListController::class, 'tutorCatgList']);
 // List Assigned categories to student
-Route::get('admin/users/{user:id}', [ListController::class, 'stdCatgList']);
+Route::get('/admin/users/{user:id}', [ListController::class, 'stdCatgList']);
 
 // Edit user Assignments
-Route::post('admin/users/{user:id}/toggle', [EditController::class, 'toggleUserDisc']);
+Route::post('/admin/users/{user:id}/toggle', [EditController::class, 'toggleUserDisc']);
 // Edit tutors Assignments
-Route::post('admin/tutors/{user:id}/toggle', [EditController::class, 'toggleTutorDisc']);
+Route::post('/admin/tutors/{user:id}/toggle', [EditController::class, 'toggleTutorDisc']);
 
 // Edit Categories
-Route::get('admin/disciplines', [ListController::class, 'catgList'])->middleware('role:2');
+Route::get('/admin/disciplines', [ListController::class, 'catgList'])->middleware('role:2');
 // Disable Category
-Route::post('admin/disciplines', [EditController::class, 'toggleCatg'])->middleware('role:2');
+Route::post('/admin/disciplines', [EditController::class, 'toggleCatg'])->middleware('role:2');
 
 // Assign Category Tutor
-Route::get('admin/tutors/{user:id}/assign', [AssignController::class, 'tutorAsgView']);
-Route::post('admin/tutors/assign', [AssignController::class, 'assignTutor']);
+Route::get('/admin/tutors/{user:id}/assign', [AssignController::class, 'tutorAsgView']);
+Route::post('/admin/tutors/assign', [AssignController::class, 'assignTutor']);
 // Assign Category Student
-Route::get('admin/users/{user:id}/assign', [AssignController::class, 'userAsgView']);
-Route::post('admin/users/assign', [AssignController::class, 'assignUser']);
+Route::get('/admin/users/{user:id}/assign', [AssignController::class, 'userAsgView']);
+Route::post('/admin/users/assign', [AssignController::class, 'assignUser']);
 
 // Create Category
-Route::get('admin/create/discipline', function () {
+Route::get('/admin/create/discipline', function () {
     return view('admin.addCatg');
 })->middleware('role:2');
-Route::post('admin/create/discipline', [RegisterController::class, 'createDisc'])->middleware('role:2');
+Route::post('/admin/create/discipline', [RegisterController::class, 'createDisc'])->middleware('role:2');

@@ -11,14 +11,14 @@
 
         <div class="container">
 
-            <h1 class="text-center m-3">ATC Disciplines List</h1>
+            <h1 class="text-center m-5">ATC Disciplines List</h1>
 
             <div class="d-flex justify-content-center">
                 <a href="/admin/create/discipline" class="btn btn-secondary justify-center"> Add new Discipline</a>
             </div>
 
             <!-- Search Field -->
-            <div>
+            <div class="m-4">
                 <form method="GET" action="#">
                     <div class="input-group m-3 mx-auto" style="max-width: 80vw">
                         <input type="text" name="search" class="form-control"
@@ -34,7 +34,7 @@
                     <div class="card-body">
                         <p><h4> Discipline: {{ $catg->name }} </h4></p>
                         <p> Discipline Code: {{ $catg->slug }}</p>
-                        <p> Grade: {{ $catg->grade }}</p>
+                        <p> School Year: {{ $catg->grade }}</p>
                         <p> Status:
                             {{-- Convert Boolean to something easier to read --}}
                             @php if($catg->active == true) {
@@ -45,7 +45,7 @@
                         </p>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger"
+                        <button type="button" class="btn btn-dark btn-sm"
                                 data-bs-toggle="modal" data-bs-target="#confirmModalPWD{{ $catg->id }}">
                             Toggle Status
                         </button>

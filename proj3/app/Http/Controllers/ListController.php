@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -61,6 +62,13 @@ class ListController extends Controller
             ->orderByDesc('active')
             ->orderByDesc('updated_at');
 
+        // Search stuff
+        if (request('search')) {
+            $catgs->where('name', 'like', '%' . request('search') . '%');
+            $catgs->orWhere('slug', 'like', '%' . request('search') . '%');
+            $catgs->orWhere('grade', 'like', '%' . request('search') . '%');
+        }
+
         return view('admin.editCateg', ['catgs' => $catgs->paginate(20)]);
     }
 
@@ -99,7 +107,7 @@ class ListController extends Controller
         }
 
         if ($users->isNotEmpty()) {
-            return view('admin.usersCategList', ['users' => $users[0], 'discs' => $arr, 'insc' => $insc]);
+            return view('admin.tutorCategList', ['users' => $users[0], 'discs' => $arr, 'insc' => $insc]);
         } else {
             return redirect('/')->with('error', 'An error ocurred');
         }
@@ -117,7 +125,8 @@ class ListController extends Controller
             ->orderByDesc('updated_at');
 
         $users = $users->get();
-        $arr = array();
+        $arr1 = array();
+        $arr2 = array();
         $insc = 0;
 
         // verifies if a student as been found
@@ -132,15 +141,31 @@ class ListController extends Controller
 
             // Fetch all categories the student is assigned
             foreach ($insc as $inc) {
-                $catg = DB::table('categories')
-                    ->where('id', '=', $inc->categoryId)
+                $catg = Category::where('id', $inc->categoryId)->get();
+
+                $tutor = User::where('id', $inc->tutorId)
+                    ->where('type', 1)
+                    ->orderByDesc('updated_at')
                     ->get();
-                array_push($arr, $catg[0]);
+
+//                echo('<br> <h1> cenas </h1> <br>');
+//                var_dump($tutor);
+
+//                If can not find any stuff from the registration
+                if ($tutor->isEmpty() || $catg->isEmpty()) {
+                    break;
+                }
+
+                $catg = $catg[0];
+                $tutor = $tutor[0];
+
+                array_push($arr1, $catg);
+                array_push($arr2, $tutor);
             }
         }
 
         if ($users->isNotEmpty()) {
-            return view('admin.usersCategList', ['users' => $users[0], 'discs' => $arr, 'insc' => $insc]);
+            return view('admin.usersCategList', ['users' => $users[0], 'discs' => $arr1, 'insc' => $insc, 'tutors' => $arr2,]);
         } else {
             return redirect('/')->with('error', 'An error ocurred');
         }

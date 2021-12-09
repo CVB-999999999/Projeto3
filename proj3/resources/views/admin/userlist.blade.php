@@ -11,10 +11,10 @@
 
         <div class="container">
 
-            <h1 class="text-center m-3">ATC {{ $type }} List</h1>
+            <h1 class="text-center m-5">ATC {{ $type }} List</h1>
 
             <!-- Search Field -->
-            <div>
+            <div class="m-4">
                 <form method="GET" action="#">
                     <div class="input-group m-3 mx-auto" style="max-width: 80vw">
                         <input type="text" name="search" class="form-control"

@@ -1,7 +1,7 @@
 <x-header>
     <x-slot name="content">
         <!-- Title and Includes -->
-        <title>Detail List | A Tutoring Company</title>
+        <title>User Detail List | A Tutoring Company</title>
         <link rel="stylesheet" href="css/p3.css">
     </x-slot>
 </x-header>
@@ -13,16 +13,16 @@
             {{--             No discipline found--}}
 
             @if( $users == 'sad')
-                <p><h1 class="text-center m-3"> This user does not exist :( </h1></p>
+                <p><h1 class="text-center m-3"> This student does not exist :( </h1></p>
 
             @else
-                <p><h2 class="text-center m-3"> User: {{ $users->name }} </h2></p>
+                <p><h2 class="text-center m-3"> Student: {{ $users->name }} </h2></p>
 
                 @if( $discs == [])
-                    <h1 class="text-center m-5"> This user does not have any discipline assigned</h1>
+                    <h1 class="text-center m-5"> This student does not have any discipline assigned</h1>
                 @endif
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-dark btn-lg"> Assign discipline</button>
+                    <a href="/admin/users/{{ $users->id }}/assign" class="btn btn-dark btn-lg"> Enroll in a discipline </a>
                 </div>
 
                 @foreach($discs as $key=>$disc)
@@ -31,6 +31,7 @@
                             <p><h4> Discipline: {{ $disc->name }}</h4></p>
                             <p> ID: {{ $disc->slug }}</p>
                             <p> School Year: {{ $disc->grade }}</p>
+                            <p> Tutor: {{ $tutors[$key]->name }}</p>
                             <p> Status:
                                 {{-- Convert Boolean to something easier to read --}}
                                 @php if($insc[$key]->active == true) {
@@ -39,7 +40,9 @@
                                         echo ' Inactive';
                                     } @endphp
                             </p>
-                            <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#confirmModal{{ $disc->id }}"> Toggle Status </button>
+                            <button class="btn btn-dark" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#confirmModal{{ $disc->id }}"> Toggle Status
+                            </button>
 
                             <!-- Modal To Confirm User Status Toggle -->
                             <div class="modal fade" id="confirmModal{{ $disc->id }}" tabindex="-1"
@@ -70,12 +73,13 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal"> No </button>
+                                                    data-bs-dismiss="modal"> No
+                                            </button>
 
-                                            <form method="POST" action="">
+                                            <form method="POST" action="/admin/users/{{$users->id}}/toggle">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger"> Yes </button>
-                                                <input type="hidden" value="{{ $insc[$key]->id }}" name="email">
+                                                <button type="submit" class="btn btn-danger"> Yes</button>
+                                                <input type="hidden" value="{{ $insc[$key]->id }}" name="id">
                                                 <input type="hidden" value="{{ $insc[$key]->active }}" name="active">
                                             </form>
                                         </div>

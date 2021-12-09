@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\RegisterController;
@@ -103,10 +104,22 @@ Route::get('admin/tutors/{user:id}', [ListController::class, 'tutorCatgList']);
 // List Assigned categories to student
 Route::get('admin/users/{user:id}', [ListController::class, 'stdCatgList']);
 
+// Edit user Assignments
+Route::post('admin/users/{user:id}/toggle', [EditController::class, 'toggleUserDisc']);
+// Edit tutors Assignments
+Route::post('admin/tutors/{user:id}/toggle', [EditController::class, 'toggleTutorDisc']);
+
 // Edit Categories
 Route::get('admin/disciplines', [ListController::class, 'catgList'])->middleware('role:2');
 // Disable Category
 Route::post('admin/disciplines', [EditController::class, 'toggleCatg'])->middleware('role:2');
+
+// Assign Category Tutor
+Route::get('admin/tutors/{user:id}/assign', [AssignController::class, 'tutorAsgView']);
+Route::post('admin/tutors/assign', [AssignController::class, 'assignTutor']);
+// Assign Category Student
+Route::get('admin/users/{user:id}/assign', [AssignController::class, 'userAsgView']);
+Route::post('admin/users/assign', [AssignController::class, 'assignUser']);
 
 // Create Category
 Route::get('admin/create/discipline', function () {

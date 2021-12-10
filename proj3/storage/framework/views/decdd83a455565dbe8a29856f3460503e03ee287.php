@@ -6,7 +6,7 @@
 <?php $component->withAttributes([]); ?>
         <article>
             <h1><?= $post->title ?></h1>
-            <img src="/storage/<?php echo e($post->arquivo); ?>" alt="" class="rounded-xl">
+            <a href="/download/<?php echo e($post->arquivo); ?>">Download</a>
             <p>
             By <a href="/authors/<?php echo e($post->author->username); ?>"><?php echo e($post->author->username); ?></a> in <a href="/categories/<?php echo e($post->category->slug); ?>"> <?php echo e($post->category->name); ?> </a>
             </p>

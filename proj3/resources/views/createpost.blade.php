@@ -47,12 +47,13 @@
             </div>
 
             <!-- Category Field -->
+            {{ $categories }}
             <div class="mb-3">
 
                 <label for="category_id" class="form-label">Category:</label>
                 <input type="text" id="category_id" name="category_id">
             </div>
-           
+
             <!-- file -->
             <div class="mb-3">
 

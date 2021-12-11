@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
-    </list>
+    <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +9,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/proj3/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="EditorConfigPreviewManager">
     <editorConfig file="$PROJECT_DIR$/proj3/.editorconfig" previewFile="$PROJECT_DIR$/proj3/resources/views/contactus.blade.php" />
@@ -223,6 +216,14 @@
       <workItem from="1638121963607" duration="10944000" />
       <workItem from="1638544643720" duration="2455000" />
       <workItem from="1638563766641" duration="1715000" />
+      <workItem from="1638612786934" duration="16408000" />
+      <workItem from="1638721799640" duration="10267000" />
+      <workItem from="1638801637384" duration="8326000" />
+      <workItem from="1638876147310" duration="1303000" />
+      <workItem from="1639046764157" duration="18403000" />
+      <workItem from="1639068701919" duration="2572000" />
+      <workItem from="1639136687185" duration="769000" />
+      <workItem from="1639142186562" duration="1582000" />
     </task>
     <servers />
   </component>

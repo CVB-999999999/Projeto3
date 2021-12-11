@@ -39,8 +39,8 @@
                 <div class="col-sm-6 mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"> n/a</h5>
-                            <a class="stretched-link" href="/"></a>
+                            <h5 class="card-title"> Edit/Create Disciplines</h5>
+                            <a class="stretched-link" href="/admin/disciplines"></a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"> Edit existing Tutors</h5>
-                            <a class="stretched-link" href="/"></a>
+                            <a class="stretched-link" href="/admin/tutors"></a>
                         </div>
                     </div>
                 </div>

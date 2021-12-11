@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Mail;
 
 class EditController extends Controller
 {
+    // -----------------------------------------------------------------------------------------------------------------
+    // Toggle User Status
+    // -----------------------------------------------------------------------------------------------------------------
     public function toggleUser() {
         // Verify if email is valid
         $attributes = request()->validate([
@@ -49,5 +52,128 @@ class EditController extends Controller
 
         // Return operation status
         return redirect('/admin/users')->with(['success' => 'Users status updated successfully']);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Toggle Category Status
+    // -----------------------------------------------------------------------------------------------------------------
+    public function toggleCatg() {
+        // Verify if slug is valid
+        $attributes = request()->validate([
+            'slug' => 'required|exists:categories,slug|max:255',
+            'active' => 'required|boolean'
+        ]);
+
+        // Get current Category status
+        $status = DB::table('categories')
+            ->where('slug', $attributes['slug'])
+            ->get();
+
+        // Verify if category is in DB
+        if ($status->isEmpty()) {
+            return back()->with(['error' => 'Could not find the requested user']);
+        }
+
+        // Verify if category hasn't already been changed
+        if ($status[0]->active != $attributes['active']) {
+            return back()->with(['error' => 'User status has already been changed']);
+        }
+
+        // Change category status
+        $active = true;
+
+        if ($attributes['active']) {
+            $active = false;
+        }
+
+        // Update DB
+        DB::table('categories')
+            ->where('slug', $attributes['slug'])
+            ->update(['active' => $active, 'updated_at' => now()]);
+
+        // Return operation status
+        return back()->with(['success' => 'Discipline Status Changed Successfully']);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Toggle User discipline enrollment Status
+    // -----------------------------------------------------------------------------------------------------------------
+    public function toggleUserDisc() {
+        // Verify if id is valid
+        $attributes = request()->validate([
+            'id' => 'required|exists:registrations,id',
+            'active' => 'required|boolean'
+        ]);
+
+        // Get current Category status
+        $status = DB::table('registrations')
+            ->where('id', $attributes['id'])
+            ->get();
+
+        // Verify if category is in DB
+        if ($status->isEmpty()) {
+            return back()->with(['error' => 'Could not find the requested enrollment']);
+        }
+
+        // Verify if category hasn't already been changed
+        if ($status[0]->active != $attributes['active']) {
+            return back()->with(['error' => 'Discipline enrollment status has already been changed']);
+        }
+
+        // Change category status
+        $active = true;
+
+        if ($attributes['active']) {
+            $active = false;
+        }
+
+        // Update DB
+        DB::table('registrations')
+            ->where('id', $attributes['id'])
+            ->update(['active' => $active, 'updated_at' => now()]);
+
+        // Return operation status
+        return back()->with(['success' => 'Discipline enrollment Status Changed Successfully']);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Toggle Tutor discipline enrollment Status
+    // -----------------------------------------------------------------------------------------------------------------
+    public function toggleTutorDisc() {
+        // Verify if id is valid
+        $attributes = request()->validate([
+            'id' => 'required|exists:tutoring,id',
+            'active' => 'required|boolean'
+        ]);
+
+        // Get current Category status
+        $status = DB::table('tutoring')
+            ->where('id', $attributes['id'])
+            ->get();
+
+        // Verify if category is in DB
+        if ($status->isEmpty()) {
+            return back()->with(['error' => 'Could not find the requested enrollment']);
+        }
+
+        // Verify if category hasn't already been changed
+        if ($status[0]->active != $attributes['active']) {
+            return back()->with(['error' => 'Discipline association status has already been changed']);
+        }
+
+        // Change category status
+        $active = true;
+
+        if ($attributes['active']) {
+            $active = false;
+        }
+
+        // Update DB
+        DB::table('tutoring')
+            ->where('id', $attributes['id'])
+            ->update(['active' => $active, 'updated_at' => now()]);
+
+        // Return operation status
+        return back()->with(['success' => 'Discipline association Status Changed Successfully']);
     }
 }

@@ -29,7 +29,7 @@ class CreatePost extends Controller
         $categories = Category::whereIn('id', $query)
             ->where('active', '=', true)
             ->get();
-        
+
         $query2 = DB::table('registrations')
             ->join('users', 'registrations.userId', '=', 'users.id')
             ->where('tutorId', '=', $userId/* alterar para userId np futuro */)

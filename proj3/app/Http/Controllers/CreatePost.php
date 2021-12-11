@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Registration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Response;
@@ -42,6 +43,7 @@ class CreatePost extends Controller
     }
     public function store()
     {
+            $userId = auth()->id();
             $path = request()->file('arquivo')->store('arquivos');
             //dd(request()->all());
             $attributes = request()->validate([
@@ -49,14 +51,23 @@ class CreatePost extends Controller
                 'arquivo' => 'required',
                 'body' => 'required',
                 'slug' => 'required',
-                'registration_id' => 'required',
+                'aluno_id' => 'required',
                 'category_id' => 'required'
             ]);
+            $alunoId = $attributes['aluno_id'];
+            $catId = $attributes['category_id'];
+            $query = DB::table('registrations')
+                ->join('users', 'registrations.userId', '=', 'users.id')
+                ->where('tutorId', '=', $userId, 'and','userId', '=', $alunoId, 'and','categoryId', '=', $catId)
+                ->select('registrations.id');
+
+            $registration = Registration::whereIn('id',$query)
+                ->firstOrFail();
             
+            $attributes['registration_id'] =  $registration->id;  
             $attributes['user_id'] = auth()->id();
             $attributes['arquivo'] = request()->file('arquivo')->store('arquivos');
-            Post::create($attributes);
-            
+            Post::create($attributes);  
             return redirect('/');
             
     }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CreatePost;
+use App\Http\Controllers\StudentPost;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,11 +76,12 @@ Route::post('/change-password', [SessionsController::class, 'UpdatePassword'])->
 Route::post('/admin-change-password', [SessionsController::class, 'resetPasswdAdmin'])->middleware('auth');
 
 // Load All User Related Posts
-Route::get('/userposts', function () {
+/*Route::get('/userposts', function () {
     $posts = Post::latest()->with('category', 'author')->get();
     return view('userposts', ['posts' => $posts, 'categories' => Category::all()]);
 })->middleware('auth');
-
+*/
+Route::get('/userposts', [StudentPost::class, 'list']);
 // Fetch a Post
 Route::get('/post/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);

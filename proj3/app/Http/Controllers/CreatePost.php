@@ -28,7 +28,7 @@ class CreatePost extends Controller
             ->get();
 
 //        ddd($categories);
-        
+
         return view('createpost', ['categories' => $categories]);
     }
     public function store()

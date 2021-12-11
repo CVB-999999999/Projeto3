@@ -4,18 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Mail\AdminForceResetPasswd;
 use App\Mail\NewAccount;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
-    public function create() {
+    //------------------------------------------------------------------------------------------------------------------
+    // Return view to register the user
+    //------------------------------------------------------------------------------------------------------------------
+    public function create()
+    {
         return view('register.create');
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     // Create the user
-    public function store() {
+    //------------------------------------------------------------------------------------------------------------------
+    public function store()
+    {
 
         // Validate request atributes
         $attributes = request()->validate([
@@ -25,7 +33,8 @@ class RegisterController extends Controller
             'type' => 'numeric|min:0|max:1',
         ]);
 
-        $str=rand();
+        // Generate Passwd
+        $str = rand();
 
         // Encrypt password
         $attributes['password'] = bcrypt($str);
@@ -33,22 +42,44 @@ class RegisterController extends Controller
         // Create username from email
         $prefix = substr($attributes['email'], 0, strrpos($attributes['email'], '@'));
 
-        $username = array('username'=>$prefix);
+        $username = array('username' => $prefix);
 
         $attributes = array_merge($attributes, $username);
 
         // Insert in BD
         $user = User::create($attributes);
 
-        // Login the user (testing only)
-        //auth()->login($user);
-
         // Success Message
         session()->flash('success', 'A new account has been created');
 
+        // Email credentials to user
         Mail::to($attributes['email'])->queue(new NewAccount($str));
 
-        // Redirect
-        return redirect('/admin/dashboard');
+        // Redirect to discipline association/assignment page
+        if ($user->type == 0) {
+            // Student
+            return redirect('/admin/users/' . $user->id);
+        } else {
+            // Tutor
+            return redirect('/admin/tutors/' . $user->id);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Create Category
+    //------------------------------------------------------------------------------------------------------------------
+    public function createDisc()
+    {
+        // Validate request atributes
+        $attributes = request()->validate([
+            'name' => ['required', 'max:255', 'min:3'],
+            'slug' => 'required|max:255|unique:categories,slug',
+            'grade' => 'max:255|min:1',
+        ]);
+
+        // Insert in BD
+        Category::create($attributes);
+
+        return redirect('/admin/disciplines')->with('success', 'Discipline Created Successfully');
     }
 }

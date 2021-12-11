@@ -38,21 +38,24 @@
                 <label for="slug" class="form-label">Slug:</label>
                 <input type="text" id="slug" name="slug">
             </div>
-
-            <!-- excerpt Field -->
-            <div class="mb-3">
-
-                <label for="excerpt" class="form-label">Excerpt:</label>
-                <input type="text" id="excerpt" name="excerpt">
-            </div>
+            <!-- Registration Field -->
+            <label for="selectDisc"> Aluno: </label>
+                        <select class="form-select mb-2" id="registration_id" name="registration_id">
+                            <option selected>Choose an option</option>
+                                <?php foreach ($alunos as $aluno) : ?>
+                                    <option id="registration_id" name="registration_id" value="{{$aluno->id}}">{{$aluno->name}}</option>
+                                <?php endforeach; ?>
+                        </select>
 
             <!-- Category Field -->
-            <div class="mb-3">
+                    <label for="selectDisc"> Discipline: </label>
+                        <select class="form-select mb-2" id="category_id" name="category_id">
+                            <option selected>Choose an option</option>
+                                <?php foreach ($categories as $category) : ?>
+                                    <option id="category_id" name="category_id" value="{{$category->id}}"> {{$category->name}}</option>
+                                <?php endforeach; ?>
+                        </select>
 
-                <label for="category_id" class="form-label">Category:</label>
-                <input type="text" id="category_id" name="category_id">
-            </div>
-           
             <!-- file -->
             <div class="mb-3">
 

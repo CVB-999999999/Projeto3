@@ -63,80 +63,16 @@
         </div>
         <div class="container">
             <div class="row mx-auto">
-                <div class="col-sm-4 p-3">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img src="/images/professor.jpg" class="card-img-top" alt="img4">
-                        <div class="card-body">
-                            <h5 class="card-title">André Palma</h5>
-                            <p class="card-text">Professor of mathematics with great experience in tutoring.PhD in Maths
-                                for
-                                Oxford in the year 1981.</p>
-                            <a href="#" class="btn btn-primary">See profile</a>
+                @foreach($users as $user)
+                    <div class="col-sm-4 p-3">
+                        <div class="card mx-auto" style="width: 18rem;">
+                            <img src="/images/professor.jpg" class="card-img-top" alt="img4">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{ $user->name }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4 p-3">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img src="/images/professor.jpg" class="card-img-top" alt="img4">
-                        <div class="card-body">
-                            <h5 class="card-title">André Palma</h5>
-                            <p class="card-text">Professor of mathematics with great experience in tutoring.PhD in Maths
-                                for
-                                Oxford in the year 1981.</p>
-                            <a href="#" class="btn btn-primary">See profile</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 p-3">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img src="/images/professor.jpg" class="card-img-top" alt="img4">
-                        <div class="card-body">
-                            <h5 class="card-title">André Palma</h5>
-                            <p class="card-text">Professor of mathematics with great experience in tutoring.PhD in Maths
-                                for
-                                Oxford in the year 1981.</p>
-                            <a href="#" class="btn btn-primary">See profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mx-auto">
-                <div class="col-sm-4 p-3">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img src="/images/professor.jpg" class="card-img-top" alt="img4">
-                        <div class="card-body">
-                            <h5 class="card-title">André Palma</h5>
-                            <p class="card-text">Professor of mathematics with great experience in tutoring.PhD in Maths
-                                for
-                                Oxford in the year 1981.</p>
-                            <a href="#" class="btn btn-primary">See profile</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 p-3">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img src="/images/professor.jpg" class="card-img-top" alt="img4">
-                        <div class="card-body">
-                            <h5 class="card-title">André Palma</h5>
-                            <p class="card-text">Professor of mathematics with great experience in tutoring.PhD in Maths
-                                for
-                                Oxford in the year 1981.</p>
-                            <a href="#" class="btn btn-primary">See profile</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 p-3">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        <img src="/images/professor.jpg" class="card-img-top" alt="img4">
-                        <div class="card-body">
-                            <h5 class="card-title">André Palma</h5>
-                            <p class="card-text">Professor of mathematics with great experience in tutoring.PhD in Maths
-                                for
-                                Oxford in the year 1981.</p>
-                            <a href="#" class="btn btn-primary">See profile</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

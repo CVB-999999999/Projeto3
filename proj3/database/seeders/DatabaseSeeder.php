@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tutor;
+use App\Models\Registration;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
@@ -18,10 +18,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        User::truncate();
-        Post::truncate();
-        Category::truncate();
-        Tutor::truncate();
+//        Because of foreign keys this can't be used
+//        Registration::truncate();
+//        User::truncate();
+//        Post::truncate();
+//        Category::truncate();
 
         $user = User::factory()->create([
             'name' => 'Paulo',

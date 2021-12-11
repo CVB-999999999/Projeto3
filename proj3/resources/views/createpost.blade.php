@@ -43,7 +43,7 @@
                         <select class="form-select mb-2" id="registration_id" name="registration_id">
                             <option selected>Choose an option</option>
                                 <?php foreach ($alunos as $aluno) : ?>
-                                    <option id="registration_id" name="registration_id" value="">{{$aluno->name}}</option>
+                                    <option id="registration_id" name="registration_id" value="{{$aluno->id}}">{{$aluno->name}}</option>
                                 <?php endforeach; ?>
                         </select>
 

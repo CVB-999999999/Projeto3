@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ListController extends Controller
@@ -169,5 +170,41 @@ class ListController extends Controller
         } else {
             return redirect('/')->with('error', 'An error ocurred');
         }
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // List all students assigned to a tutor
+    // -----------------------------------------------------------------------------------------------------------------
+    public function tutorAsgList()
+    {
+        // Get all users assigned to this tutor that are active
+        $users = DB::table('registrations')
+            ->join('categories', 'registrations.categoryId', '=', 'categories.id')
+            ->join('users', 'registrations.userId', '=', 'users.id')
+            ->where('registrations.tutorId', '=', Auth()->id())
+            ->where('registrations.active', '=', '1')
+            ->orderByDesc('registrations.updated_at');
+
+        // Search stuff
+        if (request('search')) {
+            $users->where('users.name', 'like', '%' . request('search') . '%');
+            $users->orWhere('categories.name', 'like', '%' . request('search') . '%');
+        }
+
+        // catgNames -> because in DB 2 rows in different table have the same name only one goes in the query output
+        // this gives the discipline name
+
+        return view('tutor.dash', [
+            'users' => $users->paginate(15),
+            'catgNames' => $users->select('categories.name')->get()
+        ]);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // List assigment info
+    // -----------------------------------------------------------------------------------------------------------------
+    public function tutorAssigment($regId)
+    {
+        ddd($regId);
     }
 }

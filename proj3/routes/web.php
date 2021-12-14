@@ -130,3 +130,9 @@ Route::get('/admin/create/discipline', function () {
     return view('admin.addCatg');
 })->middleware('role:2');
 Route::post('/admin/create/discipline', [RegisterController::class, 'createDisc'])->middleware('role:2');
+
+// Tutor Dashboard
+Route::get('/tutor/dashboard', [ListController::class, 'tutorAsgList'])->middleware('role:1');
+
+// View students assigned to a tutor
+Route::get('/tutor/assignment/{registration:id}', [ListController::class, 'tutorAssigment']);

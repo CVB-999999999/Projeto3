@@ -40,10 +40,10 @@
             </div>
             <!-- Registration Field -->
             <label for="selectDisc"> Aluno: </label>
-                        <select class="form-select mb-2" id="registration_id" name="registration_id">
+                        <select class="form-select mb-2" id="aluno_id" name="aluno_id">
                             <option selected>Choose an option</option>
                                 <?php foreach ($alunos as $aluno) : ?>
-                                    <option id="registration_id" name="registration_id" value="{{$aluno->id}}">{{$aluno->name}}</option>
+                                    <option id="aluno_id" name="aluno_id" value="{{$aluno->id}}">{{$aluno->id}} {{$aluno->name}}</option>
                                 <?php endforeach; ?>
                         </select>
 

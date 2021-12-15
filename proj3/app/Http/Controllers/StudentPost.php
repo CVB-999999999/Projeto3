@@ -19,7 +19,7 @@ class StudentPost extends Controller
         $query = DB::table('registrations')
             ->join('posts', 'registrations.id', '=', 'posts.registration_id')
             ->where('userId', '=', $userId/* alterar para userId np futuro */)
-            ->select('registrations.id');
+            ->select('posts.id');
         
         $posts = Post::whereIn('id', $query)
             ->get();

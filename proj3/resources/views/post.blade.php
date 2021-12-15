@@ -8,6 +8,17 @@
             <div>
                 <?= $post->body; ?>
             </div>
-        </article>
+            </article>
+            <form method="POST" action="/changepost/{{ $post->slug }}" style="max-width: 300px; margin:auto;" enctype="multipart/form-data">
+                @csrf
+                <!-- file -->
+                <div class="mb-3">
+                    <label for="arquivo_aluno" class="form-label">Arquivo:</label>
+                    <input type="file" id="arquivo_aluno" name="arquivo_aluno">
+                </div> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            Your submission:<a href="/download/{{ $post->arquivo_aluno }}">Download</a>
+            <br>
         <a href="/userposts">Go Back</a>
 </x-layout>

@@ -98,6 +98,7 @@ Route::get('/authors/{author:username}', function (User $author) {
 Route::get('/createpost', [CreatePost::class, 'create']);
 Route::post('/createpost', [CreatePost::class, 'store']);
 Route::get('/download/arquivos/{id}', [CreatePost::class, 'download']);
+Route::post('/changepost/{slug}', [EditController::class,'editPost']);
 // List all students
 Route::get('/admin/users', [ListController::class, 'userList'])->middleware('role:2');
 // List all tutors

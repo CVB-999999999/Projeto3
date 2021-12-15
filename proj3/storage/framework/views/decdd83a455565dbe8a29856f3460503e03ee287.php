@@ -13,7 +13,18 @@
             <div>
                 <?= $post->body; ?>
             </div>
-        </article>
+            </article>
+            <form method="POST" action="/changepost/<?php echo e($post->slug); ?>" style="max-width: 300px; margin:auto;" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
+                <!-- file -->
+                <div class="mb-3">
+                    <label for="arquivo_aluno" class="form-label">Arquivo:</label>
+                    <input type="file" id="arquivo_aluno" name="arquivo_aluno">
+                </div> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            Your submission:<a href="/download/<?php echo e($post->arquivo_aluno); ?>">Download</a>
+            <br>
         <a href="/userposts">Go Back</a>
  <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>

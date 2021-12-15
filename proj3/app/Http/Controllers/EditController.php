@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\AdminForceResetPasswd;
+use App\Models\User;
 use App\Mail\ResetPassword;
 use App\Mail\StatusToggle;
 use Illuminate\Http\Request;
@@ -175,5 +176,14 @@ class EditController extends Controller
 
         // Return operation status
         return back()->with(['success' => 'Discipline association Status Changed Successfully']);
+    }
+    public function editPost($slug)
+    {   
+        $attributes['arquivo_aluno'] = request()->file('arquivo_aluno')->store('arquivos');
+        DB::table('posts')
+            ->where('slug', $slug)
+            ->update(['arquivo_aluno' => $attributes['arquivo_aluno'], 'updated_at' => now()]);
+        
+        return redirect ('/userposts');
     }
 }

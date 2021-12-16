@@ -29,8 +29,9 @@
                         <div class="card m-1 p-0">
                             <div class="card-body">
                                 <p><h4> Student Name: {{ $user->name }}</h4></p>
+                                <p> Email: {{ $user->email }}</p>
                                 <p> Discipline: {{ $catgNames[$key]->name }} </p>
-                                <a href="#" class="btn btn-dark stretched-link">View</a>
+                                <a href="/tutor/assignment/{{ $regIds[$key]->id }}" class="btn btn-dark stretched-link">View</a>
                             </div>
                         </div>
                     </div>

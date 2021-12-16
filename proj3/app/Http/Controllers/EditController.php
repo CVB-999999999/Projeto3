@@ -177,13 +177,23 @@ class EditController extends Controller
         // Return operation status
         return back()->with(['success' => 'Discipline association Status Changed Successfully']);
     }
-    public function editPost($slug)
-    {   
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Student upload file
+    // -----------------------------------------------------------------------------------------------------------------
+    public function editPost()
+    {
+        $attributes = request()->validate([
+            'slug' => 'required',
+            'arquivo_aluno' => 'required'
+        ]);
+
         $attributes['arquivo_aluno'] = request()->file('arquivo_aluno')->store('arquivos');
+
         DB::table('posts')
-            ->where('slug', $slug)
-            ->update(['arquivo_aluno' => $attributes['arquivo_aluno'], 'updated_at' => now()]);
-        
-        return redirect ('/userposts');
+            ->where('slug', $attributes['slug'])
+            ->update(['arquivo_aluno' => $attributes['arquivo_aluno'], 'updated_at' => now(), 'submited_date' => now()]);
+
+        return back()->with('success', 'File Submitted Successfully');
     }
 }

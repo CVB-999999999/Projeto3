@@ -48,10 +48,14 @@ class DatabaseSeeder extends Seeder
             'type' => 2
         ]);
 
-        Post::factory(5)->create([
-            'user_id' => $user->id
-        ]);
+        Category::factory(3)->create();
 
-        Post::factory(5)->create();
+        Registration::factory()->create();
+
+        Post::factory(5)->create([
+            'registration_id' => 1,
+            'submit_date' => now(),
+            'fileName' => 'test.pdf'
+        ]);
     }
 }

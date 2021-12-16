@@ -1,11 +1,11 @@
 <?php
 if (Auth::user() != null) {
-    if(Auth::user()->type == 1) { //  Tutor dashboard
+    if(Auth::user()->type == 1) {       //  Tutor dashboard
         $href = '/tutor/dashboard';
     } if (Auth::user()->type == 2) {    //  Admin Dashboard
         $href = '/admin/dashboard';
-    } if (Auth::user()->type == 0) {    //  User dashboard
-        $href = '/userposts';
+    } if (Auth::user()->type == 0) {    //  Student dashboard
+        $href = '/dashboard';
     }
 } else {
     $href = '/';

@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="" />
+    <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/StudentPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/StudentPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/factories/PostFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2021_11_04_215124_create_posts_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/createpost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createpost.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/dash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/dash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,6 +197,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/proj3/resources/views/tutor" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/mail" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/admin" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/sessions" />
@@ -226,6 +246,11 @@
       <workItem from="1639142186562" duration="1582000" />
       <workItem from="1639220169210" duration="599000" />
       <workItem from="1639500374630" duration="4998000" />
+      <workItem from="1639580588918" duration="747000" />
+      <workItem from="1639583004859" duration="14652000" />
+      <workItem from="1639604314230" duration="3301000" />
+      <workItem from="1639653163938" duration="4570000" />
+      <workItem from="1639666063951" duration="4245000" />
     </task>
     <servers />
   </component>

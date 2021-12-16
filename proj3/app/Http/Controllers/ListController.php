@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -196,7 +197,8 @@ class ListController extends Controller
 
         return view('tutor.dash', [
             'users' => $users->paginate(15),
-            'catgNames' => $users->select('categories.name')->get()
+            'catgNames' => $users->select('categories.name')->get(),
+            'regIds' => $users->select('categories.id')->get()
         ]);
     }
 
@@ -205,6 +207,18 @@ class ListController extends Controller
     // -----------------------------------------------------------------------------------------------------------------
     public function tutorAssigment($regId)
     {
-        ddd($regId);
+        $query = DB::table('registrations')
+            ->join('posts', 'registrations.id', '=', 'posts.registration_id')
+            ->where('registrations.id', '=', $regId)
+            ->select('posts.id');
+
+        // Get all posts
+        $posts = Post::whereIn('id', $query)
+            ->orderByDesc('updated_at')
+            ->paginate();
+
+        $stdId = $query->select('userId')->first();
+
+        return view('tutor.tPosts', ['posts' => $posts, 'reg' => $regId, 'stdId' => $stdId]);
     }
 }

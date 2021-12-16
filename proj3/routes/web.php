@@ -25,13 +25,17 @@ use App\Http\Controllers\StudentPost;
 |
 */
 
-// Static Pages
+// index
 Route::get('/', function () {
     return view('index');
 });
+
+// contact us page
 Route::get('/contactus', function () {
     return view('contactus');
 });
+
+// about us page
 Route::get('/aboutus', function () {
     $users = User::where('type', 1)
         ->where('active', true)
@@ -39,6 +43,8 @@ Route::get('/aboutus', function () {
 
     return view('aboutUs', ['users' => $users]);
 });
+
+// admin dash
 Route::get('/admin/dashboard', function () {
     return view('admin.adminDash');
 })->middleware('role:2');
@@ -76,29 +82,38 @@ Route::post('/change-password', [SessionsController::class, 'UpdatePassword'])->
 Route::post('/admin-change-password', [SessionsController::class, 'resetPasswdAdmin'])->middleware('auth');
 
 // Load All User Related Posts
-/*Route::get('/userposts', function () {
-    $posts = Post::latest()->with('category', 'author')->get();
-    return view('userposts', ['posts' => $posts, 'categories' => Category::all()]);
-})->middleware('auth');
-*/
-Route::get('/userposts', [StudentPost::class, 'list']);
-// Fetch a Post
+//Route::get('/userposts', function () {
+//    $posts = Post::latest()->with('category', 'author')->get();
+//    return view('userposts', ['posts' => $posts, 'categories' => Category::all()]);
+//})->middleware('auth');
+
+// User dashboard
+Route::get('/dashboard', [StudentPost::class, 'list']);
+
+// View a post
 Route::get('/post/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 });
 
-// Fetch all posts based on a category
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('userposts', ['posts' => $category->posts->load(['category', 'author']), 'currentCategory' => $category, 'categories' => Category::all()]);
-});
+// Broken and not used
+// Fetch all posts based on a category Delete?
+//Route::get('/categories/{category:slug}', function (Category $category) {
+//    return view('userposts', ['posts' => $category->posts->load(['category', 'author']), 'currentCategory' => $category, 'categories' => Category::all()]);
+//});
 
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('userposts', ['posts' => $author->posts->load(['category', 'author']), 'categories' => Category::all()]);
-});
-Route::get('/createpost', [CreatePost::class, 'create']);
-Route::post('/createpost', [CreatePost::class, 'store']);
+//Route::get('/authors/{author:username}', function (User $author) {
+//    return view('userposts', ['posts' => $author->posts->load(['category', 'author']), 'categories' => Category::all()]);
+//});
+
+//Route::get('/createpost', [CreatePost::class, 'create']);
+//Route::post('/createpost', [CreatePost::class, 'store']);
+
+// Download Files
 Route::get('/download/arquivos/{id}', [CreatePost::class, 'download']);
-Route::post('/changepost/{slug}', [EditController::class,'editPost']);
+
+// Upload student file
+Route::post('/student/uploadfile', [EditController::class,'editPost']);
+
 // List all students
 Route::get('/admin/users', [ListController::class, 'userList'])->middleware('role:2');
 // List all tutors
@@ -139,3 +154,10 @@ Route::get('/tutor/dashboard', [ListController::class, 'tutorAsgList'])->middlew
 
 // View students assigned to a tutor
 Route::get('/tutor/assignment/{registration:id}', [ListController::class, 'tutorAssigment']);
+
+// tutor Create Post
+Route::post('/tutor/createpost', [CreatePost::class, 'createPost']);
+Route::post('/tutor/createpost/save', [CreatePost::class, 'storePost']);
+
+// Assign grade to student
+Route::post('/tutor/grade', [CreatePost::class, 'changeGrade']);

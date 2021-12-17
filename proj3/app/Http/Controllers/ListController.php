@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Registration;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -198,7 +199,8 @@ class ListController extends Controller
         return view('tutor.dash', [
             'users' => $users->paginate(15),
             'catgNames' => $users->select('categories.name')->get(),
-            'regIds' => $users->select('categories.id')->get()
+            'regIds' => $users->select('categories.id')->get(),
+            'registIds' => $users->select('registrations.id')->get()
         ]);
     }
 
@@ -217,7 +219,11 @@ class ListController extends Controller
             ->orderByDesc('updated_at')
             ->paginate();
 
-        $stdId = $query->select('userId')->first();
+//        $stdId = $query->select('userId')->first();
+
+        $stdId = Registration::where('id', $regId)
+            ->select('userId')
+            ->firstOrFail();
 
         return view('tutor.tPosts', ['posts' => $posts, 'reg' => $regId, 'stdId' => $stdId]);
     }

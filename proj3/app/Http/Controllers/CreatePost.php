@@ -73,6 +73,7 @@ class CreatePost extends Controller
     // -----------------------------------------------------------------------------------------------------------------
     public function storePost()
     {
+
         $attributes = request()->validate([
             'title' => 'required',
             'arquivo' => 'required',
@@ -85,7 +86,7 @@ class CreatePost extends Controller
         $reg = Registration::where('id', $attributes['registration_id'])->firstOrFail();
 
         if ($reg->tutorId != auth()->id()) {
-            return back()->with('error', 'An error occurred');
+            return redirect('/dashboard')->with('error', 'An error occurred');
         }
 
         $attributes['arquivo'] = request()->file('arquivo')->store('arquivos');

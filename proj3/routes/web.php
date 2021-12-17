@@ -95,8 +95,8 @@ Route::get('/post/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 })->middleware('role:0');
 
-// Broken and not used
-// Fetch all posts based on a category Delete?
+// Broken and/or not used
+// Fetch all posts based on a category
 //Route::get('/categories/{category:slug}', function (Category $category) {
 //    return view('userposts', ['posts' => $category->posts->load(['category', 'author']), 'currentCategory' => $category, 'categories' => Category::all()]);
 //});

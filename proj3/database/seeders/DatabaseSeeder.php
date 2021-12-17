@@ -55,7 +55,8 @@ class DatabaseSeeder extends Seeder
         Post::factory(5)->create([
             'registration_id' => 1,
             'submit_date' => now(),
-            'fileName' => 'test.pdf'
+            'fileName' => 'test.pdf',
+            'arquivo' => 'arquivos/oIbyDAEf8jhKHevSSEaKHsRtBSUAlMKvHL3gU4D3.jpg'
         ]);
     }
 }

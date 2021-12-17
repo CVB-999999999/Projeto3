@@ -22,25 +22,25 @@
                 <!-- Title field -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Title:</label>
-                    <input type="text" class="form-control" id="title" name="title">
+                    <input type="text" class="form-control" id="title" name="title" required>
                 </div>
 
                 <!-- Due Date field -->
                 <div class="mb-3">
                     <label for="date" class="form-label">Due Date:</label>
-                    <input type="datetime-local" class="form-control" id="date" name="date">
+                    <input type="datetime-local" class="form-control" id="date" name="date" required>
                 </div>
 
                 <!-- file -->
                 <div class="mb-3">
                     <label for="arquivo" class="form-label">File:</label>
-                    <input class="form-control" type="file" id="arquivo" name="arquivo">
+                    <input class="form-control" type="file" id="arquivo" name="arquivo" required>
                 </div>
 
                 <!-- Description Field -->
                 <div class="mb-3">
                     <label for="body" class="form-label">Description:</label>
-                    <input type="text" class="form-control" id="body" name="body">
+                    <input type="text" class="form-control" id="body" name="body" required>
                 </div>
 
                 <!-- Submit -->

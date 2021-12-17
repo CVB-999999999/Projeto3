@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Middleware/EnsureUserHasRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Middleware/EnsureUserHasRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/dash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/dash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/contactus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/contactus.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +238,7 @@
       <workItem from="1639604314230" duration="3301000" />
       <workItem from="1639653163938" duration="4570000" />
       <workItem from="1639666063951" duration="4245000" />
-      <workItem from="1639736256788" duration="2655000" />
+      <workItem from="1639736256788" duration="4928000" />
     </task>
     <servers />
   </component>

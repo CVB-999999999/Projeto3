@@ -21,9 +21,9 @@
                         <form method="GET" action="#">
                             <div class="my-3 d-grid gap-2">
                                 @foreach($categories as $category)
-                                    <input type="checkbox" name="discipline" class="btn-check" id="ctgList"
+                                    <input type="checkbox" name="discipline" class="btn-check" id="ctgList{{ $category->id }}"
                                            value="{{ $category->name }}">
-                                    <label class="btn btn-dark" for="ctgList">{{ $category->name }}</label>
+                                    <label class="btn btn-dark" for="ctgList{{ $category->id }}">{{ $category->name }}</label>
                                 @endforeach
                             </div>
                             <button class="btn btn-secondary" type="submit">Select</button>

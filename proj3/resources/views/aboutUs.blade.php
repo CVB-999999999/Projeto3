@@ -9,7 +9,7 @@
     <x-slot name="content">
 
         <!-- Who are we-->
-        <div class="text-center" style="margin: 3%;">
+        <div class="text-center m-2">
             <h1 style="margin-bottom: 1%;"> Who are we?</h1>
             A Tutoring Company was created in 1999 to attend the demand of providing highly quality services at a
             competetive price in the tutoring world.
@@ -66,7 +66,7 @@
                 @foreach($users as $user)
                     <div class="col-sm-4 p-3">
                         <div class="card mx-auto" style="width: 18rem;">
-                            <img src="/images/professor.jpg" class="card-img-top" alt="img4">
+{{--                            <img src="/images/professor.jpg" class="card-img-top" alt="img4">--}}
                             <div class="card-body">
                                 <h5 class="card-title"> {{ $user->name }}</h5>
                             </div>

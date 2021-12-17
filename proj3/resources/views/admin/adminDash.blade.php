@@ -14,7 +14,6 @@
                 <h5> Time: <span id="time"></span> </h5>
             </div>
 
-            <!-- Students Stuff -->
             <div class="row">
                 <div class="col-sm-6 mt-3">
                     <div class="card">
@@ -34,7 +33,6 @@
                 </div>
             </div>
 
-            <!-- Tutor Stuff -->
             <div class="row">
                 <div class="col-sm-6 mt-3">
                     <div class="card">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\AdminForceResetPasswd;
 use App\Mail\ResetPassword;
 use App\Mail\UpdatedProfile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -41,6 +42,12 @@ class SessionsController extends Controller
             'email' => 'required|exists:users,email',
             'password' => 'required',
         ]);
+
+        if((User::where('email', $attributes['email'])
+            ->where('active', '=', '0')
+            ->first()) != null ) {
+            return back()->with('error', 'Your account has been disabled, please contact the admin');
+        }
 
         // Try to authenticate
         if (auth()->attempt($attributes)) {

@@ -9,14 +9,19 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','slug','excerpt','body','user_id','category_id','arquivo'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $guarded = [];
 
-    public function category(){
-        return $this->belongsTo(Category::class);
-    }
-
-    public function author(){
-        return $this->belongsTo(User::class, 'user_id');
-    }
+//    public function category(){
+//        return $this->belongsTo(Category::class);
+//    }
+//
+//    public function author(){
+//        return $this->belongsTo(User::class, 'user_id');
+//    }
 
 }

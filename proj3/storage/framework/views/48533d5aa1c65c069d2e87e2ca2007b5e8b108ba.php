@@ -76,7 +76,10 @@
                                     </p>
                                     <p class="card-text collapse multi-collapse" id=showMore> Grade: 00</p>
                                 </div>
-                                <a class="btn btn-primary btn-sm " href="#" role="button"> Submit </a>
+                                <div class="mb-3">
+                                    <label for="arquivo" class="form-label">Submit:</label>
+                                    <input type="file" id="arquivo_aluno" name="arquivo_aluno">
+                                </div> <br> <br>
                                 <a class="btn btn-primary btn-sm d-md-none" data-bs-toggle="collapse" href="#showMore"
                                    role="button" aria-expanded="false" aria-controls="showMore"> Show More</a>
                             </div>

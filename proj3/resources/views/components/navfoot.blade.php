@@ -15,6 +15,7 @@ if (Auth::user() != null) {
 ?>
 
 <body class="d-flex flex-column min-vh-100">
+
 <!-- Nav Bar -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <div class="container-fluid">

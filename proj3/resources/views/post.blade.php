@@ -8,38 +8,52 @@
 <x-navfoot>
     <x-slot name="content">
         <div class="container my-4">
-            <div class="card p-3">
+            <div class="card p-3 rounded-3 shadow">
                 <div class="card-title">
-                    <h1><a href="/dashboard"><i class="bi bi-arrow-left-circle-fill link-dark"></i></a>  {{$post->title}}</h1>
+                    {{-- Title--}}
+                    <h1><a href="/dashboard"><i class="bi bi-arrow-left-circle-fill link-dark"></i></a> {{$post->title}}
+                    </h1>
                 </div>
                 <div class="card-body">
-                    <p> {{ $post->body }}</p>
-                    <p> Tutor File:
-                        <a class="btn btn-dark btn-sm rounded"
-                           href="/download/{{ $post->arquivo }}">{{ $post->fileName }}</a>
-                    </p>
-                    <p> File Uploaded at: {{ $post->created_at }} | Due Date: {{ $post->submit_date }}</p>
-                    @if ($post->submited_date == null)
-                        <p> Submited at: n/a | Grade: n/a</p>
-                    @else
-                        <p> Submited at: {{ $post->submited_date }} | Grade: {{ $post->grade }}</p>
-                    @endif
-
-                    @if($post->arquivo_aluno != null)
-                        <p> Your File:
-                            <a class="btn btn-dark btn-sm rounded"
-                               href="/download/{{ $post->arquivo_aluno }}">Download</a>
+                    {{-- File Description--}}
+                    <div>
+                        <p> {{ $post->body }}</p>
+                    </div>
+                    {{-- Tutor file info--}}
+                    <div>
+                        <p>
+                            <a class="btn btn-primary btn-sm rounded" href="/download/{{ $post->arquivo }}"> Download <i
+                                    class="bi bi-download"></i></a>
+                            Tutor File: {{ $post->fileName }}
                         </p>
-                    @endif
+                        <p> File Uploaded at: {{ $post->created_at }} | Due Date: {{ $post->submit_date }}</p>
+                    </div>
+
+                    <div>
+                        @if ($post->submited_date == null)
+                            <p> Submited at: n/a | Grade: n/a</p>
+                        @else
+                            <p> Submited at: {{ $post->submited_date }} | Grade: {{ $post->grade }}</p>
+                        @endif
+
+                        @if($post->arquivo_aluno != null)
+                            <p>
+                                <a class="btn btn-primary btn-sm rounded"
+                                   href="/download/{{ $post->arquivo_aluno }}">Download <i
+                                        class="bi bi-download"></i></a>
+                                Your Submission
+                            </p>
+                        @endif
+                    </div>
 
                     <form method="POST" action="/student/uploadfile"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="arquivo_aluno" class="form-label">Upload your file:</label>
+                            <label for="arquivo_aluno" class="form-label">Upload a Submission:</label>
                             <input class="form-control" type="file" id="arquivo_aluno" name="arquivo_aluno">
                         </div>
-                        <button type="submit" class="btn btn-dark btn-sm">Upload</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Upload</button>
                     </form>
                 </div>
             </div>

@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Projeto3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/public/css/p3.css" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/css/p3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +34,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

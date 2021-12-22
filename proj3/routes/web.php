@@ -27,7 +27,11 @@ use App\Http\Controllers\StudentPost;
 
 // index
 Route::get('/', function () {
-    return view('index');
+    $ctgs = Category::where('active', 1)
+        ->orderBy('grade')
+        ->get();
+
+    return view('index', ['ctgs' => $ctgs]);
 });
 
 // contact us page

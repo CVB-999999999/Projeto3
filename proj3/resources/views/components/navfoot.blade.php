@@ -1,10 +1,12 @@
 <?php
 if (Auth::user() != null) {
-    if(Auth::user()->type == 1) {       //  Tutor dashboard
+    if (Auth::user()->type == 1) {       //  Tutor dashboard
         $href = '/tutor/dashboard';
-    } if (Auth::user()->type == 2) {    //  Admin Dashboard
+    }
+    if (Auth::user()->type == 2) {    //  Admin Dashboard
         $href = '/admin/dashboard';
-    } if (Auth::user()->type == 0) {    //  Student dashboard
+    }
+    if (Auth::user()->type == 0) {    //  Student dashboard
         $href = '/dashboard';
     }
 } else {
@@ -18,78 +20,129 @@ if (Auth::user() != null) {
     <div class="container-fluid">
         <!-- Logo -->
         @guest
-        <a class="navbar-brand" href="/">
-        @endguest
-        @auth
-        <a class="navbar-brand" href=" {{ $href }} ">
-        @endauth
-            <img src="/images/owl.svg" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
-            A tutoring Company
-        </a>
-        <!-- Collapse button when low width -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <!-- Nav bar buttons Left -->
-
-            <ul class="navbar-nav me-auto">
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contactus">Contact us</a>
-                    </li>
+            <a class="navbar-brand" href="/">
                 @endguest
-            </ul>
-
-            <!-- Login/Logout Button -->
-            @guest
-                <a href="login" type="button" class="btn btn-light rounded-pill" style="width:8rem"> Log in </a>
-            @endguest
-            @auth
-                <div class="dropdown navbar-nav">
-                    <button class="btn btn--outline-secondary nav-link rounded-3" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i>
+                @auth
+                    <a class="navbar-brand" href=" {{ $href }} ">
+                        @endauth
+                        <img src="/images/owl.svg" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
+                        A tutoring Company
+                    </a>
+                    <!-- Collapse button when low width -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end p-3 text-center dropdown-menu-dark"
-                        aria-labelledby="dropdownMenuButton1">
-                        <li><h5> {{ Auth::user()->email }} </h5></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="{{ $href }}">Go to Dashboard</a></li>
-                        <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
-                        <li>
-                            <form method="POST" action="/logout" class="dropdown-item">
-                                @csrf
-                                <button class="btn btn-dark rounded-pill mt-3" type="submit" style="width: 10rem"> Log
-                                    Out
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <!-- Nav bar buttons Left -->
+
+                        <ul class="navbar-nav me-auto">
+                            @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contactus">Contact us</a>
+                                </li>
+                            @endguest
+                        </ul>
+
+                        <!-- Login/Logout Button -->
+                        @guest
+                            <a href="login" type="button" class="btn btn-light rounded-pill" style="width:8rem"> Log
+                                in </a>
+                        @endguest
+                        @auth
+                            <div class="dropdown navbar-nav">
+                                <button class="btn btn--outline-secondary nav-link rounded-3" type="button"
+                                        id="dropdownMenuButton"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i>
                                 </button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            @endauth
-        </div>
+                                <ul class="dropdown-menu dropdown-menu-end p-3 text-center dropdown-menu-dark"
+                                    aria-labelledby="dropdownMenuButton1">
+                                    <li><h5> {{ Auth::user()->email }} </h5></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ $href }}">Go to Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
+                                    <li>
+                                        <form method="POST" action="/logout" class="dropdown-item">
+                                            @csrf
+                                            <button class="btn btn-dark rounded-pill mt-3" type="submit"
+                                                    style="width: 10rem"> Log
+                                                Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endauth
+                    </div>
     </div>
 </nav>
 
 {{--<!-- Success Message -->--}}
 @if (session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show"
-         style="margin: 0; padding: 0.5rem; vertical-align: center">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        <p><i class="bi bi-check-circle-fill"></i> {{ session('success') }} </p>
-    </div>
+    <script>
+        Swal.fire(
+            'Success!',
+            '{{ session('success') }}',
+            'success'
+        )
+    </script>
 @endif
 
 {{--<!-- Error Message -->--}}
 @if (session()->has('error'))
-    <div class="alert alert-danger alert-dismissible fade show"
-         style="margin: 0; padding: 0.5rem; vertical-align: center">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        <p><i class="bi bi-x-circle-fill"></i> {{ session('error') }} </p>
-    </div>
+    <script>
+        Swal.fire(
+            'An error occurred!',
+            '{{ session('error') }}',
+            'error'
+        )
+    </script>
+@endif
+
+{{--<!-- Login Message -->--}}
+@if (session()->has('login'))
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Logged in successfully'
+        })
+    </script>
+@endif
+
+{{--<!-- Logout Message -->--}}
+@if (session()->has('logout'))
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Logged out successfully'
+        })
+    </script>
 @endif
 
 <!-- Content -->
@@ -125,9 +178,11 @@ if (Auth::user() != null) {
         </div>
         <!-- Company name -->
         <div class="col-md-5 ps-5 mx-auto">
-            <img src="/images/owl.svg" style="width: 80px;">
-            A Tutoring Company
+            <a href="/" class="link-grey">
+                <img src="/images/owl.svg" style="width: 5rem;"> A Tutoring Company
+            </a>
         </div>
+
     </div>
 </footer>
 </body>

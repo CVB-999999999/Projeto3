@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/SessionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/adminDash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/adminDash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/navfoot.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

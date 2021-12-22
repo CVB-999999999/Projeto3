@@ -20,7 +20,7 @@ class SessionsController extends Controller
     {
         auth()->logout();
 
-        return redirect('/')->with('success', 'You have been logged out successfully');
+        return redirect('/')->with('logout', 'You have been logged out successfully');
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ class SessionsController extends Controller
         // Try to authenticate
         if (auth()->attempt($attributes)) {
             // Auth success
-            return redirect('/')->with('success', 'Welcome Back');
+            return redirect('/')->with('login', 'Welcome Back');
         }
 
         // Auth Failed

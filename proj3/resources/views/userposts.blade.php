@@ -47,13 +47,13 @@
                 <div class="card m-5">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
-                                <h5 class="card-title"><a href="/post/{{$post->slug}}">
-                                        {{$post->title}}</a></h5>
+                            <div class="col-md-8">
+                                <h4 class="card-title"><a href="/post/{{$post->slug}}" class="link-black">
+                                        {{$post->title}}</a></h4>
                                 <h6 class="card-subtitle my-1">
                                     By {{ $tutors[$key]->name }}  in {{ $catgs[$key]->name }}
                                 </h6>
-                                <a href="/download/{{ $post->arquivo }}">
+                                <a href="/download/{{ $post->arquivo }}" class="link-black">
                                     {{ $post->fileName }} <i class="bi bi-download"></i>
                                 </a>
                                 <div class="d-none d-md-block">
@@ -65,7 +65,7 @@
                                     <p class="card-text">{{$post->body}}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6 mt-3 text-end">
+                            <div class="col-md-4 mt-3 text-end">
                                 <p class="card-text"> Uploaded: {{ $post->created_at }}</p>
                                 <p class="card-text"> Submit Date: {{ $post->submit_date }}</p>
                                 {{--                                    Shows different things if user as not submitted anything--}}

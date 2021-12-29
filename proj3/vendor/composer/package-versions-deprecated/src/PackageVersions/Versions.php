@@ -108,6 +108,7 @@ final class Versions
   'symfony/var-dumper' => 'v5.3.10@875432adb5f5570fff21036fd22aee244636b7d1',
   'symfony/yaml' => 'v5.3.6@4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7',
   'tijsverkoyen/css-to-inline-styles' => '2.2.3@b43b05cf43c1b6d849478965062b6ef73e223bb5',
+  'twbs/bootstrap' => 'v5.1.3@1a6fdfae6be09b09eaced8f0e442ca6f7680a61e',
   'vlucas/phpdotenv' => 'v5.3.1@accaddf133651d4b5cf81a119f25296736ffc850',
   'voku/portable-ascii' => '1.5.6@80953678b19901e5165c56752d087fc11526017c',
   'webmozart/assert' => '1.10.0@6964c76c7804814a842473e0c8fd15bab0f18e25',
@@ -164,7 +165,7 @@ final class Versions
   'seld/phar-utils' => '1.1.2@749042a2315705d2dfbbc59234dd9ceb22bf3ff0',
   'symfony/filesystem' => 'v5.3.4@343f4fe324383ca46792cae728a3b6e2f708fb32',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'laravel/laravel' => 'dev-main@2cc971d3bf103562e6955cedd7adf7be6a20cdeb',
+  'laravel/laravel' => 'dev-main@0a01cb0bd51cae2a38dae98b52458acf18586505',
 );
 
     private function __construct()

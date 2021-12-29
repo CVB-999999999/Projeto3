@@ -127,6 +127,7 @@
       <path value="$PROJECT_DIR$/proj3/vendor/barryvdh/laravel-ide-helper" />
       <path value="$PROJECT_DIR$/proj3/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/proj3/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/proj3/vendor/twbs/bootstrap" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

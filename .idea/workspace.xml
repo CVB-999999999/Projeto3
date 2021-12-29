@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -33,6 +34,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -164,6 +168,7 @@
       <path value="$PROJECT_DIR$/proj3/vendor/barryvdh/laravel-ide-helper" />
       <path value="$PROJECT_DIR$/proj3/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/proj3/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/proj3/vendor/twbs/bootstrap" />
     </include_path>
   </component>
   <component name="ProjectId" id="20bJpr1Z3m5wL7TrBH6903VFHcq" />

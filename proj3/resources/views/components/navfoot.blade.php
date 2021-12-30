@@ -38,7 +38,7 @@ if (Auth::user() != null) {
 
                         <ul class="navbar-nav me-auto">
                             @guest
-                                <li class="nav-item">
+                                <li class="nav-item mx-auto">
                                     <a class="nav-link" href="/contactus">Contact us</a>
                                 </li>
                             @endguest
@@ -46,8 +46,11 @@ if (Auth::user() != null) {
 
                         <!-- Login/Logout Button -->
                         @guest
-                            <a href="login" type="button" class="btn btn-light rounded-pill" style="width:8rem"> Log
-                                in </a>
+                            <div class="text-center text-sm-end">
+                                <a href="login" type="button" class="btn btn-light rounded-pill" style="width:8rem">
+                                    Log in
+                                </a>
+                            </div>
                         @endguest
                         @auth
                             <div class="dropdown navbar-nav">
@@ -68,8 +71,7 @@ if (Auth::user() != null) {
                                         <form method="POST" action="/logout" class="dropdown-item">
                                             @csrf
                                             <button class="btn btn-dark rounded-pill mt-3" type="submit"
-                                                    style="width: 10rem"> Log
-                                                Out
+                                                    style="width: 10rem"> Log Out
                                             </button>
                                         </form>
                                     </li>
@@ -77,6 +79,7 @@ if (Auth::user() != null) {
                             </div>
                         @endauth
                     </div>
+            </a>
     </div>
 </nav>
 

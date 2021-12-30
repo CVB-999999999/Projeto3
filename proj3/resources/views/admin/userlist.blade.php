@@ -35,8 +35,8 @@
                                 <p> Phone: {{ $user->phone }}</p>
                             </div>
                             <div class="col-lg-6 text-end">
-                                <p> Created on: {{ $user->created_at }} </p>
-                                <p> Last Updated: {{ $user->updated_at }} </p>
+                                <p> Created on: @php echo date("d/m/Y H:i", strtotime($user->created_at)); @endphp </p>
+                                <p> Last Updated: @php echo date("d/m/Y H:i", strtotime($user->updated_at)); @endphp </p>
                                 <p> Status:
                                     {{-- Convert Boolean to something easier to read --}}
                                     @php if($user->active == true) {

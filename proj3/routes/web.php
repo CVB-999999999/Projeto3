@@ -43,6 +43,8 @@ Route::get('/contactus', function () {
 Route::get('/aboutus', function () {
     $users = User::where('type', 1)
         ->where('active', true)
+        ->orderBy('created_at')
+        ->limit(24)
         ->get();
 
     return view('aboutUs', ['users' => $users]);

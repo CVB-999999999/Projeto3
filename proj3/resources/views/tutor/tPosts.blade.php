@@ -37,8 +37,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-3 text-end">
-                                    <p class="card-text"> Uploaded: {{ $post->created_at }}</p>
-                                    <p class="card-text"> Submit Date: {{ $post->submit_date }}</p>
+                                    <p class="card-text">
+                                        Uploaded: @php echo date("d/m/Y H:i", strtotime($post->created_at)); @endphp</p>
+                                    <p class="card-text"> Submit
+                                        Date: @php echo date("d/m/Y H:i", strtotime($post->submit_date)); @endphp</p>
                                     {{--                                    Shows different things if user as not submitted anything--}}
                                     @if ($post->submited_date == null)
                                         <p class="card-text d-none d-md-block"> Submited Date: n/a</p>
@@ -51,11 +53,12 @@
                                         </div>
                                     @else
                                         <p class="card-text d-none d-md-block"> Submited
-                                            Date: {{ $post->submited_date }}</p>
+                                            Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp</p>
                                         <p class="card-text d-none d-md-block"> Grade: {{ $post->grade }}</p>
                                         <div class="mb-3 text-end">
                                             <p class="card-text collapse multi-collapse" id=showMore>
-                                                Submited Date: {{ $post->submited_date }}
+                                                Submited
+                                                Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp
                                             </p>
                                             <p class="card-text collapse multi-collapse" id=showMore>
                                                 Grade: {{ $post->grade }}</p>

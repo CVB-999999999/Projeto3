@@ -13,9 +13,9 @@
 
         <div class="container">
             <!-- Search Field -->
-            <div class="m-4">
+            <div class="my-4">
                 <form method="GET" action="#">
-                    <div class="input-group m-3 mx-auto" style="max-width: 80vw">
+                    <div class="input-group mx-auto">
                         <input type="text" name="search" class="form-control"
                                placeholder="Input a name or discipline to start searching">
                         <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>

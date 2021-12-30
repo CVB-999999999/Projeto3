@@ -41,16 +41,26 @@ class SessionsController extends Controller
         $attributes = request()->validate([
             'email' => 'required|exists:users,email',
             'password' => 'required',
+            'remember' => 'boolean',
         ]);
 
+        // Verifies if the user has been disabled
         if((User::where('email', $attributes['email'])
             ->where('active', '=', '0')
             ->first()) != null ) {
             return back()->with('error', 'Your account has been disabled, please contact the admin');
         }
 
+        // Remember me
+        $remember = true;
+
+        // if the value has not been sent remember me turns to false
+        if(!array_key_exists('remember', $attributes)) {
+            $remember = false;
+        }
+
         // Try to authenticate
-        if (auth()->attempt($attributes)) {
+        if (Auth::attempt(['email' => $attributes['email'], 'password' => $attributes['password']], $remember)) {
             // Auth success
             return redirect('/')->with('login', 'Welcome Back');
         }

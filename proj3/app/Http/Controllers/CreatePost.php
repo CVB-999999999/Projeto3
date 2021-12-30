@@ -76,12 +76,12 @@ class CreatePost extends Controller
 
         $attributes = request()->validate([
             'title' => 'required',
-            'arquivo' => 'required',
+            'arquivo' => 'required|mimes:pdf,jpg,png,jpeg',
             'body' => 'required',
             'registration_id' => 'required',
             'date' => 'required|date'
         ]);
-
+        
         // Verify if ids are valid
         $reg = Registration::where('id', $attributes['registration_id'])->firstOrFail();
 

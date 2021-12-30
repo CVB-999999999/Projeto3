@@ -13,6 +13,7 @@
             <form class="mx-auto" method="POST" action="/tutor/createpost" style="max-width: 80vw; width: 25rem"
                   enctype="multipart/form-data">
             @csrf
+            
             <!-- Logo -->
                 <div class="mt-3 text-center">
                     <img src="/images/owl.svg" alt="Avatar Logo" class="rounded-pill" style="max-width: 20rem">

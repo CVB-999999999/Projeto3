@@ -76,7 +76,7 @@ class CreatePost extends Controller
 
         $attributes = request()->validate([
             'title' => 'required',
-            'arquivo' => 'required|mimes:pdf,jpg,png,jpeg',
+            'arquivo' => 'required|mimes:pdf,jpg,png,jpeg,zip',
             'body' => 'required',
             'registration_id' => 'required',
             'date' => 'required|date'

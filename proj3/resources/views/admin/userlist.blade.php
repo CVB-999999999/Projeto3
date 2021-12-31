@@ -65,13 +65,13 @@
                                     @endphp
                                     <a href="/admin/{{ $lk }}/{{ $user->id }}" type="button"
                                        class="list-group-item list-group-item-action">
-                                        Change Disciplines
+                                        <i class="bi bi-journal-text"></i> Change Disciplines
                                     </a>
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="list-group-item list-group-item-action"
                                             data-bs-toggle="modal" data-bs-target="#confirmModalPWD{{ $user->id }}">
-                                        Reset password
+                                        <i class="bi bi-shield-lock"></i> Reset password
                                     </button>
 
                                     <!-- Confirm Change Modal -->
@@ -114,7 +114,7 @@
                                     <!-- Toggle Account Status -->
                                     <button type="button" class="list-group-item list-group-item-action"
                                             data-bs-toggle="modal" data-bs-target="#confirmModal{{ $user->id }}">
-                                        Change account Status
+                                        <i class="bi bi-toggles"></i> Change account Status
                                     </button>
 
                                     <!-- Modal To Confirm User Status Toggle -->

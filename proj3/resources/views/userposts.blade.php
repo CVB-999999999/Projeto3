@@ -8,7 +8,8 @@
 <x-navfoot>
     <x-slot name="content">
         <div class="container">
-            <div class="mt-4 mx-4">
+            {{--            Category select dropdown--}}
+            <div class="mt-4 mx-md-4 mx-1">
                 <div class="d-flex justify-content-center align-self-center">
                     <a class="btn btn-dark" data-bs-toggle="collapse"
                        href="#category" role="button" aria-expanded="false" aria-controls="category">
@@ -34,11 +35,11 @@
                 </div>
             </div>
             <!-- Search Field -->
-            <div class="mx-5 mt-3">
+            <div class="mx-md-5 mx-1 mt-3">
                 <form method="GET" action="#">
-                    <div class="input-group m-3 mx-auto" style="max-width: 80vw">
+                    <div class="input-group m-3 mx-auto">
                         <input type="text" name="search" class="form-control"
-                               placeholder="Input a file name or title to start searching">
+                               placeholder="Input a file name or title to search">
                         <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
@@ -46,7 +47,7 @@
 
             @foreach ($posts as $key=>$post)
                 <div>
-                    <div class="card m-5">
+                    <div class="card m-md-5 m-1">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
@@ -76,14 +77,14 @@
                                     @if ($post->submited_date == null)
                                         <p class="card-text d-none d-md-block"> Submited Date: n/a</p>
                                         <p class="card-text d-none d-md-block"> Grade: n/a</p>
-                                        <div class="mb-3 text-end">
-                                            <p class="card-text collapse multi-collapse" id=showMore{{ $post->id }}>
-                                                Submited Date: n/a
-                                            </p>
-                                            <p class="card-text collapse multi-collapse" id=showMore{{ $post->id }}>
-                                                Grade: n/a
-                                            </p>
-                                        </div>
+                                        {{--                                        <div class="mb-3 text-end">--}}
+                                        {{--                                            <p class="card-text collapse multi-collapse" id=showMore{{ $post->id }}>--}}
+                                        {{--                                                Submited Date: n/a--}}
+                                        {{--                                            </p>--}}
+                                        {{--                                            <p class="card-text collapse multi-collapse" id=showMore{{ $post->id }}>--}}
+                                        {{--                                                Grade: n/a--}}
+                                        {{--                                            </p>--}}
+                                        {{--                                        </div>--}}
                                     @else
                                         <p class="card-text d-none d-md-block">
                                             Submited
@@ -104,7 +105,7 @@
                                     {{--                                Button to open modal--}}
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#modal{{ $post->id }}">
-                                        Submit
+                                        <i class="bi bi-upload"></i> Submit
                                     </button>
 
                                     {{--                                Modal to upload file--}}
@@ -113,8 +114,9 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="modal{{ $post->id }}Label">Submit
-                                                        File</h5>
+                                                    <h5 class="modal-title" id="modal{{ $post->id }}Label">
+                                                        Submit File
+                                                    </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                 </div>
@@ -129,18 +131,23 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">
-                                                            Cancel
+                                                            <i class="bi bi-x-lg"></i> Cancel
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="bi bi-upload"></i> Upload
+                                                        </button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {{--                                    Show more btn--}}
                                     <a class="btn btn-primary btn-sm d-md-none" data-bs-toggle="collapse"
                                        href="#showMore{{ $post->id }}" role="button" aria-expanded="false"
-                                       aria-controls="showMore{{ $post->id }}"> Show More</a>
+                                       aria-controls="showMore{{ $post->id }}">
+                                        <i class="bi bi-three-dots-vertical"></i> Show More
+                                    </a>
                                 </div>
                             </div>
                         </div>

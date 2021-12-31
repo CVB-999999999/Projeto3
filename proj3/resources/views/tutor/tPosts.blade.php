@@ -12,7 +12,7 @@
                 <form method="post" action="/tutor/createpost">
                     @csrf
                     <input type="hidden" name="id" value="{{$reg}}">
-                    <button class="btn btn-dark" type="submit"> Create new Post</button>
+                    <button class="btn btn-dark" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post</button>
                 </form>
                 <h4 class="border border-dark rounded p-1 mx-3"> Student Id: {{ $stdId->userId }}</h4>
             </div>
@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h5 class="card-title">{{$post->title}}</h5>
-                                    <a href="/download/{{ $post->arquivo }}">
+                                    <a href="/download/{{ $post->arquivo }}" class="link-black">
                                         {{ $post->fileName }} <i class="bi bi-download"></i>
                                     </a>
                                     <div class="d-none d-md-block">
@@ -68,9 +68,9 @@
                                     {{--                                    Only show this buttons if student as uploaded a answer--}}
                                     @if($post->arquivo_aluno != null)
                                         <a class="btn btn-dark btn-sm" href="/download/{{ $post->arquivo_aluno }}">
-                                            Download Answer</a>
+                                            <i class="bi bi-download"></i> Download Answer</a>
                                         <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="modal"
-                                                data-bs-target="#gradeModal{{ $post->id }}"> Grade
+                                                data-bs-target="#gradeModal{{ $post->id }}"><i class="bi bi-file-earmark-binary"></i> Grade
                                         </button>
 
                                         <!-- Modal -->
@@ -97,10 +97,10 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">
-                                                                Close
+                                                                <i class="bi bi-x-lg"></i> Close
                                                             </button>
                                                             <button type="submit" class="btn btn-primary">
-                                                                Save changes
+                                                                <i class="bi bi-check-lg"></i> Save changes
                                                             </button>
                                                         </div>
                                                     </form>

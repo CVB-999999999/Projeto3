@@ -156,7 +156,7 @@ if (Auth::user() != null) {
 <footer class="footer mt-auto p-3 bg-dark text-white">
     <div class="row">
         <!-- About us -->
-        <div class="col-md-3 ps-5">
+        <div class="col-sm-4 ps-5">
             <ul style="list-style-type: none;">
                 <li>
                     <h4>Company</h4>
@@ -171,7 +171,7 @@ if (Auth::user() != null) {
             </ul>
         </div>
         <!-- Social Media -->
-        <div class="col-md-4 ps-5">
+        <div class="col-sm-4 ps-5">
             <ul style="list-style-type: none;">
                 <li>
                     <h4>Social Media</h4>
@@ -181,7 +181,7 @@ if (Auth::user() != null) {
             </ul>
         </div>
         <!-- Company name -->
-        <div class="col-md-5 ps-5 mx-auto">
+        <div class="col-md-4 ps-5 mx-auto">
             <a href="/" class="link-grey">
                 <img src="/images/owl.svg" style="width: 5rem;"> A Tutoring Company
             </a>

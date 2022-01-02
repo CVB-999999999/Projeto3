@@ -12,7 +12,8 @@
                 <form method="post" action="/tutor/createpost">
                     @csrf
                     <input type="hidden" name="id" value="{{$reg}}">
-                    <button class="btn btn-dark" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post</button>
+                    <button class="btn btn-dark" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post
+                    </button>
                 </form>
                 <h4 class="border border-dark rounded p-1 mx-3"> Student Id: {{ $stdId->userId }}</h4>
             </div>
@@ -31,7 +32,7 @@
                                         <h5 class="card-text mt-3">Description</h5>
                                         <p class="card-text">{{$post->body}}</p>
                                     </div>
-                                    <div class="collapse multi-collapse" id=showMore>
+                                    <div class="collapse multi-collapse" id=showMore{{$post->id}}>
                                         <h5 class="card-text mt-3">Description</h5>
                                         <p class="card-text">{{$post->body}}</p>
                                     </div>
@@ -45,22 +46,22 @@
                                     @if ($post->submited_date == null)
                                         <p class="card-text d-none d-md-block"> Submited Date: n/a</p>
                                         <p class="card-text d-none d-md-block"> Grade: n/a</p>
-                                        <div class="mb-3 text-end">
-                                            <p class="card-text collapse multi-collapse" id=showMore>
-                                                Submited Date: n/a
-                                            </p>
-                                            <p class="card-text collapse multi-collapse" id=showMore> Grade: n/a</p>
-                                        </div>
+                                        {{--                                        <div class="mb-3 text-end">--}}
+                                        {{--                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>--}}
+                                        {{--                                                Submited Date: n/a--}}
+                                        {{--                                            </p>--}}
+                                        {{--                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}> Grade: n/a</p>--}}
+                                        {{--                                        </div>--}}
                                     @else
                                         <p class="card-text d-none d-md-block"> Submited
                                             Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp</p>
                                         <p class="card-text d-none d-md-block"> Grade: {{ $post->grade }}</p>
                                         <div class="mb-3 text-end">
-                                            <p class="card-text collapse multi-collapse" id=showMore>
+                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>
                                                 Submited
                                                 Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp
                                             </p>
-                                            <p class="card-text collapse multi-collapse" id=showMore>
+                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>
                                                 Grade: {{ $post->grade }}</p>
                                         </div>
                                     @endif
@@ -70,7 +71,8 @@
                                         <a class="btn btn-dark btn-sm" href="/download/{{ $post->arquivo_aluno }}">
                                             <i class="bi bi-download"></i> Download Answer</a>
                                         <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="modal"
-                                                data-bs-target="#gradeModal{{ $post->id }}"><i class="bi bi-file-earmark-binary"></i> Grade
+                                                data-bs-target="#gradeModal{{ $post->id }}"><i
+                                                class="bi bi-file-earmark-binary"></i> Grade
                                         </button>
 
                                         <!-- Modal -->
@@ -109,8 +111,12 @@
                                         </div>
                                     @endif
 
-                                    <a class="btn btn-dark btn-sm d-md-none" data-bs-toggle="collapse" href="#showMore"
-                                       role="button" aria-expanded="false" aria-controls="showMore"> Show More</a>
+                                    {{--                                    Show more btn--}}
+                                    <a class="btn btn-dark btn-sm d-md-none" data-bs-toggle="collapse"
+                                       href="#showMore{{$post->id}}"
+                                       role="button" aria-expanded="false" aria-controls="showMore">
+                                        <i class="bi bi-three-dots-vertical"></i> Show More
+                                    </a>
                                 </div>
                             </div>
                         </div>

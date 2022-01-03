@@ -11,14 +11,16 @@ class StdSub extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $disc;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($disc)
     {
-        //
+        $this->disc = $disc;
     }
 
     /**
@@ -28,6 +30,10 @@ class StdSub extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this
+            ->from('atc02012022@gmail.com', 'A Tutoring Company Admin')
+            ->view('mail.std-sub')
+            ->subject('Submission Uploaded');
     }
 }
+

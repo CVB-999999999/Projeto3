@@ -8,41 +8,41 @@
 <x-navfoot>
     <x-slot name="content">
         <div class="container">
-            {{--            Category select dropdown--}}
-            <div class="mt-4 mx-md-4 mx-1">
-                <div class="d-flex justify-content-center align-self-center">
-                    <a class="btn btn-dark" data-bs-toggle="collapse"
-                       href="#category" role="button" aria-expanded="false" aria-controls="category">
-                        Disciplines
-                    </a>
-                </div>
-                <div class="collapse" id="category">
-                    <div class="card card-body mx-auto text-center p-2 " style="width: 20rem">
-                        <a class="btn btn-dark" href="/dashboard">All</a>
-                        <form method="GET" action="#">
-                            <div class="my-3 d-grid gap-2">
-                                @foreach($categories as $category)
-                                    <input type="checkbox" name="discipline" class="btn-check"
-                                           id="ctgList{{ $category->id }}"
-                                           value="{{ $category->name }}">
-                                    <label class="btn btn-dark"
-                                           for="ctgList{{ $category->id }}">{{ $category->name }}</label>
-                                @endforeach
-                            </div>
-                            <button class="btn btn-secondary" type="submit">Select</button>
-                        </form>
+            <div>
+                {{--                 Search Field  --}}
+                <div class="mx-md-5 mx-1 mt-3">
+                    <form method="GET" action="#">
+                        <div class="input-group m-2 mx-auto">
+                            {{--                            Discipline select btn--}}
+                            <a class="btn btn-dark" data-bs-toggle="collapse"
+                               href="#category" role="button" aria-expanded="false" aria-controls="category">
+                                Disciplines
+                            </a>
+                            {{--                            Search bar--}}
+                            <input type="text" name="search" class="form-control"
+                                   placeholder="Search for file name or title">
+                            <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                    {{--                        Dropdown with the disciplines--}}
+                    <div class="collapse" id="category">
+                        <div class="card card-body text-center p-2 " style="max-width: 20rem">
+                            <a class="btn btn-dark" href="/dashboard">All</a>
+                            <form method="GET" action="#">
+                                <div class="my-3 d-grid gap-2">
+                                    @foreach($categories as $category)
+                                        <input type="checkbox" name="discipline" class="btn-check"
+                                               id="ctgList{{ $category->id }}"
+                                               value="{{ $category->name }}">
+                                        <label class="btn btn-dark"
+                                               for="ctgList{{ $category->id }}">{{ $category->name }}</label>
+                                    @endforeach
+                                </div>
+                                <button class="btn btn-secondary" type="submit">Select</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Search Field -->
-            <div class="mx-md-5 mx-1 mt-3">
-                <form method="GET" action="#">
-                    <div class="input-group m-3 mx-auto">
-                        <input type="text" name="search" class="form-control"
-                               placeholder="Input a file name or title to search">
-                        <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
-                    </div>
-                </form>
             </div>
 
             @foreach ($posts as $key=>$post)

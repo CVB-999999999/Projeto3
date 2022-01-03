@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Mail\AdminForceResetPasswd;
+use App\Mail\PostGraded;
+use App\Mail\StdSub;
+use App\Mail\StdSubTutor;
 use App\Mail\ToggleTutorCatgStatus;
 use App\Mail\ToggleUsrCatgStatus;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Registration;
 use App\Models\User;
 use App\Mail\ResetPassword;
@@ -219,6 +223,26 @@ class EditController extends Controller
         DB::table('posts')
             ->where('slug', $attributes['slug'])
             ->update(['arquivo_aluno' => $attributes['arquivo_aluno'], 'updated_at' => now(), 'submited_date' => now()]);
+
+        // Get registration id
+        $p = DB::table('posts')
+            ->where('slug', $attributes['slug'])
+            ->join('registrations', 'posts.registration_id', '=', 'registrations.id')
+            ->select('registrations.id')
+            ->first();
+
+        // Get ids from registration
+        $r = Registration::where('id', $p->id)->first();
+
+        // Get various data
+        $tutor = User::where('id', $r->tutorId)->first();
+        $std = User::where('id', $r->userId)->first();
+        $disc = Category::where('id', $r->categoryId)->first();
+
+        // Send the email std
+        Mail::to($std->email)->queue(new StdSub($disc->name));
+        // Send the email tutor
+        Mail::to($tutor->email)->queue(new StdSubTutor($disc->name, $std->name, $std->email));
 
         return back()->with('success', 'File Submitted Successfully');
     }

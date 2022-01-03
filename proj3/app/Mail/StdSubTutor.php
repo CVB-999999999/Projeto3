@@ -11,14 +11,20 @@ class StdSubTutor extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $disc;
+    public $stdName;
+    public $stdMail;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($disc, $stdName, $stdMail)
     {
-        //
+        $this->disc = $disc;
+        $this->stdName = $stdName;
+        $this->stdMail = $stdMail;
     }
 
     /**

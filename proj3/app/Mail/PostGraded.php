@@ -7,20 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewAccount extends Mailable
+class PostGraded extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $str;
+    public $title;
+    public $grade;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($str)
+    public function __construct($title, $grade)
     {
-        $this->str = $str;
+        $this->title = $title;
+        $this->grade = $grade;
     }
 
     /**
@@ -32,7 +34,7 @@ class NewAccount extends Mailable
     {
         return $this
             ->from('atc02012022@gmail.com', 'A Tutoring Company Admin')
-            ->view('mail.new-account')
-            ->subject('Welcome to ATC');
+            ->view('mail.post-graded')
+            ->subject('Post graded');
     }
 }

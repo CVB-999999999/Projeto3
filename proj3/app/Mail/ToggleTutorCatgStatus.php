@@ -7,20 +7,27 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewAccount extends Mailable
+class ToggleTutorCatgStatus extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $str;
+    public $name;
+    public $active;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($str)
+    public function __construct($name, $active)
     {
-        $this->str = $str;
+        $this->name = $name;
+
+        if ($active == true) {
+            $this->active = 're-enabled';
+        } else {
+            $this->active = 'disabled';
+        }
     }
 
     /**
@@ -32,7 +39,7 @@ class NewAccount extends Mailable
     {
         return $this
             ->from('atc02012022@gmail.com', 'A Tutoring Company Admin')
-            ->view('mail.new-account')
-            ->subject('Welcome to ATC');
+            ->view('mail.toggle-tutor-catg-status')
+            ->subject('Assigment in Discipline changed');
     }
 }

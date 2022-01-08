@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AssignDiscStd;
+use App\Mail\AssignDiscTutor;
+use App\Mail\PostGraded;
+use App\Mail\StdSubTutor;
 use App\Models\Category;
 use App\Models\Registration;
 use App\Models\Tutoring;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AssignController extends Controller
 {
@@ -99,6 +104,18 @@ class AssignController extends Controller
                 'tutorId' => $attributes['user'],
                 'categoryId' => $attributes['disc']
             ]);
+
+            // Get user email
+            $mail = User::where('id', $attributes['user'])
+                ->first();
+
+            // Get discipline name
+            $disc = Category::where('id', $attributes['disc'])
+                ->first();
+
+            // Send the email
+            Mail::to($mail->email)->queue(new AssignDiscTutor($disc->name));
+
             return redirect('/admin/tutors');
         } else {
             return back()->with(['error' => 'Discipline association has already been created']);
@@ -129,6 +146,22 @@ class AssignController extends Controller
                 'categoryId' => $attributes['disc'],
                 'userId' => $attributes['user']
             ]);
+
+            // Get user email
+            $mail = User::where('id', $attributes['user'])
+                ->first();
+
+            // Get discipline name
+            $disc = Category::where('id', $attributes['disc'])
+                ->first();
+
+            $tut = User::where('id', $attributes['tutor'])
+                ->first();
+
+            // Send the email
+            Mail::to($mail->email)->queue(new AssignDiscStd($disc->name, $tut->name));
+            Mail::to($tut->email)->queue(new AssignDiscStd($disc->name, $mail->name));
+
             return redirect('/admin/users');
         } else {
             return back()->with(['error' => 'Discipline association has already been created']);

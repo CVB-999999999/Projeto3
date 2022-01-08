@@ -7,20 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewAccount extends Mailable
+class StdSub extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $str;
+    public $disc;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($str)
+    public function __construct($disc)
     {
-        $this->str = $str;
+        $this->disc = $disc;
     }
 
     /**
@@ -32,7 +32,8 @@ class NewAccount extends Mailable
     {
         return $this
             ->from('atc02012022@gmail.com', 'A Tutoring Company Admin')
-            ->view('mail.new-account')
-            ->subject('Welcome to ATC');
+            ->view('mail.std-sub')
+            ->subject('Submission Uploaded');
     }
 }
+

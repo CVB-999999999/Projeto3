@@ -12,7 +12,8 @@
                 <form method="post" action="/tutor/createpost">
                     @csrf
                     <input type="hidden" name="id" value="{{$reg}}">
-                    <button class="btn btn-dark" type="submit"> Create new Post</button>
+                    <button class="btn btn-dark" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post
+                    </button>
                 </form>
                 <h4 class="border border-dark rounded p-1 mx-3"> Student Id: {{ $stdId->userId }}</h4>
             </div>
@@ -24,40 +25,43 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h5 class="card-title">{{$post->title}}</h5>
-                                    <a href="/download/{{ $post->arquivo }}">
+                                    <a href="/download/{{ $post->arquivo }}" class="link-black">
                                         {{ $post->fileName }} <i class="bi bi-download"></i>
                                     </a>
                                     <div class="d-none d-md-block">
                                         <h5 class="card-text mt-3">Description</h5>
                                         <p class="card-text">{{$post->body}}</p>
                                     </div>
-                                    <div class="collapse multi-collapse" id=showMore>
+                                    <div class="collapse multi-collapse" id=showMore{{$post->id}}>
                                         <h5 class="card-text mt-3">Description</h5>
                                         <p class="card-text">{{$post->body}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-3 text-end">
-                                    <p class="card-text"> Uploaded: {{ $post->created_at }}</p>
-                                    <p class="card-text"> Submit Date: {{ $post->submit_date }}</p>
+                                    <p class="card-text">
+                                        Uploaded: @php echo date("d/m/Y H:i", strtotime($post->created_at)); @endphp</p>
+                                    <p class="card-text"> Submit
+                                        Date: @php echo date("d/m/Y H:i", strtotime($post->submit_date)); @endphp</p>
                                     {{--                                    Shows different things if user as not submitted anything--}}
                                     @if ($post->submited_date == null)
                                         <p class="card-text d-none d-md-block"> Submited Date: n/a</p>
                                         <p class="card-text d-none d-md-block"> Grade: n/a</p>
-                                        <div class="mb-3 text-end">
-                                            <p class="card-text collapse multi-collapse" id=showMore>
-                                                Submited Date: n/a
-                                            </p>
-                                            <p class="card-text collapse multi-collapse" id=showMore> Grade: n/a</p>
-                                        </div>
+                                        {{--                                        <div class="mb-3 text-end">--}}
+                                        {{--                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>--}}
+                                        {{--                                                Submited Date: n/a--}}
+                                        {{--                                            </p>--}}
+                                        {{--                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}> Grade: n/a</p>--}}
+                                        {{--                                        </div>--}}
                                     @else
                                         <p class="card-text d-none d-md-block"> Submited
-                                            Date: {{ $post->submited_date }}</p>
+                                            Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp</p>
                                         <p class="card-text d-none d-md-block"> Grade: {{ $post->grade }}</p>
                                         <div class="mb-3 text-end">
-                                            <p class="card-text collapse multi-collapse" id=showMore>
-                                                Submited Date: {{ $post->submited_date }}
+                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>
+                                                Submited
+                                                Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp
                                             </p>
-                                            <p class="card-text collapse multi-collapse" id=showMore>
+                                            <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>
                                                 Grade: {{ $post->grade }}</p>
                                         </div>
                                     @endif
@@ -65,9 +69,10 @@
                                     {{--                                    Only show this buttons if student as uploaded a answer--}}
                                     @if($post->arquivo_aluno != null)
                                         <a class="btn btn-dark btn-sm" href="/download/{{ $post->arquivo_aluno }}">
-                                            Download Answer</a>
+                                            <i class="bi bi-download"></i> Download Answer</a>
                                         <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="modal"
-                                                data-bs-target="#gradeModal{{ $post->id }}"> Grade
+                                                data-bs-target="#gradeModal{{ $post->id }}"><i
+                                                class="bi bi-file-earmark-binary"></i> Grade
                                         </button>
 
                                         <!-- Modal -->
@@ -94,10 +99,10 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">
-                                                                Close
+                                                                <i class="bi bi-x-lg"></i> Close
                                                             </button>
                                                             <button type="submit" class="btn btn-primary">
-                                                                Save changes
+                                                                <i class="bi bi-check-lg"></i> Save changes
                                                             </button>
                                                         </div>
                                                     </form>
@@ -106,8 +111,12 @@
                                         </div>
                                     @endif
 
-                                    <a class="btn btn-dark btn-sm d-md-none" data-bs-toggle="collapse" href="#showMore"
-                                       role="button" aria-expanded="false" aria-controls="showMore"> Show More</a>
+                                    {{--                                    Show more btn--}}
+                                    <a class="btn btn-dark btn-sm d-md-none" data-bs-toggle="collapse"
+                                       href="#showMore{{$post->id}}"
+                                       role="button" aria-expanded="false" aria-controls="showMore">
+                                        <i class="bi bi-three-dots-vertical"></i> Show More
+                                    </a>
                                 </div>
                             </div>
                         </div>

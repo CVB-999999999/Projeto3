@@ -58,17 +58,20 @@
         </div>
 
         <!-- Tutors presentetion section -->
-        <div class="text-center p-5">
+        <div class="text-center px-5 pt-5">
             <h1> Our Tutors.</h1>
         </div>
         <div class="container">
-            <div class="row mx-auto">
+            <div class="row mx-auto g-4 p-2">
                 @foreach($users as $user)
-                    <div class="col-sm-4 p-3">
-                        <div class="card mx-auto" style="width: 18rem;">
+                    <div class="col-sm-3">
+                        <div class="card h-100 mx-auto">
 {{--                            <img src="/images/professor.jpg" class="card-img-top" alt="img4">--}}
                             <div class="card-body">
                                 <h5 class="card-title"> {{ $user->name }}</h5>
+                            </div>
+                            <div class="card-footer">
+                                <small> Joined in @php echo date("d/m/Y", strtotime($user->created_at)); @endphp</small>
                             </div>
                         </div>
                     </div>

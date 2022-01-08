@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewPost;
+use App\Mail\PostGraded;
+use App\Mail\ToggleTutorCatgStatus;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Registration;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Response;
 
 class CreatePost extends Controller
 {
     // -----------------------------------------------------------------------------------------------------------------
-    // Create a post but with all students listed
+    // Create a post but with all students listed (view) (old)
     // -----------------------------------------------------------------------------------------------------------------
     public function create()
     {
@@ -48,7 +52,7 @@ class CreatePost extends Controller
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    // Create a post for a student
+    // Create a post for a student (view)
     // -----------------------------------------------------------------------------------------------------------------
     public function createPost()
     {
@@ -73,7 +77,7 @@ class CreatePost extends Controller
     // -----------------------------------------------------------------------------------------------------------------
     public function storePost()
     {
-
+        //  Verify attributes
         $attributes = request()->validate([
             'title' => 'required',
             'arquivo' => 'required|mimes:pdf,jpg,png,jpeg,zip',
@@ -85,12 +89,15 @@ class CreatePost extends Controller
         // Verify if ids are valid
         $reg = Registration::where('id', $attributes['registration_id'])->firstOrFail();
 
+        // Verify if tutor = login user
         if ($reg->tutorId != auth()->id()) {
-            return redirect('/dashboard')->with('error', 'An error occurred');
+            return redirect('/tutor/dashboard')->with('error', 'An error occurred');
         }
 
+        // Save file and get path
         $attributes['arquivo'] = request()->file('arquivo')->store('arquivos');
 
+        // Save data
         Post::create([
             'title' => $attributes['title'],
             'arquivo' => $attributes['arquivo'],
@@ -101,12 +108,22 @@ class CreatePost extends Controller
             'fileName' => request()->file('arquivo')->getClientOriginalName()
         ]);
 
-        return redirect('/tutor/dashboard');
+        // Get user email
+        $mail = User::where('id', $reg->userId)
+            ->first();
 
+        // Get discipline name
+        $disc = Category::where('id', $reg->categoryId)
+            ->first();
+
+        // Send the email
+        Mail::to($mail->email)->queue(new NewPost($disc->name, $attributes['title'], date("d-m-Y H:i", strtotime($attributes['date']))));
+
+        return redirect('/tutor/dashboard');
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    // Store the data
+    // Store the data (old)
     // -----------------------------------------------------------------------------------------------------------------
     public function store()
     {
@@ -151,18 +168,32 @@ class CreatePost extends Controller
     // -----------------------------------------------------------------------------------------------------------------
     public function changeGrade()
     {
+        // verify attributes
         $attributes = request()->validate([
             'grade' => 'required',
             'id' => 'required'
         ]);
 
+        // Verify if grade is valid
         if ($attributes['grade'] < 0 || $attributes['grade'] > 20) {
             return back()->with('error', 'Grade can only be between 0 and 20');
         }
 
+        // Update grade
         $post = Post::find($attributes['id']);
         $post->grade = $attributes['grade'];
         $post->save();
+
+        // Get userId
+        $reg = Registration::where('id', $post->registration_id)
+            ->first();
+
+        // Get user email
+        $mail = User::where('id', $reg->userId)
+            ->first();
+
+        // Send the email
+        Mail::to($mail->email)->queue(new PostGraded($post->title, $attributes['grade']));
 
         return back()->with('success', 'Grade submitted successfully');
     }

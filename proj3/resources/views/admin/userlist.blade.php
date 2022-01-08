@@ -35,8 +35,8 @@
                                 <p> Phone: {{ $user->phone }}</p>
                             </div>
                             <div class="col-lg-6 text-end">
-                                <p> Created on: {{ $user->created_at }} </p>
-                                <p> Last Updated: {{ $user->updated_at }} </p>
+                                <p> Created on: @php echo date("d/m/Y H:i", strtotime($user->created_at)); @endphp </p>
+                                <p> Last Updated: @php echo date("d/m/Y H:i", strtotime($user->updated_at)); @endphp </p>
                                 <p> Status:
                                     {{-- Convert Boolean to something easier to read --}}
                                     @php if($user->active == true) {
@@ -65,13 +65,13 @@
                                     @endphp
                                     <a href="/admin/{{ $lk }}/{{ $user->id }}" type="button"
                                        class="list-group-item list-group-item-action">
-                                        Change Disciplines
+                                        <i class="bi bi-journal-text"></i> Change Disciplines
                                     </a>
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="list-group-item list-group-item-action"
                                             data-bs-toggle="modal" data-bs-target="#confirmModalPWD{{ $user->id }}">
-                                        Reset password
+                                        <i class="bi bi-shield-lock"></i> Reset password
                                     </button>
 
                                     <!-- Confirm Change Modal -->
@@ -114,7 +114,7 @@
                                     <!-- Toggle Account Status -->
                                     <button type="button" class="list-group-item list-group-item-action"
                                             data-bs-toggle="modal" data-bs-target="#confirmModal{{ $user->id }}">
-                                        Change account Status
+                                        <i class="bi bi-toggles"></i> Change account Status
                                     </button>
 
                                     <!-- Modal To Confirm User Status Toggle -->

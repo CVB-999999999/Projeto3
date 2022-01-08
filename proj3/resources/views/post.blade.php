@@ -26,14 +26,14 @@
                                     class="bi bi-download"></i></a>
                             Tutor File: {{ $post->fileName }}
                         </p>
-                        <p> File Uploaded at: {{ $post->created_at }} | Due Date: {{ $post->submit_date }}</p>
+                        <p> File Uploaded at: @php echo date("d/m/Y H:i", strtotime($post->created_at)); @endphp | Due Date: @php echo date("d/m/Y H:i", strtotime($post->submit_date)); @endphp</p>
                     </div>
 
                     <div>
                         @if ($post->submited_date == null)
                             <p> Submited at: n/a | Grade: n/a</p>
                         @else
-                            <p> Submited at: {{ $post->submited_date }} | Grade: {{ $post->grade }}</p>
+                            <p> Submited at: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp | Grade: {{ $post->grade }}</p>
                         @endif
 
                         @if($post->arquivo_aluno != null)

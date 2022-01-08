@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/components/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Mail/StdSub.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Mail/StdSub.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Mail/StdSubTutor.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Mail/StdSubTutor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/mail/std-sub-tutor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/mail/std-sub-tutor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/mail/std-sub.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/mail/std-sub.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,6 +246,12 @@
       <workItem from="1639666063951" duration="4245000" />
       <workItem from="1639736256788" duration="5194000" />
       <workItem from="1639746016202" duration="2136000" />
+      <workItem from="1640807373655" duration="268000" />
+      <workItem from="1640885174000" duration="8147000" />
+      <workItem from="1640893758053" duration="3959000" />
+      <workItem from="1640964722402" duration="4438000" />
+      <workItem from="1641146976211" duration="9515000" />
+      <workItem from="1641201912255" duration="5353000" />
     </task>
     <servers />
   </component>

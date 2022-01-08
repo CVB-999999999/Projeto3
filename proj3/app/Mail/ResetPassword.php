@@ -31,7 +31,7 @@ class ResetPassword extends Mailable
     public function build()
     {
         return $this
-            ->from('atc28112021@outlook.pt', 'A Tutoring Company Admin')
+            ->from('atc02012022@gmail.com', 'A Tutoring Company Admin')
             ->view('mail.forgotPasswd')
             ->subject('Password Reset');
     }

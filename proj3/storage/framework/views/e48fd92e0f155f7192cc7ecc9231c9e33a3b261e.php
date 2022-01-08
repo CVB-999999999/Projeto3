@@ -65,9 +65,43 @@
 
         <!-- More info -->
         <div class="text-center">
-            <a class="btn btn-dark rounded-pill" href="/contactus" style="width: 15rem; height: 3rem;">
-                <h5>More information</h5>
-            </a>
+        
+        
+        
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary py-2 px-4 rounded-pill" data-bs-toggle="modal"
+                    data-bs-target="#moreInfo">
+                <h5> Show all Disciplines </h5>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="moreInfo" tabindex="-1" aria-labelledby="moreInfoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="moreInfoLabel">All Disciplines</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <ul>
+                                <?php $__currentLoopData = $ctgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$ctg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($key != 0): ?>
+                                        <?php if($ctg->grade != $ctgs[$key-1]->grade): ?>
+                                            <p><h6><strong> Grade <?php echo e($ctg->grade); ?> </strong></h6></p>
+                                        <?php endif; ?>
+                                    <?php else: ?>
+                                        <p><h6><strong> Grade <?php echo e($ctg->grade); ?> </strong></h6></p>
+                                    <?php endif; ?>
+                                    <li> <?php echo e($ctg->name); ?> </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Why us -->

@@ -26,14 +26,16 @@
                                     class="bi bi-download"></i></a>
                             Tutor File: {{ $post->fileName }}
                         </p>
-                        <p> File Uploaded at: @php echo date("d/m/Y H:i", strtotime($post->created_at)); @endphp | Due Date: @php echo date("d/m/Y H:i", strtotime($post->submit_date)); @endphp</p>
+                        <p> File Uploaded at: @php echo date("d/m/Y H:i", strtotime($post->created_at)); @endphp | Due
+                            Date: @php echo date("d/m/Y H:i", strtotime($post->submit_date)); @endphp</p>
                     </div>
 
                     <div>
                         @if ($post->submited_date == null)
                             <p> Submited at: n/a | Grade: n/a</p>
                         @else
-                            <p> Submited at: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp | Grade: {{ $post->grade }}</p>
+                            <p> Submited at: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp |
+                                Grade: {{ $post->grade }}</p>
                         @endif
 
                         @if($post->arquivo_aluno != null)
@@ -53,7 +55,9 @@
                             <label for="arquivo_aluno" class="form-label">Upload a Submission:</label>
                             <input class="form-control" type="file" id="arquivo_aluno" name="arquivo_aluno">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Upload</button>
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="bi bi-upload"></i> Upload
+                        </button>
                     </form>
                 </div>
             </div>

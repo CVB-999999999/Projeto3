@@ -9,22 +9,17 @@
 <!-- Nav Bar and Footer component -->
 <x-navfoot>
     <x-slot name="content">
-
         <div class="container">
-            <div class="card border m-3 p-3 mx-auto">
-                <div class="row">
-                    <div class="d-none d-md-block col-md-6 p-2">
-                        <img src="/images/owl.svg" alt="ATC Logo">
-                        <h1 class="text-center" style="color: #b3b3b3"><strong> A Tutoring Company </strong></h1>
+            <div class="card m-md-5 p-md-5 p-3 m-1">
+                <form method="POST" action="/change-password" class="mb-5 mx-auto" style="width: 100%">
+                @csrf
+                <!-- Logo -->
+                    <div class="my-3 d-flex justify-content-center">
+                        <img src="/images/owl.svg" alt="Avatar Logo" class="rounded-pill" style="max-height: 4rem">
+                        <h1 class="text-center text-dark bold"> Create a Discipline</h1>
                     </div>
-                    <div class="col-md-6 p-md-5 p-3">
-                        <form method="POST" action="/change-password" class="mb-5 mx-auto" style="max-width: 300px">
-                        @csrf
-                        <!-- Logo -->
-                            <div class="mt-3">
-                                <h2 class="text-start text-dark bold pb-2"> Change Password </h2>
-
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
 
                             <!-- Old Password Field -->
                             <div class="mb-3">
@@ -50,13 +45,12 @@
                             </div>
 
                             <!-- Submit -->
-                            <div class="my-3 d-grid">
-                                <button type="submit" class="btn btn-primary py-2">Submit</button>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary px-5">Submit</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-
+                </form>
             </div>
         </div>
     </x-slot>

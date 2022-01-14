@@ -14,7 +14,7 @@
                     <form method="GET" action="#">
                         <div class="input-group m-2 mx-auto">
                             {{--                            Discipline select btn--}}
-                            <a class="btn btn-dark" data-bs-toggle="collapse"
+                            <a class="btn btn-primary" data-bs-toggle="collapse"
                                href="#category" role="button" aria-expanded="false" aria-controls="category">
                                 Disciplines
                             </a>
@@ -27,14 +27,14 @@
                     {{--                        Dropdown with the disciplines--}}
                     <div class="collapse" id="category">
                         <div class="card card-body text-center p-2 " style="max-width: 20rem">
-                            <a class="btn btn-dark" href="/dashboard">All</a>
+                            <a class="btn btn-primary" href="/dashboard">All</a>
                             <form method="GET" action="#">
                                 <div class="my-3 d-grid gap-2">
                                     @foreach($categories as $category)
                                         <input type="checkbox" name="discipline" class="btn-check"
                                                id="ctgList{{ $category->id }}"
                                                value="{{ $category->name }}">
-                                        <label class="btn btn-dark"
+                                        <label class="btn btn-primary"
                                                for="ctgList{{ $category->id }}">{{ $category->name }}</label>
                                     @endforeach
                                 </div>

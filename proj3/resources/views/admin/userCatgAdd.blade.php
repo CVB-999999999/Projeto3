@@ -24,7 +24,9 @@
                                 <option value=" {{ $disc->id }}"> {{ $disc->name }} </option>
                             @endforeach
                         </select>
-                        <button class="btn btn-dark" type="submit"> Next</button>
+                        <button class="btn btn-primary" type="submit">
+                            Next <i class="bi bi-caret-right-fill"></i>
+                        </button>
                     </form>
                     {{-- When discipline selected--}}
                 @else
@@ -47,8 +49,12 @@
                         <input type="hidden" value=" {{ $user->id }}" name="user">
                         <input type="hidden" value=" {{ $value->id }}" name="disc">
 
-                        <a class="btn btn-dark mt-3" href="/admin/users/{{ $user->id }}/assign"> Back</a>
-                        <button class="btn btn-dark mt-3" type="submit"> Submit</button>
+                        <a class="btn btn-primary mt-3" href="/admin/users/{{ $user->id }}/assign">
+                            <i class="bi bi-caret-left-fill"></i> Back
+                        </a>
+                        <button class="btn btn-primary mt-3" type="submit">
+                            <i class="bi bi-check-lg"></i> Submit
+                        </button>
                     </form>
                 @endif
             @else

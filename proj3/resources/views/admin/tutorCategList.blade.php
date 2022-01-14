@@ -22,7 +22,9 @@
                     <h1 class="text-center m-5"> This tutor does not have any discipline assigned</h1>
                 @endif
                 <div class="d-flex justify-content-center">
-                    <a href="/admin/tutors/{{ $users->id }}/assign" class="btn btn-dark btn-lg"> Assign discipline</a>
+                    <a href="/admin/tutors/{{ $users->id }}/assign" class="btn btn-primary btn-lg">
+                        <i class="bi bi-plus-circle"></i> Assign discipline
+                    </a>
                 </div>
 
                 @foreach($discs as $key=>$disc)
@@ -39,8 +41,9 @@
                                         echo ' Inactive';
                                     } @endphp
                             </p>
-                            <button class="btn btn-dark" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#confirmModal{{ $disc->id }}"> Toggle Status
+                            <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#confirmModal{{ $disc->id }}">
+                                <i class="bi bi-toggles"></i> Toggle Status
                             </button>
 
                             <!-- Modal To Confirm User Status Toggle -->

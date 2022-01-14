@@ -13,16 +13,20 @@
 
             <h1 class="text-center m-5">ATC Disciplines List</h1>
 
-            <div class="d-flex justify-content-center">
-                <a href="/admin/create/discipline" class="btn btn-secondary justify-center"> Add new Discipline</a>
-            </div>
+        {{--            <div class="d-flex justify-content-center">--}}
+        {{--                <a href="/admin/create/discipline" class="btn btn-secondary justify-center"> Add new Discipline</a>--}}
+        {{--            </div>--}}
 
-            <!-- Search Field -->
+        <!-- Search Field -->
             <div class="m-4">
                 <form method="GET" action="#">
                     <div class="input-group m-3 mx-auto" style="max-width: 80vw">
+                        <a href="/admin/create/discipline" class="btn btn-secondary">
+                            <i class="bi bi-plus-circle"></i>
+                            <span class="d-none d-sm-inline"> Add new Discipline </span>
+                        </a>
                         <input type="text" name="search" class="form-control"
-                               placeholder="Input a name, code or grade to start searching">
+                               placeholder="Search for name, code or grade">
                         <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
@@ -45,9 +49,9 @@
                         </p>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-dark btn-sm"
+                        <button type="button" class="btn btn-primary btn-sm"
                                 data-bs-toggle="modal" data-bs-target="#confirmModalPWD{{ $catg->id }}">
-                            Toggle Status
+                            <i class="bi bi-toggles"></i> Toggle Status
                         </button>
 
                         <!-- Confirm Change Modal -->

@@ -53,14 +53,35 @@ if (Auth::user() != null) {
                             </div>
                         @endguest
                         @auth
+                            {{-- Dropdown with info and btns to manage account --}}
                             <div class="dropdown navbar-nav">
-                                <button class="btn btn--outline-secondary nav-link rounded-3" type="button"
+                                <button class="btn btn--outline-secondary nav-link rounded-3 d-none d-sm-flex"
+                                        type="button"
                                         id="dropdownMenuButton"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }} <i class="bi bi-caret-down-fill"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end p-3 text-center dropdown-menu-dark"
                                     aria-labelledby="dropdownMenuButton1">
+                                    <li><h5> {{ Auth::user()->email }} </h5></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ $href }}">Go to Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
+                                    <li>
+                                        <form method="POST" action="/logout" class="dropdown-item">
+                                            @csrf
+                                            <button class="btn btn-dark rounded-pill mt-3" type="submit"
+                                                    style="width: 10rem"> Log Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            {{-- Dropdown when width low --}}
+                            <div class="d-sm-none d-flex">
+                                <ul class="p-3 text-center dropdown-menu-dark" style="width: 100%; list-style: none">
                                     <li><h5> {{ Auth::user()->email }} </h5></li>
                                     <li>
                                         <hr class="dropdown-divider">

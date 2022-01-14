@@ -26,7 +26,9 @@
                     </select>
                     <input type="hidden" value=" {{ $user->id }}" name="user">
 
-                    <button class="btn btn-dark mt-3" type="submit"> Submit</button>
+                    <button class="btn btn-primary mt-3" type="submit">
+                        <i class="bi bi-check-lg"></i> Submit
+                    </button>
                 </form>
             @else
                 <h5 class="text-center"> This Tutor is assigned to all currently available disciplines </h5>

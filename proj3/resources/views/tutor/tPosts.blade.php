@@ -12,10 +12,12 @@
                 <form method="post" action="/tutor/createpost">
                     @csrf
                     <input type="hidden" name="id" value="{{$reg}}">
-                    <button class="btn btn-dark" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post
+                    <button class="btn btn-primary" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post
                     </button>
                 </form>
-                <h4 class="border border-dark rounded p-1 mx-3"> Student Id: {{ $stdId->userId }}</h4>
+                <button class="btn btn-outline-primary disabled mx-1">
+                     Student Id: {{ $stdId->userId }}
+                </button>
             </div>
 
             @foreach ($posts as $post)
@@ -68,9 +70,9 @@
 
                                     {{--                                    Only show this buttons if student as uploaded a answer--}}
                                     @if($post->arquivo_aluno != null)
-                                        <a class="btn btn-dark btn-sm" href="/download/{{ $post->arquivo_aluno }}">
+                                        <a class="btn btn-primary btn-sm" href="/download/{{ $post->arquivo_aluno }}">
                                             <i class="bi bi-download"></i> Download Answer</a>
-                                        <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="modal"
+                                        <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal"
                                                 data-bs-target="#gradeModal{{ $post->id }}"><i
                                                 class="bi bi-file-earmark-binary"></i> Grade
                                         </button>
@@ -112,7 +114,7 @@
                                     @endif
 
                                     {{--                                    Show more btn--}}
-                                    <a class="btn btn-dark btn-sm d-md-none" data-bs-toggle="collapse"
+                                    <a class="btn btn-primary btn-sm d-md-none" data-bs-toggle="collapse"
                                        href="#showMore{{$post->id}}"
                                        role="button" aria-expanded="false" aria-controls="showMore">
                                         <i class="bi bi-three-dots-vertical"></i> Show More

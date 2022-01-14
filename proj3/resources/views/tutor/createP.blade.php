@@ -9,20 +9,21 @@
 <!-- Nav Bar and Footer component -->
 <x-navfoot>
     <x-slot name="content">
+
         <div class="container">
-            <div class="card border m-3 mx-auto">
-                <div class="row">
-                    <div class="col-md-6 p-lg-4 p-3 mx-auto">
-                        <form class="mx-auto" method="POST" action="/tutor/createpost/save"
-                              enctype="multipart/form-data">
-                        @csrf
-                        <!-- Logo -->
-                            <div class="text-center">
-                                <img src="/images/owl.svg" alt="Avatar Logo" class="rounded-pill"
-                                     style="max-width: 20rem">
-                                <h2 class="text-center text-dark bold"> Create Post for
-                                    Student {{ $student->name }} </h2>
-                            </div>
+            <div class="card m-md-5 p-md-5 p-3 m-1">
+                <form class="mx-auto" method="POST" action="/tutor/createpost/save"
+                      enctype="multipart/form-data" style="width: 100%">
+                @csrf
+                <!-- Logo -->
+                    <div class="mt-3 d-flex justify-content-center">
+                        <img src="/images/owl.svg" alt="Avatar Logo" class="rounded-pill" style="max-height: 4rem">
+                        <h1 class="text-center text-dark bold"> Create Post for
+                            Student {{ $student->name }}</h1>
+                    </div>
+                    <hr class="border border-primary">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
 
                             <!-- Title field -->
                             <div class="mb-3">
@@ -51,12 +52,16 @@
 
                             <!-- Submit -->
                             <input type="hidden" value="{{ $regId }}" name="registration_id">
-                            <a type="submit" href="/tutor/assignment/{{ $regId }}" class="btn btn-primary"> <i
-                                    class="bi bi-x-lg"></i> Cancel</a>
-                            <button type="submit" class="btn btn-primary"><i class="bi bi-upload"></i> Submit</button>
-                        </form>
+
+                            <div class="text-center">
+                                <a type="submit" href="/tutor/assignment/{{ $regId }}" class="btn btn-primary"> <i
+                                        class="bi bi-x-lg"></i> Cancel</a>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-upload"></i> Submit
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </x-slot>

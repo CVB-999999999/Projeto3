@@ -16,7 +16,7 @@
                 <!-- Logo -->
                     <div class="my-3 d-flex justify-content-center">
                         <img src="/images/owl.svg" alt="Avatar Logo" class="rounded-pill" style="max-height: 4rem">
-                        <h1 class="text-center text-dark bold"> Create a Discipline</h1>
+                        <h1 class="text-center text-dark bold"> Change Password </h1>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mx-auto">

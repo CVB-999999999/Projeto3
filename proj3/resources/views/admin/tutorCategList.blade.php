@@ -70,8 +70,8 @@
                                                     } else {
                                                         echo '<p> Current Status: Inactive </p>';
                                                         echo '<p><strong> New Status: Active </strong></p>';
-                                                    } @endphp
-
+                                                    }
+                                            @endphp
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"

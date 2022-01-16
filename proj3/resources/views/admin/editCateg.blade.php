@@ -13,10 +13,6 @@
 
             <h1 class="text-center m-5">ATC Disciplines List</h1>
 
-        {{--            <div class="d-flex justify-content-center">--}}
-        {{--                <a href="/admin/create/discipline" class="btn btn-secondary justify-center"> Add new Discipline</a>--}}
-        {{--            </div>--}}
-
         <!-- Search Field -->
             <div class="m-4">
                 <form method="GET" action="#">

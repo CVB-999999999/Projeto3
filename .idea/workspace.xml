@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCategList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCategList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/change-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/change-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/forgot-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/reset-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/reset-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,6 +252,7 @@
       <workItem from="1642159869824" duration="4265000" />
       <workItem from="1642174778445" duration="2316000" />
       <workItem from="1642178039355" duration="1383000" />
+      <workItem from="1642244260074" duration="1404000" />
     </task>
     <servers />
   </component>

@@ -116,7 +116,7 @@ class AssignController extends Controller
             // Send the email
             Mail::to($mail->email)->queue(new AssignDiscTutor($disc->name));
 
-            return redirect('/admin/tutors');
+            return redirect('/admin/tutors/' . $attributes['user']);
         } else {
             return back()->with(['error' => 'Discipline association has already been created']);
         }
@@ -162,7 +162,7 @@ class AssignController extends Controller
             Mail::to($mail->email)->queue(new AssignDiscStd($disc->name, $tut->name));
             Mail::to($tut->email)->queue(new AssignDiscStd($disc->name, $mail->name));
 
-            return redirect('/admin/users');
+            return redirect('/admin/users/' . $attributes['user']);
         } else {
             return back()->with(['error' => 'Discipline association has already been created']);
         }

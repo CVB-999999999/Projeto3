@@ -90,6 +90,7 @@ return array(
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/event-manager/lib/Doctrine/Common'),
+    'Diglactic\\Breadcrumbs\\' => array($vendorDir . '/diglactic/laravel-breadcrumbs/src'),
     'Dflydev\\DotAccessData\\' => array($vendorDir . '/dflydev/dot-access-data/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Database\\Seeders\\' => array($baseDir . '/database/seeders'),

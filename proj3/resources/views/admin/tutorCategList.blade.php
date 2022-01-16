@@ -9,6 +9,8 @@
 <x-navfoot>
     <x-slot name="content">
 
+        {{ Breadcrumbs::render('listTutor', $users->id) }}
+
         <div class="container">
             {{--             No discipline found--}}
 

@@ -134,6 +134,7 @@
       <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/justinrainbow/json-schema" />
       <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/react/promise" />
       <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/twbs/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/proj3/vendor/diglactic/laravel-breadcrumbs" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

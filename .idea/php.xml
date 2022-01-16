@@ -128,6 +128,7 @@
       <path value="$PROJECT_DIR$/proj3/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/proj3/vendor/react/promise" />
       <path value="$PROJECT_DIR$/proj3/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/proj3/vendor/diglactic/laravel-breadcrumbs" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

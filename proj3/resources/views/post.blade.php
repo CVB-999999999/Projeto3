@@ -7,7 +7,10 @@
 
 <x-navfoot>
     <x-slot name="content">
-        <div class="container my-4">
+
+        {{ Breadcrumbs::render('userPost', $post->id, $post->slug) }}
+
+        <div class="container mb-4">
             <div class="card p-3 rounded-3 shadow">
                 <div class="card-title">
                     {{-- Title--}}

@@ -9,11 +9,13 @@
 <x-navfoot>
     <x-slot name="content">
 
-        <h2 class="text-center m-4"> Select an Enrollment </h2>
+        {{ Breadcrumbs::render('tutorDash') }}
+
+        <h2 class="text-center mx-4 mb-4"> Select an Enrollment </h2>
 
         <div class="container">
             <!-- Search Field -->
-            <div class="my-4">
+            <div class="mb-4">
                 <form method="GET" action="#">
                     <div class="input-group mx-auto">
                         <input type="text" name="search" class="form-control"

@@ -46,7 +46,12 @@
 
                             <!-- Submit -->
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary px-5">Submit</button>
+                                <a href="{{ url()->previous() }}" class="btn btn-primary px-5">
+                                    <i class="bi bi-x-lg"></i> Cancel
+                                </a>
+                                <button type="submit" class="btn btn-primary px-5">
+                                    <i class="bi bi-upload"></i> Submit
+                                </button>
                             </div>
                         </div>
                     </div>

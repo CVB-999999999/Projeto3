@@ -8,8 +8,10 @@
 
 <x-navfoot>
     <x-slot name="content">
-        <div class="container text-center mb-3">
-            <div class="m-5">
+        {{ Breadcrumbs::render('adminDash') }}
+
+        <div class="container text-center my-3">
+            <div class="mx-auto mb-3">
                 <h1> Welcome Again Admin</h1>
                 <h5> Time: <span id="time"></span> </h5>
             </div>

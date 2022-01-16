@@ -9,6 +9,8 @@
 <x-navfoot>
     <x-slot name="content">
 
+        {{ Breadcrumbs::render('listStudents', $users->id) }}
+
         <div class="container">
             {{--             No discipline found--}}
 
@@ -16,7 +18,7 @@
                 <p><h1 class="text-center m-3"> This student does not exist :( </h1></p>
 
             @else
-                <p><h2 class="text-center m-3"> Student: {{ $users->name }} </h2></p>
+                <p><h2 class="text-center mx-3 mb-3"> Student: {{ $users->name }} </h2></p>
 
                 @if( $discs == [])
                     <h1 class="text-center m-5"> This student does not have any discipline assigned</h1>

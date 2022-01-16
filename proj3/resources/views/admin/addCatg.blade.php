@@ -10,8 +10,10 @@
 <x-navfoot>
     <x-slot name="content">
 
+        {{ Breadcrumbs::render('NewDisciplines') }}
+
         <div class="container">
-            <div class="card m-md-5 p-md-5 p-3 m-1">
+            <div class="card mx-md-5 p-md-5 p-3 m-2">
                 <form method="POST" class="mx-auto mb-5" action="/admin/create/discipline" style="width: 100%">
                 @csrf
                 <!-- Logo -->

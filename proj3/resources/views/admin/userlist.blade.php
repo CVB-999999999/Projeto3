@@ -9,9 +9,16 @@
 <x-navfoot>
     <x-slot name="content">
 
+        @if($type === 'Students')
+            {{ Breadcrumbs::render('students') }}
+        @elseif ($type === 'Tutors')
+            {{ Breadcrumbs::render('tutors') }}
+        @endif
+
+
         <div class="container">
 
-            <h1 class="text-center m-5">ATC {{ $type }} List</h1>
+            <h1 class="text-center mx-5 mb-5">ATC {{ $type }} List</h1>
 
             <!-- Search Field -->
             <div class="m-4">
@@ -36,7 +43,9 @@
                             </div>
                             <div class="col-lg-6 text-end">
                                 <p> Created on: @php echo date("d/m/Y H:i", strtotime($user->created_at)); @endphp </p>
-                                <p> Last Updated: @php echo date("d/m/Y H:i", strtotime($user->updated_at)); @endphp </p>
+                                <p> Last Updated:
+                                    @php echo date("d/m/Y H:i", strtotime($user->updated_at)); @endphp
+                                </p>
                                 <p> Status:
                                     {{-- Convert Boolean to something easier to read --}}
                                     @php if($user->active == true) {

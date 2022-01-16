@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0a01cb0bd51cae2a38dae98b52458acf18586505',
+        'reference' => 'f0dac422df737d3d43e05296c9c1c1b2579f5c34',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -130,6 +130,15 @@
             'reference' => '0992cc19268b259a39e86f296da5f0677841f42c',
             'dev_requirement' => false,
         ),
+        'diglactic/laravel-breadcrumbs' => array(
+            'pretty_version' => 'v7.1.1',
+            'version' => '7.1.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../diglactic/laravel-breadcrumbs',
+            'aliases' => array(),
+            'reference' => '0bed6e928023c7d0228e9404661bab5470dfb778',
+            'dev_requirement' => false,
+        ),
         'doctrine/cache' => array(
             'pretty_version' => '2.1.1',
             'version' => '2.1.1.0',
@@ -236,7 +245,7 @@
             'install_path' => __DIR__ . '/../facade/ignition-contracts',
             'aliases' => array(),
             'reference' => '3c921a1cdba35b68a7f0ccffc6dffc1995b18267',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'fakerphp/faker' => array(
             'pretty_version' => 'v1.16.0',
@@ -526,7 +535,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0a01cb0bd51cae2a38dae98b52458acf18586505',
+            'reference' => 'f0dac422df737d3d43e05296c9c1c1b2579f5c34',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

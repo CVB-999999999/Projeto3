@@ -7,16 +7,20 @@
 
 <x-navfoot>
     <x-slot name="content">
+
+        {{ Breadcrumbs::render('tutorPost', $reg) }}
+
         <div class="container">
-            <div class="mt-3 mx-auto d-flex">
+            <div class="mx-auto d-flex">
                 <form method="post" action="/tutor/createpost">
                     @csrf
                     <input type="hidden" name="id" value="{{$reg}}">
-                    <button class="btn btn-primary" type="submit"><i class="bi bi-file-earmark-plus"></i> Create new Post
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-file-earmark-plus"></i> Create new Post
                     </button>
                 </form>
                 <button class="btn btn-outline-primary disabled mx-1">
-                     Student Id: {{ $stdId->userId }}
+                    Student Id: {{ $stdId->userId }}
                 </button>
             </div>
 

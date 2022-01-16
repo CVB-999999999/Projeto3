@@ -7,10 +7,13 @@
 
 <x-navfoot>
     <x-slot name="content">
+
+        {{ Breadcrumbs::render('userDash') }}
+
         <div class="container">
             <div>
                 {{--                 Search Field  --}}
-                <div class="mx-md-5 mx-1 mt-3">
+                <div class="mx-md-5 mx-1 mt-1">
                     <form method="GET" action="#">
                         <div class="input-group m-2 mx-auto">
                             {{--                            Discipline select btn--}}

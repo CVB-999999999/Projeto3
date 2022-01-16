@@ -10,8 +10,10 @@
 <x-navfoot>
     <x-slot name="content">
 
+        {{ Breadcrumbs::render('tutorCreatePost', $regId) }}
+
         <div class="container">
-            <div class="card m-md-5 p-md-5 p-3 m-1">
+            <div class="card m-md-5 p-md-5 p-3 m-1 mt-md-2">
                 <form class="mx-auto" method="POST" action="/tutor/createpost/save"
                       enctype="multipart/form-data" style="width: 100%">
                 @csrf
@@ -54,9 +56,10 @@
                             <input type="hidden" value="{{ $regId }}" name="registration_id">
 
                             <div class="text-center">
-                                <a type="submit" href="/tutor/assignment/{{ $regId }}" class="btn btn-primary"> <i
-                                        class="bi bi-x-lg"></i> Cancel</a>
-                                <button type="submit" class="btn btn-primary"><i class="bi bi-upload"></i> Submit
+                                <a type="submit" href="/tutor/assignment/{{ $regId }}" class="btn btn-primary">
+                                    <i class="bi bi-x-lg"></i> Cancel</a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-upload"></i> Submit
                                 </button>
                             </div>
                         </div>

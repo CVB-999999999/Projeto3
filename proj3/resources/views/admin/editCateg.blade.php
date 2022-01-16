@@ -9,11 +9,12 @@
 <x-navfoot>
     <x-slot name="content">
 
+        {{ Breadcrumbs::render('disciplines') }}
+
         <div class="container">
+            <h1 class="text-center mx-5 mb-5">ATC Disciplines List</h1>
 
-            <h1 class="text-center m-5">ATC Disciplines List</h1>
-
-        <!-- Search Field -->
+            <!-- Search Field -->
             <div class="m-4">
                 <form method="GET" action="#">
                     <div class="input-group m-3 mx-auto" style="max-width: 80vw">

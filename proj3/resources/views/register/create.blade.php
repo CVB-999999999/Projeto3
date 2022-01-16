@@ -9,6 +9,8 @@
 <!-- Nav Bar and Footer component -->
 <x-navfoot>
     <x-slot name="content">
+        {{ Breadcrumbs::render('createUser') }}
+
         <div class="container">
             <div class="card m-md-5 p-md-5 p-3 m-1">
                 <form class="mb-5 mx-auto" method="POST" action="/admin/register" style="width: 100%">

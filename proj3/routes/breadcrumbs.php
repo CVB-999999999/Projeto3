@@ -94,13 +94,13 @@ Breadcrumbs::for('tutorDash', function (BreadcrumbTrail $trail) {
 // Index > Dashboard > Assigment x
 Breadcrumbs::for('tutorPost', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('tutorDash');
-    $trail->push('Assigment ' . $id, '/tutor/assigment/' . $id);
+    $trail->push('Assigment ' . $id, '/tutor/assignment/' . $id);
 });
 
 // Index > Dashboard > Assigment x > Create post
 Breadcrumbs::for('tutorCreatePost', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('tutorPost', $id);
-    $trail->push('Create Post', '/tutor/createPost');
+    $trail->push('Create Post', '/tutor/createPost/' . $id);
 });
 
 /*  ----------------------------------------------------------------------------------------------------------------  */

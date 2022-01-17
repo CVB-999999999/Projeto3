@@ -12,13 +12,9 @@
 
         <div class="container">
             <div class="mx-auto d-flex">
-                <form method="post" action="/tutor/createpost">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$reg}}">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="bi bi-file-earmark-plus"></i> Create new Post
-                    </button>
-                </form>
+                <a href="/tutor/createpost/{{$reg}}" class="btn btn-primary">
+                    <i class="bi bi-file-earmark-plus"></i> Create new Post
+                </a>
                 <button class="btn btn-outline-primary disabled mx-1">
                     Student Id: {{ $stdId->userId }}
                 </button>
@@ -60,12 +56,13 @@
                                         {{--                                        </div>--}}
                                     @else
                                         <p class="card-text d-none d-md-block"> Submited
-                                            Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp</p>
+                                            Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp
+                                        </p>
                                         <p class="card-text d-none d-md-block"> Grade: {{ $post->grade }}</p>
                                         <div class="mb-3 text-end">
                                             <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>
-                                                Submited
-                                                Date: @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp
+                                                Submited Date:
+                                                @php echo date("d/m/Y H:i", strtotime($post->submited_date)); @endphp
                                             </p>
                                             <p class="card-text collapse multi-collapse" id=showMore{{$post->id}}>
                                                 Grade: {{ $post->grade }}</p>

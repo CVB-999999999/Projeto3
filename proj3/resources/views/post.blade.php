@@ -57,6 +57,16 @@
                         <div class="mb-3">
                             <label for="arquivo_aluno" class="form-label">Upload a Submission:</label>
                             <input class="form-control" type="file" id="arquivo_aluno" name="arquivo_aluno">
+                            @error('arquivo_aluno')
+                            <script>
+                                Swal.fire(
+                                    'An error occurred!',
+                                    '{{ $message }}',
+                                    'error'
+                                )
+                            </script>
+                            <p class="text-danger"><small> {{ $message }} </small></p>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm">
                             <i class="bi bi-upload"></i> Upload

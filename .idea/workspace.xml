@@ -2,39 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Projeto3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/AssignController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/AssignController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/bootstrap/cache/packages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/bootstrap/cache/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/addCatg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/addCatg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/adminDash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/adminDash.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/editCateg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCategList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCategList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCatgAdd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/tutorCatgAdd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/userCatgAdd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/userCatgAdd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/userlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/userlist.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/admin/usersCategList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/admin/usersCategList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/register/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/register/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/sessions/change-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/sessions/change-password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/dash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/dash.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +260,8 @@
       <workItem from="1642174778445" duration="2316000" />
       <workItem from="1642178039355" duration="1383000" />
       <workItem from="1642244260074" duration="1404000" />
-      <workItem from="1642357439645" duration="7277000" />
+      <workItem from="1642357439645" duration="7922000" />
+      <workItem from="1642418798993" duration="2586000" />
     </task>
     <servers />
   </component>

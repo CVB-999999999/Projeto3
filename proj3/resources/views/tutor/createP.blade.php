@@ -33,26 +33,42 @@
                                 <input type="text" class="form-control" id="title" name="title" required>
                             </div>
 
-                            <!-- Due Date field -->
+                            @error('title')
+                            <p class="text-danger"><small> {{ $message }} </small></p>
+                            @enderror
+
+                        <!-- Due Date field -->
                             <div class="mb-3">
                                 <label for="date" class="form-label">Due Date:</label>
                                 <input type="datetime-local" class="form-control" id="date" name="date" required>
                             </div>
 
-                            <!-- file -->
+                            @error('date')
+                            <p class="text-danger"><small> {{ $message }} </small></p>
+                            @enderror
+
+                        <!-- file -->
                             <div class="mb-3">
                                 <label for="arquivo" class="form-label">File:</label>
                                 <input class="form-control" type="file" id="arquivo" name="arquivo" required>
                             </div>
 
-                            <!-- Description Field -->
+                            @error('arquivo')
+                            <p class="text-danger"><small> {{ $message }} </small></p>
+                            @enderror
+
+                        <!-- Description Field -->
                             <div class="mb-3">
                                 <label for="body" class="form-label">Description:</label>
-                                <textarea type="text" class="form-control" id="body" name="body" rows="5"
-                                          required> </textarea>
+                                <textarea type="text" class="form-control" id="body" name="body" rows="5" required>
+                                </textarea>
                             </div>
 
-                            <!-- Submit -->
+                            @error('body')
+                            <p class="text-danger"><small> {{ $message }} </small></p>
+                            @enderror
+
+                        <!-- Submit -->
                             <input type="hidden" value="{{ $regId }}" name="registration_id">
 
                             <div class="text-center">

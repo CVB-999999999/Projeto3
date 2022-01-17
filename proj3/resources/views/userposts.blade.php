@@ -129,6 +129,16 @@
                                                         @csrf
                                                         <input class="form-control" type="file" id="arquivo_aluno"
                                                                name="arquivo_aluno">
+                                                        @error('arquivo_aluno')
+                                                        <script>
+                                                            Swal.fire(
+                                                                'An error occurred!',
+                                                                '{{ $message }}',
+                                                                'error'
+                                                            )
+                                                        </script>
+                                                        <p class="text-danger"><small> {{ $message }} </small></p>
+                                                        @enderror
                                                         <input type="hidden" name="slug" value="{{ $post->slug }}">
                                                     </div>
                                                     <div class="modal-footer">

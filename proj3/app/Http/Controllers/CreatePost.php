@@ -54,22 +54,18 @@ class CreatePost extends Controller
     // -----------------------------------------------------------------------------------------------------------------
     // Create a post for a student (view)
     // -----------------------------------------------------------------------------------------------------------------
-    public function createPost()
+    public function createPost($id)
     {
-        $attributes = request()->validate([
-            'id' => 'required'
-        ]);
-
         $student = DB::table('registrations')
             ->join('users', 'registrations.userId', '=', 'users.id')
-            ->where('registrations.id', '=', $attributes['id'])
+            ->where('registrations.id', '=', $id)
             ->get();
 
         if ($student->isEmpty()) {
             return back()->with('error', 'An error occurred');
         }
 
-        return view('tutor.createP', ['student' => $student[0], 'regId' => $attributes['id']]);
+        return view('tutor.createP', ['student' => $student[0], 'regId' => $id]);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -85,7 +81,7 @@ class CreatePost extends Controller
             'registration_id' => 'required',
             'date' => 'required|date'
         ]);
-        
+
         // Verify if ids are valid
         $reg = Registration::where('id', $attributes['registration_id'])->firstOrFail();
 
@@ -119,7 +115,7 @@ class CreatePost extends Controller
         // Send the email
         Mail::to($mail->email)->queue(new NewPost($disc->name, $attributes['title'], date("d-m-Y H:i", strtotime($attributes['date']))));
 
-        return redirect('/tutor/dashboard');
+        return redirect('/tutor/assignment/' . $attributes['registration_id']);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

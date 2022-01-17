@@ -162,7 +162,7 @@ Route::get('/tutor/dashboard', [ListController::class, 'tutorAsgList'])->middlew
 Route::get('/tutor/assignment/{registration:id}', [ListController::class, 'tutorAssigment'])->middleware('role:1');
 
 // tutor Create Post
-Route::post('/tutor/createpost', [CreatePost::class, 'createPost'])->middleware('role:1');
+Route::get('/tutor/createpost/{user:id}', [CreatePost::class, 'createPost'])->middleware('role:1');
 Route::post('/tutor/createpost/save', [CreatePost::class, 'storePost'])->middleware('role:1');
 
 // Assign grade to student

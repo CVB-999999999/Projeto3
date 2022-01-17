@@ -213,7 +213,7 @@ class EditController extends Controller
         // Validate attributes
         $attributes = request()->validate([
             'slug' => 'required',
-            'arquivo_aluno' => 'required'
+            'arquivo_aluno' => 'required|mimes:pdf,jpg,png,jpeg,zip'
         ]);
 
         // Save file and get path

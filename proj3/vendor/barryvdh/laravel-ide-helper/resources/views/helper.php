@@ -9,7 +9,6 @@
 ?>
 
 // @formatter:off
-// phpcs:ignoreFile
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE

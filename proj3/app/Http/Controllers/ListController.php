@@ -212,7 +212,6 @@ class ListController extends Controller
         $query = DB::table('registrations')
             ->join('posts', 'registrations.id', '=', 'posts.registration_id')
             ->where('registrations.id', '=', $regId)
-            ->where('posts.deleted', '=', "false")
             ->select('posts.id');
 
         // Get all posts
@@ -227,10 +226,5 @@ class ListController extends Controller
             ->firstOrFail();
 
         return view('tutor.tPosts', ['posts' => $posts, 'reg' => $regId, 'stdId' => $stdId]);
-    }
-    public function deleteAssigment($id){
-        $query = DB::table('posts')
-            ->where('posts.id', '=', $id)
-            ->update(['posts.deleted' => true, 'updated_at' => now()]);
     }
 }

@@ -12,7 +12,6 @@
 
 namespace Composer\Util;
 
-use Composer\Pcre\Preg;
 use stdClass;
 
 /**
@@ -40,7 +39,7 @@ class NoProxyPattern
      */
     public function __construct($pattern)
     {
-        $this->hostNames = Preg::split('{[\s,]+}', $pattern, -1, PREG_SPLIT_NO_EMPTY);
+        $this->hostNames = preg_split('{[\s,]+}', $pattern, -1, PREG_SPLIT_NO_EMPTY);
         $this->noproxy = empty($this->hostNames) || '*' === $this->hostNames[0];
     }
 
@@ -159,15 +158,6 @@ class NoProxyPattern
         $net = unpack('C*', $network->ip);
         $mask = unpack('C*', $network->netmask);
         $ip = unpack('C*', $target->ip);
-        if (false === $net) {
-            throw new \RuntimeException('Could not parse network IP '.$network->ip);
-        }
-        if (false === $mask) {
-            throw new \RuntimeException('Could not parse netmask '.$network->netmask);
-        }
-        if (false === $ip) {
-            throw new \RuntimeException('Could not parse target IP '.$target->ip);
-        }
 
         for ($i = 1; $i < 17; ++$i) {
             if (($net[$i] & $mask[$i]) !== ($ip[$i] & $mask[$i])) {
@@ -313,12 +303,6 @@ class NoProxyPattern
         $mask = unpack('C*', $netmask);
         $ip = unpack('C*', $rangeIp);
         $net = '';
-        if (false === $mask) {
-            throw new \RuntimeException('Could not parse netmask '.$netmask);
-        }
-        if (false === $ip) {
-            throw new \RuntimeException('Could not parse range IP '.$rangeIp);
-        }
 
         for ($i = 1; $i < 17; ++$i) {
             $net .= chr($ip[$i] & $mask[$i]);

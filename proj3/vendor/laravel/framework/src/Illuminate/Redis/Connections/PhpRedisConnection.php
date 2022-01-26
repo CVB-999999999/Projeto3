@@ -15,8 +15,6 @@ use RedisException;
  */
 class PhpRedisConnection extends Connection implements ConnectionContract
 {
-    use PacksPhpRedisValues;
-
     /**
      * The connection creation callback.
      *

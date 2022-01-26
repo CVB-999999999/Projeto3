@@ -17,7 +17,6 @@ use Composer\Cache;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
 use Composer\Downloader\TransportException;
-use Composer\Pcre\Preg;
 use Composer\Util\HttpDownloader;
 use Composer\Util\GitLab;
 use Composer\Util\Http\Response;
@@ -46,7 +45,7 @@ class GitLabDriver extends VcsDriver
     private $project;
 
     /**
-     * @var array<string|int, mixed[]> Keeps commits returned by GitLab API as commit id => info
+     * @var array<string, mixed[]> Keeps commits returned by GitLab API
      */
     private $commits = array();
 
@@ -93,7 +92,7 @@ class GitLabDriver extends VcsDriver
      */
     public function initialize()
     {
-        if (!Preg::isMatch(self::URL_REGEX, $this->url, $match)) {
+        if (!preg_match(self::URL_REGEX, $this->url, $match)) {
             throw new \InvalidArgumentException('The URL provided is invalid. It must be the HTTP URL of a GitLab project.');
         }
 
@@ -120,7 +119,7 @@ class GitLabDriver extends VcsDriver
         }
 
         $this->namespace = implode('/', $urlParts);
-        $this->repository = Preg::replace('#(\.git)$#', '', $match['repo']);
+        $this->repository = preg_replace('#(\.git)$#', '', $match['repo']);
 
         $this->cache = new Cache($this->io, $this->config->get('cache-repo-dir').'/'.$this->originUrl.'/'.$this->namespace.'/'.$this->repository);
         $this->cache->setReadOnly($this->config->get('cache-read-only'));
@@ -163,12 +162,8 @@ class GitLabDriver extends VcsDriver
 
             if ($composer) {
                 // specials for gitlab (this data is only available if authentication is provided)
-                if (!isset($composer['support']['source']) && isset($this->project['web_url'])) {
-                    $label = array_search($identifier, $this->getTags(), true) ?: array_search($identifier, $this->getBranches(), true) ?: $identifier;
-                    $composer['support']['source'] = sprintf('%s/-/tree/%s', $this->project['web_url'], $label);
-                }
-                if (!isset($composer['support']['issues']) && !empty($this->project['issues_enabled']) && isset($this->project['web_url'])) {
-                    $composer['support']['issues'] = sprintf('%s/-/issues', $this->project['web_url']);
+                if (!isset($composer['support']['issues']) && isset($this->project['_links']['issues'])) {
+                    $composer['support']['issues'] = $this->project['_links']['issues'];
                 }
                 if (!isset($composer['abandoned']) && !empty($this->project['archived'])) {
                     $composer['abandoned'] = true;
@@ -191,7 +186,7 @@ class GitLabDriver extends VcsDriver
         }
 
         // Convert the root identifier to a cacheable commit id
-        if (!Preg::isMatch('{[a-f0-9]{40}}i', $identifier)) {
+        if (!preg_match('{[a-f0-9]{40}}i', $identifier)) {
             $branches = $this->getBranches();
             if (isset($branches[$identifier])) {
                 $identifier = $branches[$identifier];
@@ -504,11 +499,6 @@ class GitLabDriver extends VcsDriver
 
                 // force auth as the unauthenticated version of the API is broken
                 if (!isset($json['default_branch'])) {
-                    // GitLab allows you to disable the repository inside a project to use a project only for issues and wiki
-                    if (isset($json['repository_access_level']) && $json['repository_access_level'] === 'disabled') {
-                        throw new TransportException('The GitLab repository is disabled in the project', 400);
-                    }
-
                     if (!empty($json['id'])) {
                         $this->isPrivate = false;
                     }
@@ -570,7 +560,7 @@ class GitLabDriver extends VcsDriver
      */
     public static function supports(IOInterface $io, Config $config, $url, $deep = false)
     {
-        if (!Preg::isMatch(self::URL_REGEX, $url, $match)) {
+        if (!preg_match(self::URL_REGEX, $url, $match)) {
             return false;
         }
 
@@ -600,7 +590,7 @@ class GitLabDriver extends VcsDriver
 
         $links = explode(',', $header);
         foreach ($links as $link) {
-            if (Preg::isMatch('{<(.+?)>; *rel="next"}', $link, $match)) {
+            if (preg_match('{<(.+?)>; *rel="next"}', $link, $match)) {
                 return $match[1];
             }
         }
@@ -635,7 +625,7 @@ class GitLabDriver extends VcsDriver
         while (null !== ($part = array_shift($urlParts))) {
             $guessedDomain .= '/' . $part;
 
-            if (in_array($guessedDomain, $configuredDomains) || ($portNumber && in_array(Preg::replace('{:\d+}', '', $guessedDomain), $configuredDomains))) {
+            if (in_array($guessedDomain, $configuredDomains) || ($portNumber && in_array(preg_replace('{:\d+}', '', $guessedDomain), $configuredDomains))) {
                 return $guessedDomain;
             }
         }

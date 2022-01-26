@@ -13,7 +13,6 @@
 namespace Composer\Util;
 
 use Composer\IO\IOInterface;
-use Composer\Pcre\Preg;
 
 /**
  * Convert PHP errors into exceptions
@@ -56,7 +55,7 @@ class ErrorHandler
         if (self::$io) {
             // ignore symfony/* deprecation warnings
             // TODO remove in 2.3
-            if (Preg::isMatch('{^Return type of Symfony\\\\.*ReturnTypeWillChange}is', $message)) {
+            if (preg_match('{^Return type of Symfony\\\\.*ReturnTypeWillChange}is', $message)) {
                 return true;
             }
             if (strpos(strtr($file, '\\', '/'), 'vendor/symfony/') !== false) {

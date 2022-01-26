@@ -16,7 +16,6 @@ use Composer\IO\IOInterface;
 use Composer\Config;
 use Composer\Factory;
 use Composer\Downloader\TransportException;
-use Composer\Pcre\Preg;
 
 /**
  * @author Roshan Gautam <roshan.gautam@hotmail.com>
@@ -58,7 +57,7 @@ class GitLab
     public function authorizeOAuth($originUrl)
     {
         // before composer 1.9, origin URLs had no port number in them
-        $bcOriginUrl = Preg::replace('{:\d+}', '', $originUrl);
+        $bcOriginUrl = preg_replace('{:\d+}', '', $originUrl);
 
         if (!in_array($originUrl, $this->config->get('gitlab-domains'), true) && !in_array($bcOriginUrl, $this->config->get('gitlab-domains'), true)) {
             return false;

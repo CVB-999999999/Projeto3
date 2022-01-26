@@ -12,7 +12,6 @@
 
 namespace Composer\Question;
 
-use Composer\Pcre\Preg;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Question\Question;
 
@@ -67,11 +66,11 @@ class StrictConfirmationQuestion extends Question
                 return $default;
             }
 
-            if (Preg::isMatch($trueRegex, $answer)) {
+            if (preg_match($trueRegex, $answer)) {
                 return true;
             }
 
-            if (Preg::isMatch($falseRegex, $answer)) {
+            if (preg_match($falseRegex, $answer)) {
                 return false;
             }
 

@@ -20,7 +20,6 @@ use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Helper\QuestionHelper;
-use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -70,8 +69,6 @@ class Application extends BaseApplication
     private $hasPluginCommands = false;
     /** @var bool */
     private $disablePluginsByDefault = false;
-    /** @var bool */
-    private $disableScriptsByDefault = false;
 
     /**
      * @var string Store the initial working directory at startup time
@@ -120,7 +117,7 @@ class Application extends BaseApplication
     }
 
     /**
-     * @return int
+     * @inheritDoc
      */
     public function run(InputInterface $input = null, OutputInterface $output = null)
     {
@@ -132,14 +129,13 @@ class Application extends BaseApplication
     }
 
     /**
-     * @return int
+     * @inheritDoc
      */
     public function doRun(InputInterface $input, OutputInterface $output)
     {
         $this->disablePluginsByDefault = $input->hasParameterOption('--no-plugins');
-        $this->disableScriptsByDefault = $input->hasParameterOption('--no-scripts');
 
-        if (Platform::getEnv('COMPOSER_NO_INTERACTION') || !Platform::isTty(defined('STDIN') ? STDIN : fopen('php://stdin', 'r'))) {
+        if (getenv('COMPOSER_NO_INTERACTION') || !Platform::isTty(defined('STDIN') ? STDIN : fopen('php://stdin', 'r'))) {
             $input->setInteractive(false);
         }
 
@@ -176,19 +172,14 @@ class Application extends BaseApplication
         }
 
         // prompt user for dir change if no composer.json is present in current dir
-        if ($io->isInteractive() && !$newWorkDir && !in_array($commandName, array('', 'list', 'init', 'about', 'help', 'diagnose', 'self-update', 'global', 'create-project', 'outdated'), true) && !file_exists(Factory::getComposerFile()) && ($useParentDirIfNoJsonAvailable = $this->getUseParentDirConfigValue()) !== false) {
+        if ($io->isInteractive() && !$newWorkDir && !in_array($commandName, array('', 'list', 'init', 'about', 'help', 'diagnose', 'self-update', 'global', 'create-project', 'outdated'), true) && !file_exists(Factory::getComposerFile())) {
             $dir = dirname(getcwd());
-            $home = realpath(Platform::getEnv('HOME') ?: Platform::getEnv('USERPROFILE') ?: '/');
+            $home = realpath(getenv('HOME') ?: getenv('USERPROFILE') ?: '/');
 
             // abort when we reach the home dir or top of the filesystem
             while (dirname($dir) !== $dir && $dir !== $home) {
                 if (file_exists($dir.'/'.Factory::getComposerFile())) {
-                    if ($useParentDirIfNoJsonAvailable === true || $io->askConfirmation('<info>No composer.json in current directory, do you want to use the one at '.$dir.'?</info> [<comment>Y,n</comment>]? ')) {
-                        if ($useParentDirIfNoJsonAvailable === true) {
-                            $io->writeError('<info>No composer.json in current directory, changing working directory to '.$dir.'</info>');
-                        } else {
-                            $io->writeError('<info>Always want to use the parent dir? Use "composer config --global use-parent-dir true" to change the default.</info>');
-                        }
+                    if ($io->askConfirmation('<info>No composer.json in current directory, do you want to use the one at '.$dir.'?</info> [<comment>Y,n</comment>]? ')) {
                         $oldWorkingDir = getcwd();
                         chdir($dir);
                     }
@@ -262,7 +253,7 @@ class Application extends BaseApplication
                 $io->writeError('<warning>Composer only officially supports PHP 5.3.2 and above, you will most likely encounter problems with your PHP '.PHP_VERSION.', upgrading is strongly recommended.</warning>');
             }
 
-            if (XdebugHandler::isXdebugActive() && !Platform::getEnv('COMPOSER_DISABLE_XDEBUG_WARN')) {
+            if (XdebugHandler::isXdebugActive() && !getenv('COMPOSER_DISABLE_XDEBUG_WARN')) {
                 $io->writeError('<warning>Composer is operating slower than normal because you have Xdebug enabled. See https://getcomposer.org/xdebug</warning>');
             }
 
@@ -273,7 +264,7 @@ class Application extends BaseApplication
             if (
                 !Platform::isWindows()
                 && function_exists('exec')
-                && !Platform::getEnv('COMPOSER_ALLOW_SUPERUSER')
+                && !getenv('COMPOSER_ALLOW_SUPERUSER')
                 && (ini_get('open_basedir') || !file_exists('/.dockerenv'))
             ) {
                 if (function_exists('posix_getuid') && posix_getuid() === 0) {
@@ -286,7 +277,7 @@ class Application extends BaseApplication
                             }
                         }
                     }
-                    if ($uid = (int) Platform::getEnv('SUDO_UID')) {
+                    if ($uid = (int) getenv('SUDO_UID')) {
                         // Silently clobber any sudo credentials on the invoking user to avoid privilege escalations later on
                         // ref. https://github.com/composer/composer/issues/5119
                         Silencer::call('exec', "sudo -u \\#{$uid} sudo -K > /dev/null 2>&1");
@@ -348,7 +339,7 @@ class Application extends BaseApplication
 
             return $result;
         } catch (ScriptExecutionException $e) {
-            return $e->getCode();
+            return (int) $e->getCode();
         } catch (\Exception $e) {
             $ghe = new GithubActionError($this->io);
             $ghe->emit($e->getMessage());
@@ -426,23 +417,19 @@ class Application extends BaseApplication
     /**
      * @param  bool                    $required
      * @param  bool|null               $disablePlugins
-     * @param  bool|null               $disableScripts
      * @throws JsonValidationException
      * @throws \InvalidArgumentException
      * @return ?\Composer\Composer If $required is true then the return value is guaranteed
      */
-    public function getComposer($required = true, $disablePlugins = null, $disableScripts = null)
+    public function getComposer($required = true, $disablePlugins = null)
     {
         if (null === $disablePlugins) {
             $disablePlugins = $this->disablePluginsByDefault;
         }
-        if (null === $disableScripts) {
-            $disableScripts = $this->disableScriptsByDefault;
-        }
 
         if (null === $this->composer) {
             try {
-                $this->composer = Factory::create($this->io, null, $disablePlugins, $disableScripts);
+                $this->composer = Factory::create($this->io, null, $disablePlugins);
             } catch (\InvalidArgumentException $e) {
                 if ($required) {
                     $this->io->writeError($e->getMessage());
@@ -493,7 +480,6 @@ class Application extends BaseApplication
 
     /**
      * Initializes all the composer commands.
-     * @return \Symfony\Component\Console\Command\Command[]
      */
     protected function getDefaultCommands()
     {
@@ -536,7 +522,7 @@ class Application extends BaseApplication
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getLongVersion()
     {
@@ -554,14 +540,13 @@ class Application extends BaseApplication
     }
 
     /**
-     * @return InputDefinition
+     * @inheritDoc
      */
     protected function getDefaultInputDefinition()
     {
         $definition = parent::getDefaultInputDefinition();
         $definition->addOption(new InputOption('--profile', null, InputOption::VALUE_NONE, 'Display timing and memory usage information'));
         $definition->addOption(new InputOption('--no-plugins', null, InputOption::VALUE_NONE, 'Whether to disable plugins.'));
-        $definition->addOption(new InputOption('--no-scripts', null, InputOption::VALUE_NONE, 'Skips the execution of all scripts defined in composer.json file.'));
         $definition->addOption(new InputOption('--working-dir', '-d', InputOption::VALUE_REQUIRED, 'If specified, use the given directory as working directory.'));
         $definition->addOption(new InputOption('--no-cache', null, InputOption::VALUE_NONE, 'Prevent use of the cache'));
 
@@ -607,15 +592,5 @@ class Application extends BaseApplication
     public function getInitialWorkingDirectory()
     {
         return $this->initialWorkingDirectory;
-    }
-
-    /**
-     * @return 'prompt'|bool
-     */
-    private function getUseParentDirConfigValue()
-    {
-        $config = Factory::createConfig($this->io);
-
-        return $config->get('use-parent-dir');
     }
 }

@@ -17,7 +17,6 @@ use Composer\Downloader\TransportException;
 use Composer\Config;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
-use Composer\Pcre\Preg;
 use Composer\Util\ProcessExecutor;
 use Composer\Util\HttpDownloader;
 use Composer\Util\Filesystem;
@@ -81,7 +80,7 @@ abstract class VcsDriver implements VcsDriverInterface
      */
     protected function shouldCache($identifier)
     {
-        return $this->cache && Preg::isMatch('{^[a-f0-9]{40}$}iD', $identifier);
+        return $this->cache && preg_match('{^[a-f0-9]{40}$}iD', $identifier);
     }
 
     /**

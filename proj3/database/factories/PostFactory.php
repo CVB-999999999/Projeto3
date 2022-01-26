@@ -20,7 +20,6 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'slug' => md5($this->faker->slug),
             'body' => $this->faker->paragraph,
-            'deleted' => false,
             'registration_id' => 1,
             'submit_date' => now(),
             'fileName' => 'test.pdf'

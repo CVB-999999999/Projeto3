@@ -16,7 +16,6 @@ use Composer\Json\JsonFile;
 use Composer\Package\AliasPackage;
 use Composer\Package\BasePackage;
 use Composer\Package\CompletePackageInterface;
-use Composer\Pcre\Preg;
 use Composer\Repository\CompositeRepository;
 use Composer\Semver\Constraint\MatchAllConstraint;
 use Symfony\Component\Console\Input\InputInterface;
@@ -133,8 +132,8 @@ class FundCommand extends BaseCommand
     }
 
     /**
-     * @param mixed[] $fundings
-     * @return mixed[]
+     * @param array[] $fundings
+     * @return array[]
      */
     private function insertFundingData(array $fundings, CompletePackageInterface $package)
     {
@@ -145,7 +144,7 @@ class FundCommand extends BaseCommand
                 continue;
             }
             $url = $fundingOption['url'];
-            if (!empty($fundingOption['type']) && $fundingOption['type'] === 'github' && Preg::isMatch('{^https://github.com/([^/]+)$}', $url, $match)) {
+            if (!empty($fundingOption['type']) && $fundingOption['type'] === 'github' && preg_match('{^https://github.com/([^/]+)$}', $url, $match)) {
                 $url = 'https://github.com/sponsors/'.$match[1];
             }
             $fundings[$vendor][$url][] = $packageName;

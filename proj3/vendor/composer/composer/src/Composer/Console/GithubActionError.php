@@ -13,7 +13,6 @@
 namespace Composer\Console;
 
 use Composer\IO\IOInterface;
-use Composer\Util\Platform;
 
 final class GithubActionError
 {
@@ -36,7 +35,7 @@ final class GithubActionError
      */
     public function emit($message, $file = null, $line = null)
     {
-        if (Platform::getEnv('GITHUB_ACTIONS') && !Platform::getEnv('COMPOSER_TESTS_ARE_RUNNING')) {
+        if (getenv('GITHUB_ACTIONS') && !getenv('COMPOSER_TESTS_ARE_RUNNING')) {
             $message = $this->escapeData($message);
 
             if ($file && $line) {

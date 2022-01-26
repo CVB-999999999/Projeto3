@@ -12,7 +12,6 @@
 
 namespace Composer\IO;
 
-use Composer\Pcre\Preg;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Output\StreamOutput;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
@@ -56,7 +55,7 @@ class BufferIO extends ConsoleIO
 
         $output = stream_get_contents($this->output->getStream());
 
-        $output = Preg::replaceCallback("{(?<=^|\n|\x08)(.+?)(\x08+)}", function ($matches) {
+        $output = preg_replace_callback("{(?<=^|\n|\x08)(.+?)(\x08+)}", function ($matches) {
             $pre = strip_tags($matches[1]);
 
             if (strlen($pre) === strlen($matches[2])) {

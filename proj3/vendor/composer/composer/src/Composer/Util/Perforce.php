@@ -13,7 +13,6 @@
 namespace Composer\Util;
 
 use Composer\IO\IOInterface;
-use Composer\Pcre\Preg;
 use Symfony\Component\Process\Process;
 
 /**
@@ -27,7 +26,7 @@ class Perforce
     protected $path;
     /** @var ?string */
     protected $p4Depot;
-    /** @var ?string */
+    /** @var string */
     protected $p4Client;
     /** @var ?string */
     protected $p4User;
@@ -35,7 +34,7 @@ class Perforce
     protected $p4Password;
     /** @var string */
     protected $p4Port;
-    /** @var ?string */
+    /** @var string */
     protected $p4Stream;
     /** @var string */
     protected $p4ClientSpec;
@@ -55,7 +54,7 @@ class Perforce
     /** @var IOInterface */
     protected $io;
 
-    /** @var ?Filesystem */
+    /** @var Filesystem */
     protected $filesystem;
 
     /**
@@ -635,7 +634,7 @@ class Perforce
             foreach ($resArray as $line) {
                 $resBits = explode(' ', $line);
                 if (count($resBits) > 4) {
-                    $branch = Preg::replace('/[^A-Za-z0-9 ]/', '', $resBits[4]);
+                    $branch = preg_replace('/[^A-Za-z0-9 ]/', '', $resBits[4]);
                     $possibleBranches[$branch] = $resBits[1];
                 }
             }
@@ -744,7 +743,7 @@ class Perforce
      */
     public function getFilesystem()
     {
-        if (null === $this->filesystem) {
+        if (empty($this->filesystem)) {
             $this->filesystem = new Filesystem($this->process);
         }
 

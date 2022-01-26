@@ -15,7 +15,6 @@ namespace Composer\Util;
 use Composer\Config;
 use Composer\IO\IOInterface;
 use Composer\Downloader\TransportException;
-use Composer\Pcre\Preg;
 use Composer\Util\Http\Response;
 use Composer\Util\Http\CurlDownloader;
 use Composer\Composer;
@@ -71,7 +70,7 @@ class HttpDownloader
     {
         $this->io = $io;
 
-        $this->disabled = (bool) Platform::getEnv('COMPOSER_DISABLE_NETWORK');
+        $this->disabled = (bool) getenv('COMPOSER_DISABLE_NETWORK');
 
         // Setup TLS options
         // The cafile option can be set via config.json
@@ -89,7 +88,7 @@ class HttpDownloader
 
         $this->rfs = new RemoteFilesystem($io, $config, $options, $disableTls);
 
-        if (is_numeric($maxJobs = Platform::getEnv('COMPOSER_MAX_PARALLEL_HTTP'))) {
+        if (is_numeric($maxJobs = getenv('COMPOSER_MAX_PARALLEL_HTTP'))) {
             $this->maxJobs = max(1, min(50, (int) $maxJobs));
         }
     }
@@ -227,7 +226,7 @@ class HttpDownloader
         }
 
         // capture username/password from URL if there is one
-        if (Preg::isMatch('{^https?://([^:/]+):([^@/]+)@([^/]+)}i', $request['url'], $match)) {
+        if (preg_match('{^https?://([^:/]+):([^@/]+)@([^/]+)}i', $request['url'], $match)) {
             $this->io->setAuthentication($job['origin'], rawurldecode($match[1]), rawurldecode($match[2]));
         }
 
@@ -449,12 +448,11 @@ class HttpDownloader
      * @internal
      *
      * @param  string                                                                                    $url
-     * @param  array{warning?: string, info?: string, warning-versions?: string, info-versions?: string, warnings?: array<array{versions: string, message: string}>, infos?: array<array{versions: string, message: string}>} $data
+     * @param  array{warning?: string, info?: string, warning-versions?: string, info-versions?: string} $data
      * @return void
      */
     public static function outputWarnings(IOInterface $io, $url, $data)
     {
-        // legacy warning/info keys
         foreach (array('warning', 'info') as $type) {
             if (empty($data[$type])) {
                 continue;
@@ -470,25 +468,6 @@ class HttpDownloader
             }
 
             $io->writeError('<'.$type.'>'.ucfirst($type).' from '.Url::sanitize($url).': '.$data[$type].'</'.$type.'>');
-        }
-
-        // modern Composer 2.2+ format with support for multiple warning/info messages
-        foreach (array('warnings', 'infos') as $key) {
-            if (empty($data[$key])) {
-                continue;
-            }
-
-            $versionParser = new VersionParser();
-            foreach ($data[$key] as $spec) {
-                $type = substr($key, 0, -1);
-                $constraint = $versionParser->parseConstraints($spec['versions']);
-                $composer = new Constraint('==', $versionParser->normalize(Composer::getVersion()));
-                if (!$constraint->matches($composer)) {
-                    continue;
-                }
-
-                $io->writeError('<'.$type.'>'.ucfirst($type).' from '.Url::sanitize($url).': '.$spec['message'].'</'.$type.'>');
-            }
         }
     }
 
@@ -537,7 +516,7 @@ class HttpDownloader
             return false;
         }
 
-        if (!Preg::isMatch('{^https?://}i', $job['request']['url'])) {
+        if (!preg_match('{^https?://}i', $job['request']['url'])) {
             return false;
         }
 

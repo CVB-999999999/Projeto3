@@ -47,14 +47,14 @@ final class Statement implements StatementInterface
     /**
      * References to the variables bound as statement parameters.
      *
-     * @var array<int, mixed>
+     * @var mixed
      */
     private $variables = [];
 
     /**
      * Bound parameter types.
      *
-     * @var array<int, int>
+     * @var int[]
      */
     private $types = [];
 
@@ -84,7 +84,7 @@ final class Statement implements StatementInterface
     /**
      * {@inheritdoc}
      */
-    public function bindValue($param, $value, $type = ParameterType::STRING): bool
+    public function bindValue($param, $value, $type = ParameterType::STRING)
     {
         assert(is_int($param));
 
@@ -97,7 +97,7 @@ final class Statement implements StatementInterface
     /**
      * {@inheritdoc}
      */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null): bool
+    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null)
     {
         assert(is_int($param));
 

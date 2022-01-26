@@ -12,8 +12,6 @@
 
 namespace Composer\Autoload;
 
-use Composer\Pcre\Preg;
-
 /**
  * @author Jordi Boggiano <j.boggiano@seld.be>
  * @internal
@@ -120,7 +118,6 @@ class PhpFileCleaner
                     }
                     if ($this->peek('*')) {
                         $this->skipComment();
-                        continue;
                     }
                 }
 
@@ -128,7 +125,7 @@ class PhpFileCleaner
                     $type = self::$typeConfig[$char];
                     if (
                         \substr($this->contents, $this->index, $type['length']) === $type['name']
-                        && Preg::isMatch($type['pattern'], $this->contents, $match, 0, $this->index - 1)
+                        && \preg_match($type['pattern'], $this->contents, $match, 0, $this->index - 1)
                     ) {
                         $clean .= $match[0];
 
@@ -272,6 +269,10 @@ class PhpFileCleaner
      */
     private function match($regex, array &$match = null)
     {
-        return Preg::isMatch($regex, $this->contents, $match, 0, $this->index);
+        if (\preg_match($regex, $this->contents, $match, 0, $this->index)) {
+            return true;
+        }
+
+        return false;
     }
 }

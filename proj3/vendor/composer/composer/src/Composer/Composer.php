@@ -14,7 +14,6 @@ namespace Composer;
 
 use Composer\Package\RootPackageInterface;
 use Composer\Package\Locker;
-use Composer\Pcre\Preg;
 use Composer\Util\Loop;
 use Composer\Repository\RepositoryManager;
 use Composer\Installer\InstallationManager;
@@ -52,9 +51,9 @@ class Composer
      * const RELEASE_DATE = '@release_date@';
      * const SOURCE_VERSION = '1.8-dev+source';
      */
-    const VERSION = '2.2.5';
+    const VERSION = '2.1.12';
     const BRANCH_ALIAS_VERSION = '';
-    const RELEASE_DATE = '2022-01-21 17:25:52';
+    const RELEASE_DATE = '2021-11-09 16:02:04';
     const SOURCE_VERSION = '';
 
     /**
@@ -66,7 +65,7 @@ class Composer
      *
      * @var string
      */
-    const RUNTIME_API_VERSION = '2.2.2';
+    const RUNTIME_API_VERSION = '2.1.0';
 
     /**
      * @return string
@@ -79,7 +78,7 @@ class Composer
         }
 
         // we have a branch alias and version is a commit id, this must be a snapshot build
-        if (self::BRANCH_ALIAS_VERSION !== '' && Preg::isMatch('{^[a-f0-9]{40}$}', self::VERSION)) {
+        if (self::BRANCH_ALIAS_VERSION !== '' && preg_match('{^[a-f0-9]{40}$}', self::VERSION)) {
             return self::BRANCH_ALIAS_VERSION.'+'.self::VERSION;
         }
 

@@ -14,7 +14,7 @@ use function reset;
  */
 final class ArrayResult implements Result
 {
-    /** @var list<array<string, mixed>> */
+    /** @var mixed[] */
     private $data;
 
     /** @var int */
@@ -24,7 +24,7 @@ final class ArrayResult implements Result
     private $num = 0;
 
     /**
-     * @param list<array<string, mixed>> $data
+     * @param mixed[] $data
      */
     public function __construct(array $data)
     {
@@ -112,7 +112,7 @@ final class ArrayResult implements Result
     }
 
     /**
-     * @return array<string, mixed>|false
+     * @return mixed|false
      */
     private function fetch()
     {

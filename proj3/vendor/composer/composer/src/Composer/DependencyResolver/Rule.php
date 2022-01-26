@@ -229,40 +229,6 @@ abstract class Rule
     }
 
     /**
-     * @internal
-     * @return BasePackage
-     */
-    public function getSourcePackage(Pool $pool)
-    {
-        $literals = $this->getLiterals();
-
-        switch ($this->getReason()) {
-            case self::RULE_PACKAGE_CONFLICT:
-                $package1 = $this->deduplicateDefaultBranchAlias($pool->literalToPackage($literals[0]));
-                $package2 = $this->deduplicateDefaultBranchAlias($pool->literalToPackage($literals[1]));
-
-                if ($reasonData = $this->getReasonData()) {
-                    // swap literals if they are not in the right order with package2 being the conflicter
-                    if ($reasonData->getSource() === $package1->getName()) {
-                        list($package2, $package1) = array($package1, $package2);
-                    }
-                }
-
-                return $package2;
-
-            case self::RULE_PACKAGE_REQUIRES:
-                $sourceLiteral = array_shift($literals);
-                $sourcePackage = $this->deduplicateDefaultBranchAlias($pool->literalToPackage($sourceLiteral));
-
-                return $sourcePackage;
-
-            default:
-                throw new \LogicException('Not implemented');
-        }
-    }
-
-
-    /**
      * @param bool $isVerbose
      * @param BasePackage[] $installedMap
      * @param array<Rule[]> $learnedPool
@@ -292,7 +258,7 @@ abstract class Rule
                     }
                 }
 
-                return 'Root composer.json requires '.$packageName.($constraint ? ' '.$constraint->getPrettyString() : '').' -> satisfiable by '.$this->formatPackagesUnique($pool, $packages, $isVerbose, $constraint).'.';
+                return 'Root composer.json requires '.$packageName.($constraint ? ' '.$constraint->getPrettyString() : '').' -> satisfiable by '.$this->formatPackagesUnique($pool, $packages, $isVerbose).'.';
 
             case self::RULE_FIXED:
                 $package = $this->deduplicateDefaultBranchAlias($this->reasonData['package']);
@@ -309,12 +275,9 @@ abstract class Rule
 
                 $conflictTarget = $package1->getPrettyString();
                 if ($reasonData = $this->getReasonData()) {
-                    assert($reasonData instanceof Link);
-
                     // swap literals if they are not in the right order with package2 being the conflicter
                     if ($reasonData->getSource() === $package1->getName()) {
                         list($package2, $package1) = array($package1, $package2);
-                        $conflictTarget = $package1->getPrettyName().' '.$reasonData->getPrettyConstraint();
                     }
 
                     // if the conflict is not directly against the package but something it provides/replaces,
@@ -357,7 +320,7 @@ abstract class Rule
 
                 $text = $reasonData->getPrettyString($sourcePackage);
                 if ($requires) {
-                    $text .= ' -> satisfiable by ' . $this->formatPackagesUnique($pool, $requires, $isVerbose, $this->reasonData->getConstraint()) . '.';
+                    $text .= ' -> satisfiable by ' . $this->formatPackagesUnique($pool, $requires, $isVerbose) . '.';
                 } else {
                     $targetName = $reasonData->getTarget();
 
@@ -405,13 +368,13 @@ abstract class Rule
                     }
 
                     if ($installedPackages && $removablePackages) {
-                        return $this->formatPackagesUnique($pool, $removablePackages, $isVerbose, null, true).' cannot be installed as that would require removing '.$this->formatPackagesUnique($pool, $installedPackages, $isVerbose, null, true).'. '.$reason;
+                        return $this->formatPackagesUnique($pool, $removablePackages, $isVerbose).' cannot be installed as that would require removing '.$this->formatPackagesUnique($pool, $installedPackages, $isVerbose).'. '.$reason;
                     }
 
-                    return 'Only one of these can be installed: '.$this->formatPackagesUnique($pool, $literals, $isVerbose, null, true).'. '.$reason;
+                    return 'Only one of these can be installed: '.$this->formatPackagesUnique($pool, $literals, $isVerbose).'. '.$reason;
                 }
 
-                return 'You can only install one version of a package, so only one of these can be installed: ' . $this->formatPackagesUnique($pool, $literals, $isVerbose, null, true) . '.';
+                return 'You can only install one version of a package, so only one of these can be installed: ' . $this->formatPackagesUnique($pool, $literals, $isVerbose) . '.';
             case self::RULE_LEARNED:
                 /** @TODO currently still generates way too much output to be helpful, and in some cases can even lead to endless recursion */
                 // if (isset($learnedPool[$this->reasonData])) {
@@ -482,10 +445,9 @@ abstract class Rule
     /**
      * @param array<int|BasePackage> $packages An array containing packages or literals
      * @param bool $isVerbose
-     * @param bool $useRemovedVersionGroup
      * @return string
      */
-    protected function formatPackagesUnique(Pool $pool, array $packages, $isVerbose, ConstraintInterface $constraint = null, $useRemovedVersionGroup = false)
+    protected function formatPackagesUnique(Pool $pool, array $packages, $isVerbose)
     {
         foreach ($packages as $index => $package) {
             if (!\is_object($package)) {
@@ -493,7 +455,7 @@ abstract class Rule
             }
         }
 
-        return Problem::getPackageList($packages, $isVerbose, $pool, $constraint, $useRemovedVersionGroup);
+        return Problem::getPackageList($packages, $isVerbose);
     }
 
     /**

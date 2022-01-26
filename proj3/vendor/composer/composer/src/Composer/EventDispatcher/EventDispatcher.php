@@ -16,7 +16,6 @@ use Composer\DependencyResolver\Transaction;
 use Composer\Installer\InstallerEvent;
 use Composer\IO\IOInterface;
 use Composer\Composer;
-use Composer\Pcre\Preg;
 use Composer\Util\Platform;
 use Composer\DependencyResolver\Operation\OperationInterface;
 use Composer\Repository\RepositoryInterface;
@@ -162,7 +161,7 @@ class EventDispatcher
      */
     protected function doDispatch(Event $event)
     {
-        if (Platform::getEnv('COMPOSER_DEBUG_EVENTS')) {
+        if (getenv('COMPOSER_DEBUG_EVENTS')) {
             $details = null;
             if ($event instanceof PackageEvent) {
                 $details = (string) $event->getOperation();
@@ -200,7 +199,7 @@ class EventDispatcher
                     $args = array_merge($script, $event->getArguments());
                     $flags = $event->getFlags();
                     if (strpos($callable, '@composer ') === 0) {
-                        $exec = $this->getPhpExecCommand() . ' ' . ProcessExecutor::escape(Platform::getEnv('COMPOSER_BINARY')) . ' ' . implode(' ', $args);
+                        $exec = $this->getPhpExecCommand() . ' ' . ProcessExecutor::escape(getenv('COMPOSER_BINARY')) . ' ' . implode(' ', $args);
                         if (0 !== ($exitCode = $this->executeTty($exec))) {
                             $this->io->writeError(sprintf('<error>Script %s handling the %s event returned with error code '.$exitCode.'</error>', $callable, $event->getName()), true, IOInterface::QUIET);
 
@@ -254,9 +253,9 @@ class EventDispatcher
                     $possibleLocalBinaries = $this->composer->getPackage()->getBinaries();
                     if ($possibleLocalBinaries) {
                         foreach ($possibleLocalBinaries as $localExec) {
-                            if (Preg::isMatch('{\b'.preg_quote($callable).'$}', $localExec)) {
+                            if (preg_match('{\b'.preg_quote($callable).'$}', $localExec)) {
                                 $caller = BinaryInstaller::determineBinaryCaller($localExec);
-                                $exec = Preg::replace('{^'.preg_quote($callable).'}', $caller . ' ' . $localExec, $exec);
+                                $exec = preg_replace('{^'.preg_quote($callable).'}', $caller . ' ' . $localExec, $exec);
                                 break;
                             }
                         }
@@ -275,13 +274,13 @@ class EventDispatcher
                     if (strpos($exec, '@php ') === 0) {
                         $pathAndArgs = substr($exec, 5);
                         if (Platform::isWindows()) {
-                            $pathAndArgs = Preg::replaceCallback('{^\S+}', function ($path) {
+                            $pathAndArgs = preg_replace_callback('{^\S+}', function ($path) {
                                 return str_replace('/', '\\', $path[0]);
                             }, $pathAndArgs);
                         }
                         // match somename (not in quote, and not a qualified path) and if it is not a valid path from CWD then try to find it
                         // in $PATH. This allows support for `@php foo` where foo is a binary name found in PATH but not an actual relative path
-                        $matched = Preg::isMatch('{^[^\'"\s/\\\\]+}', $pathAndArgs, $match);
+                        $matched = preg_match('{^[^\'"\s/\\\\]+}', $pathAndArgs, $match);
                         if ($matched && !file_exists($match[0])) {
                             $finder = new ExecutableFinder;
                             if ($pathToExec = $finder->find($match[0])) {
@@ -297,7 +296,7 @@ class EventDispatcher
                         }
 
                         if (Platform::isWindows()) {
-                            $exec = Preg::replaceCallback('{^\S+}', function ($path) {
+                            $exec = preg_replace_callback('{^\S+}', function ($path) {
                                 return str_replace('/', '\\', $path[0]);
                             }, $exec);
                         }
@@ -307,7 +306,7 @@ class EventDispatcher
                     // resolution, even if bin-dir contains composer too because the project requires composer/composer
                     // see https://github.com/composer/composer/issues/8748
                     if (strpos($exec, 'composer ') === 0) {
-                        $exec = $this->getPhpExecCommand() . ' ' . ProcessExecutor::escape(Platform::getEnv('COMPOSER_BINARY')) . substr($exec, 8);
+                        $exec = $this->getPhpExecCommand() . ' ' . ProcessExecutor::escape(getenv('COMPOSER_BINARY')) . substr($exec, 8);
                     }
 
                     if (0 !== ($exitCode = $this->executeTty($exec))) {
@@ -566,18 +565,17 @@ class EventDispatcher
      */
     private function ensureBinDirIsInPath()
     {
-        $pathEnv = 'PATH';
-        if (false === Platform::getEnv('PATH') && false !== Platform::getEnv('Path')) {
-            $pathEnv = 'Path';
+        $pathStr = 'PATH';
+        if (!isset($_SERVER[$pathStr]) && isset($_SERVER['Path'])) {
+            $pathStr = 'Path';
         }
 
         // add the bin dir to the PATH to make local binaries of deps usable in scripts
         $binDir = $this->composer->getConfig()->get('bin-dir');
         if (is_dir($binDir)) {
             $binDir = realpath($binDir);
-            $pathValue = Platform::getEnv($pathEnv);
-            if (!Preg::isMatch('{(^|'.PATH_SEPARATOR.')'.preg_quote($binDir).'($|'.PATH_SEPARATOR.')}', $pathValue)) {
-                Platform::putEnv($pathEnv, $binDir.PATH_SEPARATOR.$pathValue);
+            if (isset($_SERVER[$pathStr]) && !preg_match('{(^|'.PATH_SEPARATOR.')'.preg_quote($binDir).'($|'.PATH_SEPARATOR.')}', $_SERVER[$pathStr])) {
+                Platform::putEnv($pathStr, $binDir.PATH_SEPARATOR.getenv($pathStr));
             }
         }
     }

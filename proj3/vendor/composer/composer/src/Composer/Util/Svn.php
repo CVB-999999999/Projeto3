@@ -14,7 +14,6 @@ namespace Composer\Util;
 
 use Composer\Config;
 use Composer\IO\IOInterface;
-use Composer\Pcre\Preg;
 
 /**
  * @author Till Klampaeckel <till@php.net>
@@ -217,10 +216,8 @@ class Svn
         $this->io->writeError("The Subversion server ({$this->url}) requested credentials:");
 
         $this->hasAuth = true;
-        $this->credentials = array(
-            'username' => (string) $this->io->ask("Username: ", ''),
-            'password' => (string) $this->io->askAndHideAnswer("Password: "),
-        );
+        $this->credentials['username'] = $this->io->ask("Username: ");
+        $this->credentials['password'] = $this->io->askAndHideAnswer("Password: ");
 
         $this->cacheCredentials = $this->io->askConfirmation("Should Subversion cache these credentials? (yes/no) ");
 
@@ -286,7 +283,7 @@ class Svn
             throw new \LogicException("No svn auth detected.");
         }
 
-        return $this->credentials['password'];
+        return isset($this->credentials['password']) ? $this->credentials['password'] : '';
     }
 
     /**
@@ -347,10 +344,8 @@ class Svn
 
         $host = parse_url($this->url, PHP_URL_HOST);
         if (isset($authConfig[$host])) {
-            $this->credentials = array(
-                'username' => $authConfig[$host]['username'],
-                'password' => $authConfig[$host]['password'],
-            );
+            $this->credentials['username'] = $authConfig[$host]['username'];
+            $this->credentials['password'] = $authConfig[$host]['password'];
 
             return $this->hasAuth = true;
         }
@@ -370,10 +365,10 @@ class Svn
             return $this->hasAuth = false;
         }
 
-        $this->credentials = array(
-            'username' => $uri['user'],
-            'password' => !empty($uri['pass']) ? $uri['pass'] : '',
-        );
+        $this->credentials['username'] = $uri['user'];
+        if (!empty($uri['pass'])) {
+            $this->credentials['password'] = $uri['pass'];
+        }
 
         return $this->hasAuth = true;
     }
@@ -387,7 +382,7 @@ class Svn
     {
         if (!self::$version) {
             if (0 === $this->process->execute('svn --version', $output)) {
-                if (Preg::isMatch('{(\d+(?:\.\d+)+)}', $output, $match)) {
+                if (preg_match('{(\d+(?:\.\d+)+)}', $output, $match)) {
                     self::$version = $match[1];
                 }
             }

@@ -13,13 +13,12 @@
 namespace Composer\IO;
 
 use Composer\Config;
-use Composer\Pcre\Preg;
 use Composer\Util\ProcessExecutor;
 use Psr\Log\LogLevel;
 
 abstract class BaseIO implements IOInterface
 {
-    /** @var array<string, array{username: string|null, password: string|null}> */
+    /** @var array<string, array{username: string, password: string}> */
     protected $authentications = array();
 
     /**
@@ -130,7 +129,7 @@ abstract class BaseIO implements IOInterface
         foreach ($githubOauth as $domain => $token) {
             // allowed chars for GH tokens are from https://github.blog/changelog/2021-03-04-authentication-token-format-updates/
             // plus dots which were at some point used for GH app integration tokens
-            if (!Preg::isMatch('{^[.A-Za-z0-9_]+$}', $token)) {
+            if (!preg_match('{^[.A-Za-z0-9_]+$}', $token)) {
                 throw new \UnexpectedValueException('Your github oauth token for '.$domain.' contains invalid characters: "'.$token.'"');
             }
             $this->checkAndSetAuthentication($domain, $token, 'x-oauth-basic');
@@ -160,7 +159,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function emergency($message, array $context = array())
     {
@@ -168,7 +167,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function alert($message, array $context = array())
     {
@@ -176,7 +175,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function critical($message, array $context = array())
     {
@@ -184,7 +183,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function error($message, array $context = array())
     {
@@ -192,7 +191,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function warning($message, array $context = array())
     {
@@ -200,7 +199,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function notice($message, array $context = array())
     {
@@ -208,7 +207,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function info($message, array $context = array())
     {
@@ -216,7 +215,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function debug($message, array $context = array())
     {
@@ -224,7 +223,7 @@ abstract class BaseIO implements IOInterface
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
     public function log($level, $message, array $context = array())
     {

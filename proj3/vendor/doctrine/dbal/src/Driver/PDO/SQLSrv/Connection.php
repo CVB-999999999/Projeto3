@@ -2,21 +2,20 @@
 
 namespace Doctrine\DBAL\Driver\PDO\SQLSrv;
 
-use Doctrine\DBAL\Driver\Middleware\AbstractConnectionMiddleware;
 use Doctrine\DBAL\Driver\PDO\Connection as PDOConnection;
+use Doctrine\DBAL\Driver\Result;
+use Doctrine\DBAL\Driver\ServerInfoAwareConnection;
 use Doctrine\DBAL\Driver\Statement as StatementInterface;
-use Doctrine\Deprecations\Deprecation;
+use Doctrine\DBAL\ParameterType;
 use PDO;
 
-final class Connection extends AbstractConnectionMiddleware
+final class Connection implements ServerInfoAwareConnection
 {
     /** @var PDOConnection */
     private $connection;
 
     public function __construct(PDOConnection $connection)
     {
-        parent::__construct($connection);
-
         $this->connection = $connection;
     }
 
@@ -27,43 +26,72 @@ final class Connection extends AbstractConnectionMiddleware
         );
     }
 
+    public function query(string $sql): Result
+    {
+        return $this->connection->query($sql);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function quote($value, $type = ParameterType::STRING)
+    {
+        return $this->connection->quote($value, $type);
+    }
+
+    public function exec(string $sql): int
+    {
+        return $this->connection->exec($sql);
+    }
+
     /**
      * {@inheritDoc}
      */
     public function lastInsertId($name = null)
     {
         if ($name === null) {
-            return parent::lastInsertId($name);
+            return $this->connection->lastInsertId($name);
         }
-
-        Deprecation::triggerIfCalledFromOutside(
-            'doctrine/dbal',
-            'https://github.com/doctrine/dbal/issues/4687',
-            'The usage of Connection::lastInsertId() with a sequence name is deprecated.'
-        );
 
         return $this->prepare('SELECT CONVERT(VARCHAR(MAX), current_value) FROM sys.sequences WHERE name = ?')
             ->execute([$name])
             ->fetchOne();
     }
 
-    public function getNativeConnection(): PDO
+    /**
+     * {@inheritDoc}
+     */
+    public function beginTransaction()
     {
-        return $this->connection->getNativeConnection();
+        return $this->connection->beginTransaction();
     }
 
     /**
-     * @deprecated Call {@see getNativeConnection()} instead.
+     * {@inheritDoc}
      */
+    public function commit()
+    {
+        return $this->connection->commit();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function rollBack()
+    {
+        return $this->connection->rollBack();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getServerVersion()
+    {
+        return $this->connection->getServerVersion();
+    }
+
     public function getWrappedConnection(): PDO
     {
-        Deprecation::trigger(
-            'doctrine/dbal',
-            'https://github.com/doctrine/dbal/pull/5037',
-            '%s is deprecated, call getNativeConnection() instead.',
-            __METHOD__
-        );
-
         return $this->connection->getWrappedConnection();
     }
 }

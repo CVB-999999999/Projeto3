@@ -67,13 +67,12 @@ class Comparer
         }
 
         if ($toString) {
-            $strings = array();
             foreach ($changed as $sectionKey => $itemSection) {
                 foreach ($itemSection as $itemKey => $item) {
-                    $strings[] = $item."\r\n";
+                    $changed['string'][] = $item."\r\n";
                 }
             }
-            $changed = implode("\r\n", $strings);
+            $changed = implode("\r\n", $changed['string']);
         }
 
         return $changed;

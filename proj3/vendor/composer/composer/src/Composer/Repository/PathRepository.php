@@ -15,12 +15,9 @@ namespace Composer\Repository;
 use Composer\Config;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
-use Composer\Package\CompleteAliasPackage;
-use Composer\Package\CompletePackage;
 use Composer\Package\Loader\ArrayLoader;
 use Composer\Package\Version\VersionGuesser;
 use Composer\Package\Version\VersionParser;
-use Composer\Pcre\Preg;
 use Composer\Util\Platform;
 use Composer\Util\ProcessExecutor;
 use Composer\Util\Filesystem;
@@ -98,7 +95,7 @@ class PathRepository extends ArrayRepository implements ConfigurableRepositoryIn
     /**
      * Initializes path repository.
      *
-     * @param array{url?: string, options?: array{symlink?: bool, relative?: bool, versions?: array<string, string>}} $repoConfig
+     * @param array{url: string, options?: array{symlink?: bool, relative?: bool, versions?: array<string, string>}} $repoConfig
      * @param IOInterface $io
      * @param Config      $config
      */
@@ -144,9 +141,9 @@ class PathRepository extends ArrayRepository implements ConfigurableRepositoryIn
         $urlMatches = $this->getUrlMatches();
 
         if (empty($urlMatches)) {
-            if (Preg::isMatch('{[*{}]}', $this->url)) {
+            if (preg_match('{[*{}]}', $this->url)) {
                 $url = $this->url;
-                while (Preg::isMatch('{[*{}]}', $url)) {
+                while (preg_match('{[*{}]}', $url)) {
                     $url = dirname($url);
                 }
                 // the parent directory before any wildcard exists, so we assume it is correctly configured but simply empty
@@ -182,7 +179,7 @@ class PathRepository extends ArrayRepository implements ConfigurableRepositoryIn
             }
 
             // carry over the root package version if this path repo is in the same git repository as root package
-            if (!isset($package['version']) && ($rootVersion = Platform::getEnv('COMPOSER_ROOT_VERSION'))) {
+            if (!isset($package['version']) && ($rootVersion = getenv('COMPOSER_ROOT_VERSION'))) {
                 if (
                     0 === $this->process->execute('git rev-parse HEAD', $ref1, $path)
                     && 0 === $this->process->execute('git rev-parse HEAD', $ref2)
@@ -197,7 +194,6 @@ class PathRepository extends ArrayRepository implements ConfigurableRepositoryIn
                 $package['dist']['reference'] = trim($output);
             }
 
-            $needsAlias = false;
             if (!isset($package['version'])) {
                 $versionData = $this->versionGuesser->guessVersion($package, $path);
                 if (is_array($versionData) && $versionData['pretty_version']) {
@@ -209,16 +205,11 @@ class PathRepository extends ArrayRepository implements ConfigurableRepositoryIn
 
                     $package['version'] = $versionData['pretty_version'];
                 } else {
-                    $package['version'] = 'dev-main';
-                    $needsAlias = true;
+                    $package['version'] = 'dev-master';
                 }
             }
 
             $package = $this->loader->load($package);
-            if ($needsAlias && $package instanceof CompletePackage) {
-                // keep a dev-master alias to dev-main for BC
-                $package = new CompleteAliasPackage($package, 'dev-master', 'dev-master');
-            }
             $this->addPackage($package);
         }
     }

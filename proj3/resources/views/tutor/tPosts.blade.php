@@ -40,11 +40,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-3 text-end">
-
-                                <form class="mx-auto" method="GET" action="/tutor/assignment/delete/{{$post->id}}" style="max-width: 80vw; width: 25rem">
-                                    <button type="submit" class="btn btn-primary">Delete</button>
-                                </form>
-
                                     <p class="card-text">
                                         Uploaded: @php echo date("d/m/Y H:i", strtotime($post->created_at)); @endphp</p>
                                     <p class="card-text"> Submit

@@ -14,17 +14,14 @@ namespace Composer\Command;
 
 use Composer\Composer;
 use Composer\DependencyResolver\DefaultPolicy;
-use Composer\Filter\PlatformRequirementFilter\PlatformRequirementFilterFactory;
 use Composer\Json\JsonFile;
 use Composer\Package\BasePackage;
 use Composer\Package\CompletePackageInterface;
 use Composer\Package\Link;
 use Composer\Package\AliasPackage;
-use Composer\Package\Package;
 use Composer\Package\PackageInterface;
 use Composer\Package\Version\VersionParser;
 use Composer\Package\Version\VersionSelector;
-use Composer\Pcre\Preg;
 use Composer\Plugin\CommandEvent;
 use Composer\Plugin\PluginEvents;
 use Composer\Repository\InstalledArrayRepository;
@@ -91,8 +88,6 @@ class ShowCommand extends BaseCommand
                 new InputOption('strict', null, InputOption::VALUE_NONE, 'Return a non-zero exit code when there are outdated packages'),
                 new InputOption('format', 'f', InputOption::VALUE_REQUIRED, 'Format of the output: text or json', 'text'),
                 new InputOption('no-dev', null, InputOption::VALUE_NONE, 'Disables search in require-dev packages.'),
-                new InputOption('ignore-platform-req', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Ignore a specific platform requirement (php & ext- packages). Use with the --outdated option'),
-                new InputOption('ignore-platform-reqs', null, InputOption::VALUE_NONE, 'Ignore all platform requirements (php & ext- packages). Use with the --outdated option'),
             ))
             ->setHelp(
                 <<<EOT
@@ -155,8 +150,6 @@ EOT
 
             return 1;
         }
-
-        $ignorePlatformReqs = $input->getOption('ignore-platform-reqs') ?: ($input->getOption('ignore-platform-req') ?: false);
 
         // init repos
         $platformOverrides = array();
@@ -274,7 +267,7 @@ EOT
             } else {
                 $latestPackage = null;
                 if ($input->getOption('latest')) {
-                    $latestPackage = $this->findLatestPackage($package, $composer, $platformRepo, $input->getOption('minor-only'), $ignorePlatformReqs);
+                    $latestPackage = $this->findLatestPackage($package, $composer, $platformRepo, $input->getOption('minor-only'));
                 }
                 if (
                     $input->getOption('outdated')
@@ -306,9 +299,7 @@ EOT
         if ($input->getOption('tree')) {
             $rootRequires = $this->getRootRequires();
             $packages = $installedRepo->getPackages();
-            usort($packages, function (BasePackage $a, BasePackage $b) {
-                return strcmp((string) $a, (string) $b);
-            });
+            usort($packages, 'strcmp');
             $arrayTree = array();
             foreach ($packages as $package) {
                 if (in_array($package->getName(), $rootRequires, true)) {
@@ -365,16 +356,11 @@ EOT
                         while ($package instanceof AliasPackage) {
                             $package = $package->getAliasOf();
                         }
-                        if (!$packageFilterRegex || Preg::isMatch($packageFilterRegex, $package->getName())) {
+                        if (!$packageFilterRegex || preg_match($packageFilterRegex, $package->getName())) {
                             if (!$packageListFilter || in_array($package->getName(), $packageListFilter, true)) {
                                 $packages[$type][$package->getName()] = $package;
                             }
                         }
-                    }
-                }
-                if ($repo === $platformRepo) {
-                    foreach ($platformRepo->getDisabledPackages() as $name => $package) {
-                        $packages[$type][$name] = $package;
                     }
                 }
             }
@@ -399,7 +385,7 @@ EOT
                 if ($showLatest && $showVersion) {
                     foreach ($packages[$type] as $package) {
                         if (is_object($package)) {
-                            $latestPackage = $this->findLatestPackage($package, $composer, $platformRepo, $showMinorOnly, $ignorePlatformReqs);
+                            $latestPackage = $this->findLatestPackage($package, $composer, $platformRepo, $showMinorOnly);
                             if ($latestPackage === false) {
                                 continue;
                             }
@@ -718,8 +704,7 @@ EOT
 
         if ($package->getAutoload()) {
             $io->write("\n<info>autoload</info>");
-            $autoloadConfig = $package->getAutoload();
-            foreach ($autoloadConfig as $type => $autoloads) {
+            foreach ($package->getAutoload() as $type => $autoloads) {
                 $io->write('<comment>' . $type . '</comment>');
 
                 if ($type === 'psr-0' || $type === 'psr-4') {
@@ -727,7 +712,7 @@ EOT
                         $io->write(($name ?: '*') . ' => ' . (is_array($path) ? implode(', ', $path) : ($path ?: '.')));
                     }
                 } elseif ($type === 'classmap') {
-                    $io->write(implode(', ', $autoloadConfig[$type]));
+                    $io->write(implode(', ', $autoloads));
                 }
             }
             if ($package->getIncludePaths()) {
@@ -1020,7 +1005,7 @@ EOT
     /**
      * Display the tree
      *
-     * @param array<int, array<string, string|mixed[]>> $arrayTree
+     * @param array<int, array<string, string|array>> $arrayTree
      * @return void
      */
     protected function displayPackageTree(array $arrayTree)
@@ -1066,7 +1051,7 @@ EOT
     /**
      * Generate the package tree
      *
-     * @return array<string, array<int, array<string, mixed[]|string>>|string|null>
+     * @return array<string, array<int, array<string, array|string>>|string|null>
      */
     protected function generatePackageTree(
         PackageInterface $package,
@@ -1108,8 +1093,8 @@ EOT
     /**
      * Display a package tree
      *
-     * @param array<string, array<int, array<string, mixed[]|string>>|string|null>|string $package
-     * @param array<int, string|mixed[]> $packagesInTree
+     * @param array<string, array<int, array<string, array|string>>|string|null>|string $package
+     * @param array<int, string|array> $packagesInTree
      * @param string $previousTreeBar
      * @param int $level
      *
@@ -1260,11 +1245,10 @@ EOT
      * Given a package, this finds the latest package matching it
      *
      * @param bool $minorOnly
-     * @param bool|string $ignorePlatformReqs
      *
      * @return PackageInterface|false
      */
-    private function findLatestPackage(PackageInterface $package, Composer $composer, PlatformRepository $platformRepo, $minorOnly = false, $ignorePlatformReqs = false)
+    private function findLatestPackage(PackageInterface $package, Composer $composer, PlatformRepository $platformRepo, $minorOnly = false)
     {
         // find the latest version allowed in this repo set
         $name = $package->getName();
@@ -1289,7 +1273,7 @@ EOT
             $targetVersion = '^' . $package->getVersion();
         }
 
-        $candidate = $versionSelector->findBestCandidate($name, $targetVersion, $bestStability, PlatformRequirementFilterFactory::fromBoolOrList($ignorePlatformReqs));
+        $candidate = $versionSelector->findBestCandidate($name, $targetVersion, $bestStability);
         while ($candidate instanceof AliasPackage) {
             $candidate = $candidate->getAliasOf();
         }

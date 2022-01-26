@@ -12,7 +12,6 @@
 
 namespace Composer\Util;
 
-use Composer\Pcre\Preg;
 use React\Promise\PromiseInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -177,7 +176,7 @@ class Filesystem
      * @param string $directory
      * @param bool   $fallbackToPhp
      *
-     * @return bool|null Returns null, when no edge case was hit. Otherwise a bool whether removal was successful
+     * @return bool|null Returns null, when no edge case was hit. Otherwise a bool whether removal was successfull
      */
     private function removeEdgeCases($directory, $fallbackToPhp = true)
     {
@@ -197,7 +196,7 @@ class Filesystem
             return true;
         }
 
-        if (Preg::isMatch('{^(?:[a-z]:)?[/\\\\]+$}i', $directory)) {
+        if (preg_match('{^(?:[a-z]:)?[/\\\\]+$}i', $directory)) {
             throw new \RuntimeException('Aborting an attempted deletion of '.$directory.', this was probably not intended, if it is a real use case please report it.');
         }
 
@@ -465,7 +464,7 @@ class Filesystem
         }
 
         $commonPath = $to;
-        while (strpos($from.'/', $commonPath.'/') !== 0 && '/' !== $commonPath && !Preg::isMatch('{^[a-z]:/?$}i', $commonPath)) {
+        while (strpos($from.'/', $commonPath.'/') !== 0 && '/' !== $commonPath && !preg_match('{^[a-z]:/?$}i', $commonPath)) {
             $commonPath = strtr(\dirname($commonPath), '\\', '/');
         }
 
@@ -504,7 +503,7 @@ class Filesystem
         }
 
         $commonPath = $to;
-        while (strpos($from.'/', $commonPath.'/') !== 0 && '/' !== $commonPath && !Preg::isMatch('{^[a-z]:/?$}i', $commonPath) && '.' !== $commonPath) {
+        while (strpos($from.'/', $commonPath.'/') !== 0 && '/' !== $commonPath && !preg_match('{^[a-z]:/?$}i', $commonPath) && '.' !== $commonPath) {
             $commonPath = strtr(\dirname($commonPath), '\\', '/');
         }
 
@@ -579,7 +578,7 @@ class Filesystem
         }
 
         // extract a prefix being a protocol://, protocol:, protocol://drive: or simply drive:
-        if (Preg::isMatch('{^( [0-9a-z]{2,}+: (?: // (?: [a-z]: )? )? | [a-z]: )}ix', $path, $match)) {
+        if (preg_match('{^( [0-9a-z]{2,}+: (?: // (?: [a-z]: )? )? | [a-z]: )}ix', $path, $match)) {
             $prefix = $match[1];
             $path = substr($path, \strlen($prefix));
         }
@@ -613,7 +612,7 @@ class Filesystem
      */
     public static function trimTrailingSlash($path)
     {
-        if (!Preg::isMatch('{^[/\\\\]+$}', $path)) {
+        if (!preg_match('{^[/\\\\]+$}', $path)) {
             $path = rtrim($path, '/\\');
         }
 
@@ -628,7 +627,7 @@ class Filesystem
      */
     public static function isLocalPath($path)
     {
-        return Preg::isMatch('{^(file://(?!//)|/(?!/)|/?[a-z]:[\\\\/]|\.\.[\\\\/]|[a-z0-9_.-]+[\\\\/])}i', $path);
+        return (bool) preg_match('{^(file://(?!//)|/(?!/)|/?[a-z]:[\\\\/]|\.\.[\\\\/]|[a-z0-9_.-]+[\\\\/])}i', $path);
     }
 
     /**
@@ -639,10 +638,10 @@ class Filesystem
     public static function getPlatformPath($path)
     {
         if (Platform::isWindows()) {
-            $path = Preg::replace('{^(?:file:///([a-z]):?/)}i', 'file://$1:/', $path);
+            $path = preg_replace('{^(?:file:///([a-z]):?/)}i', 'file://$1:/', $path);
         }
 
-        return (string) Preg::replace('{^file://}i', '', $path);
+        return (string) preg_replace('{^file://}i', '', $path);
     }
 
     /**

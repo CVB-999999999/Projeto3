@@ -12,7 +12,6 @@
 
 namespace Composer\Package\Archiver;
 
-use Composer\Pcre\Preg;
 use Symfony\Component\Finder;
 
 /**
@@ -60,12 +59,8 @@ abstract class BaseExcludeFilter
                 $path = $relativePath;
             }
 
-            try {
-                if (Preg::isMatch($pattern, $path)) {
-                    $exclude = !$negate;
-                }
-            } catch (\RuntimeException $e) {
-                // suppressed
+            if (@preg_match($pattern, $path)) {
+                $exclude = !$negate;
             }
         }
 

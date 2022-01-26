@@ -16,7 +16,6 @@ use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Config;
 use Composer\EventDispatcher\EventDispatcher;
-use Composer\Pcre\Preg;
 use Composer\Util\HttpDownloader;
 use Composer\Util\ProcessExecutor;
 use Composer\Json\JsonFile;
@@ -82,7 +81,7 @@ class RepositoryFactory
         if (!$rm) {
             $rm = static::manager($io, $config, Factory::createHttpDownloader($io, $config));
         }
-        $repos = self::createRepos($rm, array($repoConfig));
+        $repos = static::createRepos($rm, array($repoConfig));
 
         return reset($repos);
     }
@@ -108,7 +107,7 @@ class RepositoryFactory
             $rm = static::manager($io, $config, Factory::createHttpDownloader($io, $config));
         }
 
-        return self::createRepos($rm, $config->getRepositories());
+        return static::createRepos($rm, $config->getRepositories());
     }
 
     /**
@@ -126,7 +125,6 @@ class RepositoryFactory
         $rm->setRepositoryClass('package', 'Composer\Repository\PackageRepository');
         $rm->setRepositoryClass('pear', 'Composer\Repository\PearRepository');
         $rm->setRepositoryClass('git', 'Composer\Repository\VcsRepository');
-        $rm->setRepositoryClass('bitbucket', 'Composer\Repository\VcsRepository');
         $rm->setRepositoryClass('git-bitbucket', 'Composer\Repository\VcsRepository');
         $rm->setRepositoryClass('github', 'Composer\Repository\VcsRepository');
         $rm->setRepositoryClass('gitlab', 'Composer\Repository\VcsRepository');
@@ -134,6 +132,7 @@ class RepositoryFactory
         $rm->setRepositoryClass('fossil', 'Composer\Repository\VcsRepository');
         $rm->setRepositoryClass('perforce', 'Composer\Repository\VcsRepository');
         $rm->setRepositoryClass('hg', 'Composer\Repository\VcsRepository');
+        $rm->setRepositoryClass('hg-bitbucket', 'Composer\Repository\VcsRepository');
         $rm->setRepositoryClass('artifact', 'Composer\Repository\ArtifactRepository');
         $rm->setRepositoryClass('path', 'Composer\Repository\PathRepository');
 
@@ -180,7 +179,7 @@ class RepositoryFactory
      */
     public static function generateRepositoryName($index, array $repo, array $existingRepos)
     {
-        $name = is_int($index) && isset($repo['url']) ? Preg::replace('{^https?://}i', '', $repo['url']) : $index;
+        $name = is_int($index) && isset($repo['url']) ? preg_replace('{^https?://}i', '', $repo['url']) : $index;
         while (isset($existingRepos[$name])) {
             $name .= '2';
         }

@@ -66,7 +66,6 @@ final class ContainerBuilder
             FileExtension::class => Core\File::class,
             NumberExtension::class => Core\Number::class,
             VersionExtension::class => Core\Version::class,
-            UuidExtension::class => Core\Uuid::class,
         ];
     }
 

@@ -12,9 +12,6 @@
 
 namespace Composer\DependencyResolver;
 
-use Composer\Filter\PlatformRequirementFilter\IgnoreListPlatformRequirementFilter;
-use Composer\Filter\PlatformRequirementFilter\PlatformRequirementFilterFactory;
-use Composer\Filter\PlatformRequirementFilter\PlatformRequirementFilterInterface;
 use Composer\Package\BasePackage;
 use Composer\Package\AliasPackage;
 use Composer\Repository\PlatformRepository;
@@ -163,9 +160,10 @@ class RuleSetGenerator
     }
 
     /**
+     * @param bool|string[] $ignorePlatformReqs
      * @return void
      */
-    protected function addRulesForPackage(BasePackage $package, PlatformRequirementFilterInterface $platformRequirementFilter)
+    protected function addRulesForPackage(BasePackage $package, $ignorePlatformReqs)
     {
         /** @var \SplQueue<BasePackage> */
         $workQueue = new \SplQueue;
@@ -198,14 +196,11 @@ class RuleSetGenerator
             }
 
             foreach ($package->getRequires() as $link) {
-                $constraint = $link->getConstraint();
-                if ($platformRequirementFilter->isIgnored($link->getTarget())) {
+                if ((true === $ignorePlatformReqs || (is_array($ignorePlatformReqs) && in_array($link->getTarget(), $ignorePlatformReqs, true))) && PlatformRepository::isPlatformPackage($link->getTarget())) {
                     continue;
-                } elseif ($platformRequirementFilter instanceof IgnoreListPlatformRequirementFilter) {
-                    $constraint = $platformRequirementFilter->filterConstraint($link->getTarget(), $constraint);
                 }
 
-                $possibleRequires = $this->pool->whatProvides($link->getTarget(), $constraint);
+                $possibleRequires = $this->pool->whatProvides($link->getTarget(), $link->getConstraint());
 
                 $this->addRule(RuleSet::TYPE_PACKAGE, $this->createRequireRule($package, $possibleRequires, Rule::RULE_PACKAGE_REQUIRES, $link));
 
@@ -217,9 +212,10 @@ class RuleSetGenerator
     }
 
     /**
+     * @param bool|string[] $ignorePlatformReqs
      * @return void
      */
-    protected function addConflictRules(PlatformRequirementFilterInterface $platformRequirementFilter)
+    protected function addConflictRules($ignorePlatformReqs = false)
     {
         /** @var BasePackage $package */
         foreach ($this->addedMap as $package) {
@@ -229,14 +225,11 @@ class RuleSetGenerator
                     continue;
                 }
 
-                $constraint = $link->getConstraint();
-                if ($platformRequirementFilter->isIgnored($link->getTarget())) {
+                if ((true === $ignorePlatformReqs || (is_array($ignorePlatformReqs) && in_array($link->getTarget(), $ignorePlatformReqs, true))) && PlatformRepository::isPlatformPackage($link->getTarget())) {
                     continue;
-                } elseif ($platformRequirementFilter instanceof IgnoreListPlatformRequirementFilter) {
-                    $constraint = $platformRequirementFilter->filterConstraint($link->getTarget(), $constraint);
                 }
 
-                $conflicts = $this->pool->whatProvides($link->getTarget(), $constraint);
+                $conflicts = $this->pool->whatProvides($link->getTarget(), $link->getConstraint());
 
                 foreach ($conflicts as $conflict) {
                     // define the conflict rule for regular packages, for alias packages it's only needed if the name
@@ -258,9 +251,10 @@ class RuleSetGenerator
     }
 
     /**
+     * @param bool|string[] $ignorePlatformReqs
      * @return void
      */
-    protected function addRulesForRequest(Request $request, PlatformRequirementFilterInterface $platformRequirementFilter)
+    protected function addRulesForRequest(Request $request, $ignorePlatformReqs)
     {
         foreach ($request->getFixedPackages() as $package) {
             if ($package->id == -1) {
@@ -273,7 +267,7 @@ class RuleSetGenerator
                 throw new \LogicException("Fixed package ".$package->getPrettyString()." was not added to solver pool.");
             }
 
-            $this->addRulesForPackage($package, $platformRequirementFilter);
+            $this->addRulesForPackage($package, $ignorePlatformReqs);
 
             $rule = $this->createInstallOneOfRule(array($package), Rule::RULE_FIXED, array(
                 'package' => $package,
@@ -282,16 +276,14 @@ class RuleSetGenerator
         }
 
         foreach ($request->getRequires() as $packageName => $constraint) {
-            if ($platformRequirementFilter->isIgnored($packageName)) {
+            if ((true === $ignorePlatformReqs || (is_array($ignorePlatformReqs) && in_array($packageName, $ignorePlatformReqs, true))) && PlatformRepository::isPlatformPackage($packageName)) {
                 continue;
-            } elseif ($platformRequirementFilter instanceof IgnoreListPlatformRequirementFilter) {
-                $constraint = $platformRequirementFilter->filterConstraint($packageName, $constraint);
             }
 
             $packages = $this->pool->whatProvides($packageName, $constraint);
             if ($packages) {
                 foreach ($packages as $package) {
-                    $this->addRulesForPackage($package, $platformRequirementFilter);
+                    $this->addRulesForPackage($package, $ignorePlatformReqs);
                 }
 
                 $rule = $this->createInstallOneOfRule($packages, Rule::RULE_ROOT_REQUIRE, array(
@@ -304,9 +296,10 @@ class RuleSetGenerator
     }
 
     /**
+     * @param bool|string[] $ignorePlatformReqs
      * @return void
      */
-    protected function addRulesForRootAliases(PlatformRequirementFilterInterface $platformRequirementFilter)
+    protected function addRulesForRootAliases($ignorePlatformReqs)
     {
         foreach ($this->pool->getPackages() as $package) {
             // ensure that rules for root alias packages and aliases of packages which were loaded are also loaded
@@ -316,23 +309,22 @@ class RuleSetGenerator
                 $package instanceof AliasPackage &&
                 ($package->isRootPackageAlias() || isset($this->addedMap[$package->getAliasOf()->id]))
             ) {
-                $this->addRulesForPackage($package, $platformRequirementFilter);
+                $this->addRulesForPackage($package, $ignorePlatformReqs);
             }
         }
     }
 
     /**
+     * @param bool|string[] $ignorePlatformReqs
      * @return RuleSet
      */
-    public function getRulesFor(Request $request, PlatformRequirementFilterInterface $platformRequirementFilter = null)
+    public function getRulesFor(Request $request, $ignorePlatformReqs = false)
     {
-        $platformRequirementFilter = $platformRequirementFilter ?: PlatformRequirementFilterFactory::ignoreNothing();
+        $this->addRulesForRequest($request, $ignorePlatformReqs);
 
-        $this->addRulesForRequest($request, $platformRequirementFilter);
+        $this->addRulesForRootAliases($ignorePlatformReqs);
 
-        $this->addRulesForRootAliases($platformRequirementFilter);
-
-        $this->addConflictRules($platformRequirementFilter);
+        $this->addConflictRules($ignorePlatformReqs);
 
         // Remove references to packages
         $this->addedMap = $this->addedPackagesByNames = array();

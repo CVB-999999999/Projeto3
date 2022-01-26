@@ -14,9 +14,6 @@ namespace Composer\Command;
 
 use Composer\Config;
 use Composer\Factory;
-use Composer\Filter\PlatformRequirementFilter\IgnoreAllPlatformRequirementFilter;
-use Composer\Filter\PlatformRequirementFilter\PlatformRequirementFilterFactory;
-use Composer\Filter\PlatformRequirementFilter\PlatformRequirementFilterInterface;
 use Composer\Installer;
 use Composer\Installer\ProjectInstaller;
 use Composer\Installer\SuggestedPackagesReporter;
@@ -25,7 +22,6 @@ use Composer\Package\BasePackage;
 use Composer\DependencyResolver\Operation\InstallOperation;
 use Composer\Package\Version\VersionSelector;
 use Composer\Package\AliasPackage;
-use Composer\Pcre\Preg;
 use Composer\Repository\RepositoryFactory;
 use Composer\Repository\CompositeRepository;
 use Composer\Repository\PlatformRepository;
@@ -163,32 +159,33 @@ EOT
             $input->getOption('no-scripts'),
             $input->getOption('no-progress'),
             $input->getOption('no-install'),
-            PlatformRequirementFilterFactory::fromBoolOrList($ignorePlatformReqs),
+            $ignorePlatformReqs,
             !$input->getOption('no-secure-http'),
             $input->getOption('add-repository')
         );
     }
 
     /**
-     * @param string|null               $packageName
-     * @param string|null               $directory
-     * @param string|null               $packageVersion
-     * @param string                    $stability
-     * @param bool                      $preferSource
-     * @param bool                      $preferDist
-     * @param bool                      $installDevPackages
+     * @param string|null $packageName
+     * @param string|null $directory
+     * @param string|null $packageVersion
+     * @param string $stability
+     * @param bool $preferSource
+     * @param bool $preferDist
+     * @param bool $installDevPackages
      * @param string|array<string>|null $repositories
-     * @param bool                      $disablePlugins
-     * @param bool                      $disableScripts
-     * @param bool                      $noProgress
-     * @param bool                      $noInstall
-     * @param bool                      $secureHttp
-     * @param bool                      $addRepository
+     * @param bool $disablePlugins
+     * @param bool $noScripts
+     * @param bool $noProgress
+     * @param bool $noInstall
+     * @param bool $ignorePlatformReqs
+     * @param bool $secureHttp
+     * @param bool $addRepository
      *
      * @return int
      * @throws \Exception
      */
-    public function installProject(IOInterface $io, Config $config, InputInterface $input, $packageName = null, $directory = null, $packageVersion = null, $stability = 'stable', $preferSource = false, $preferDist = false, $installDevPackages = false, $repositories = null, $disablePlugins = false, $disableScripts = false, $noProgress = false, $noInstall = false, PlatformRequirementFilterInterface $platformRequirementFilter = null, $secureHttp = true, $addRepository = false)
+    public function installProject(IOInterface $io, Config $config, InputInterface $input, $packageName = null, $directory = null, $packageVersion = null, $stability = 'stable', $preferSource = false, $preferDist = false, $installDevPackages = false, $repositories = null, $disablePlugins = false, $noScripts = false, $noProgress = false, $noInstall = false, $ignorePlatformReqs = false, $secureHttp = true, $addRepository = false)
     {
         $oldCwd = getcwd();
 
@@ -196,15 +193,13 @@ EOT
             $repositories = (array) $repositories;
         }
 
-        $platformRequirementFilter = $platformRequirementFilter ?: PlatformRequirementFilterFactory::ignoreNothing();
-
         // we need to manually load the configuration to pass the auth credentials to the io interface!
         $io->loadConfiguration($config);
 
         $this->suggestedPackagesReporter = new SuggestedPackagesReporter($io);
 
         if ($packageName !== null) {
-            $installedFromVcs = $this->installRootPackage($io, $config, $packageName, $platformRequirementFilter, $directory, $packageVersion, $stability, $preferSource, $preferDist, $installDevPackages, $repositories, $disablePlugins, $disableScripts, $noProgress, $secureHttp);
+            $installedFromVcs = $this->installRootPackage($io, $config, $packageName, $directory, $packageVersion, $stability, $preferSource, $preferDist, $installDevPackages, $repositories, $disablePlugins, $noScripts, $noProgress, $ignorePlatformReqs, $secureHttp);
         } else {
             $installedFromVcs = false;
         }
@@ -213,7 +208,8 @@ EOT
             unlink('composer.lock');
         }
 
-        $composer = Factory::create($io, null, $disablePlugins, $disableScripts);
+        $composer = Factory::create($io, null, $disablePlugins);
+        $composer->getEventDispatcher()->setRunScripts(!$noScripts);
 
         // add the repository to the composer.json and use it for the install run later
         if ($repositories !== null && $addRepository) {
@@ -254,7 +250,7 @@ EOT
             $installer->setPreferSource($preferSource)
                 ->setPreferDist($preferDist)
                 ->setDevMode($installDevPackages)
-                ->setPlatformRequirementFilter($platformRequirementFilter)
+                ->setIgnorePlatformRequirements($ignorePlatformReqs)
                 ->setSuggestedPackagesReporter($this->suggestedPackagesReporter)
                 ->setOptimizeAutoloader($config->get('optimize-autoloader'))
                 ->setClassMapAuthoritative($config->get('classmap-authoritative'))
@@ -335,26 +331,27 @@ EOT
     }
 
     /**
-     * @param string             $packageName
-     * @param string|null        $directory
-     * @param string|null        $packageVersion
-     * @param string|null        $stability
-     * @param bool               $preferSource
-     * @param bool               $preferDist
-     * @param bool               $installDevPackages
+     * @param string $packageName
+     * @param string|null $directory
+     * @param string|null $packageVersion
+     * @param string|null $stability
+     * @param bool $preferSource
+     * @param bool $preferDist
+     * @param bool $installDevPackages
      * @param array<string>|null $repositories
-     * @param bool               $disablePlugins
-     * @param bool               $disableScripts
-     * @param bool               $noProgress
-     * @param bool               $secureHttp
+     * @param bool $disablePlugins
+     * @param bool $noScripts
+     * @param bool $noProgress
+     * @param bool $ignorePlatformReqs
+     * @param bool $secureHttp
      *
      * @return bool
      * @throws \Exception
      */
-    protected function installRootPackage(IOInterface $io, Config $config, $packageName, PlatformRequirementFilterInterface $platformRequirementFilter, $directory = null, $packageVersion = null, $stability = 'stable', $preferSource = false, $preferDist = false, $installDevPackages = false, array $repositories = null, $disablePlugins = false, $disableScripts = false, $noProgress = false, $secureHttp = true)
+    protected function installRootPackage(IOInterface $io, Config $config, $packageName, $directory = null, $packageVersion = null, $stability = 'stable', $preferSource = false, $preferDist = false, $installDevPackages = false, array $repositories = null, $disablePlugins = false, $noScripts = false, $noProgress = false, $ignorePlatformReqs = false, $secureHttp = true)
     {
         if (!$secureHttp) {
-            $config->merge(array('config' => array('secure-http' => false)), Config::SOURCE_COMMAND);
+            $config->merge(array('config' => array('secure-http' => false)));
         }
 
         $parser = new VersionParser();
@@ -390,7 +387,7 @@ EOT
         if (null === $stability) {
             if (null === $packageVersion) {
                 $stability = 'stable';
-            } elseif (Preg::isMatch('{^[^,\s]*?@('.implode('|', array_keys(BasePackage::$stabilities)).')$}i', $packageVersion, $match)) {
+            } elseif (preg_match('{^[^,\s]*?@('.implode('|', array_keys(BasePackage::$stabilities)).')$}i', $packageVersion, $match)) {
                 $stability = $match[1];
             } else {
                 $stability = VersionParser::parseStability($packageVersion);
@@ -428,11 +425,11 @@ EOT
 
         // find the latest version if there are multiple
         $versionSelector = new VersionSelector($repositorySet, $platformRepo);
-        $package = $versionSelector->findBestCandidate($name, $packageVersion, $stability, $platformRequirementFilter);
+        $package = $versionSelector->findBestCandidate($name, $packageVersion, $stability, $ignorePlatformReqs);
 
         if (!$package) {
             $errorMessage = "Could not find package $name with " . ($packageVersion ? "version $packageVersion" : "stability $stability");
-            if (!($platformRequirementFilter instanceof IgnoreAllPlatformRequirementFilter) && $versionSelector->findBestCandidate($name, $packageVersion, $stability, PlatformRequirementFilterFactory::ignoreAll())) {
+            if (true !== $ignorePlatformReqs && $versionSelector->findBestCandidate($name, $packageVersion, $stability, true)) {
                 throw new \InvalidArgumentException($errorMessage .' in a version installable using your PHP version, PHP extensions and Composer version.');
             }
 

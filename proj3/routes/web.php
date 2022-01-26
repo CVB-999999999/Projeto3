@@ -167,3 +167,8 @@ Route::post('/tutor/createpost/save', [CreatePost::class, 'storePost'])->middlew
 
 // Assign grade to student
 Route::post('/tutor/grade', [CreatePost::class, 'changeGrade'])->middleware('role:1');
+
+// created by page
+Route::get('/created-by', function () {
+    return view('created-by');
+});

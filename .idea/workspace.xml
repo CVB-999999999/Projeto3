@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/userposts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/aboutUs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -194,11 +189,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/proj3/resources/views" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/tutor" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/mail" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/admin" />
       <recent name="$PROJECT_DIR$/proj3/resources/views/sessions" />
-      <recent name="$PROJECT_DIR$/proj3/resources/views/register" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -262,6 +257,9 @@
       <workItem from="1642244260074" duration="1404000" />
       <workItem from="1642357439645" duration="7922000" />
       <workItem from="1642418798993" duration="2586000" />
+      <workItem from="1642507399766" duration="2525000" />
+      <workItem from="1642520059640" duration="1851000" />
+      <workItem from="1643205744809" duration="1052000" />
     </task>
     <servers />
   </component>

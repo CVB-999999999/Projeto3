@@ -51,8 +51,7 @@
                         @endif
                     </div>
 
-                    <form method="POST" action="/student/uploadfile"
-                          enctype="multipart/form-data">
+                    <form method="POST" action="/student/uploadfile" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="arquivo_aluno" class="form-label">Upload a Submission:</label>
@@ -67,6 +66,7 @@
                             </script>
                             <p class="text-danger"><small> {{ $message }} </small></p>
                             @enderror
+                            <input type="hidden" name="slug" value="{{ $post->slug }}">
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm">
                             <i class="bi bi-upload"></i> Upload

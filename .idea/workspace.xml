@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0f2943a2-80b3-4434-9ac6-8e10a950c8c8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD-DER.png" beforeDir="false" afterPath="$PROJECT_DIR$/BD-DER.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/CreatePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/app/Http/Controllers/StudentPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/app/Http/Controllers/StudentPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/database/migrations/2021_12_06_215124_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/database/migrations/2021_12_06_215124_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/createP.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/tutor/tPosts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/breadcrumbs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/proj3/resources/views/post.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +198,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6509543b-5c03-4589-8300-f07ecf9c27e5" name="Changes" comment="" />
+      <changelist id="0f2943a2-80b3-4434-9ac6-8e10a950c8c8" name="Changes" comment="" />
       <created>1636307544086</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -269,6 +259,7 @@
       <workItem from="1642507399766" duration="2525000" />
       <workItem from="1642520059640" duration="1851000" />
       <workItem from="1643205744809" duration="1052000" />
+      <workItem from="1643230902451" duration="529000" />
     </task>
     <servers />
   </component>

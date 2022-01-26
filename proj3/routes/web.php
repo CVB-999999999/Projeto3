@@ -165,6 +165,9 @@ Route::get('/tutor/assignment/{registration:id}', [ListController::class, 'tutor
 Route::get('/tutor/createpost/{user:id}', [CreatePost::class, 'createPost'])->middleware('role:1');
 Route::post('/tutor/createpost/save', [CreatePost::class, 'storePost'])->middleware('role:1');
 
+// tutor Delete Post
+Route::get('/tutor/assignment/delete/{post:id}', [ListController::class, 'deleteAssigment'])->middleware('role:1');
+
 // Assign grade to student
 Route::post('/tutor/grade', [CreatePost::class, 'changeGrade'])->middleware('role:1');
 

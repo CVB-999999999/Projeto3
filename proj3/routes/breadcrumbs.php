@@ -46,7 +46,7 @@ Breadcrumbs::for('NewDisciplines', function (BreadcrumbTrail $trail) {
 // Index > Dashboard > List Tutors
 Breadcrumbs::for('tutors', function (BreadcrumbTrail $trail) {
     $trail->parent('adminDash');
-    $trail->push('Tutor List', '/admin/users');
+    $trail->push('Tutor List', '/admin/tutors');
 });
 
 // Index > Dashboard > List tutor > Tutor x

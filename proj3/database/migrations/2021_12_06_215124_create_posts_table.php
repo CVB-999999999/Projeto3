@@ -21,6 +21,8 @@ class CreatePostsTable extends Migration
             $table->string('arquivo')->nullable();
             $table->string('arquivo_aluno')->nullable();
             $table->text('body');
+            $table->boolean('deleted')->default(false);
+            $table->boolean('hidden')->default(false);
             $table->string('fileName')->nullable();
             $table->dateTime('submit_date')->nullable();
             $table->dateTime('submited_date')->nullable();

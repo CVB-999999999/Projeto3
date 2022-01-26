@@ -151,9 +151,6 @@ class ListController extends Controller
                     ->orderByDesc('updated_at')
                     ->get();
 
-//                echo('<br> <h1> cenas </h1> <br>');
-//                var_dump($tutor);
-
 //                If can not find any stuff from the registration
                 if ($tutor->isEmpty() || $catg->isEmpty()) {
                     break;
@@ -212,6 +209,7 @@ class ListController extends Controller
         $query = DB::table('registrations')
             ->join('posts', 'registrations.id', '=', 'posts.registration_id')
             ->where('registrations.id', '=', $regId)
+            ->where('posts.deleted', '=', "false")
             ->select('posts.id');
 
         // Get all posts

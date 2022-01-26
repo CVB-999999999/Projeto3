@@ -246,4 +246,33 @@ class EditController extends Controller
 
         return back()->with('success', 'File Submitted Successfully');
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Delete Post
+    // -----------------------------------------------------------------------------------------------------------------
+    public function deletePost($id){
+        $query = DB::table('posts')
+            ->where('posts.id', '=', $id)
+            ->update(['posts.deleted' => true, 'updated_at' => now()]);
+
+        return back()->with('success', 'Post Deleted Successfully');
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Toggle Hide Post
+    // -----------------------------------------------------------------------------------------------------------------
+    public function hidePost($id, $bol){
+
+        if ($bol) {
+            $bol = 0;
+        } else {
+            $bol = 1;
+        }
+
+        $query = DB::table('posts')
+            ->where('posts.id', '=', $id)
+            ->update(['posts.hidden' => $bol, 'updated_at' => now()]);
+
+        return back()->with('success', 'Post Hidden Status Changed Successfully');
+    }
 }

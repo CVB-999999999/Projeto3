@@ -79,8 +79,11 @@ class CreatePost extends Controller
             'arquivo' => 'required|mimes:pdf,jpg,png,jpeg,zip',
             'body' => 'required',
             'registration_id' => 'required',
-            'date' => 'required|date'
+            'date' => 'required|date',
+            'sendMail' => 'string',
         ]);
+
+
 
         // Verify if ids are valid
         $reg = Registration::where('id', $attributes['registration_id'])->firstOrFail();
@@ -104,16 +107,20 @@ class CreatePost extends Controller
             'fileName' => request()->file('arquivo')->getClientOriginalName()
         ]);
 
-        // Get user email
-        $mail = User::where('id', $reg->userId)
-            ->first();
+        // Send email
+        if (array_key_exists('sendMail', $attributes)) {
 
-        // Get discipline name
-        $disc = Category::where('id', $reg->categoryId)
-            ->first();
+            // Get user email
+            $mail = User::where('id', $reg->userId)
+                ->first();
 
-        // Send the email
-        Mail::to($mail->email)->queue(new NewPost($disc->name, $attributes['title'], date("d-m-Y H:i", strtotime($attributes['date']))));
+            // Get discipline name
+            $disc = Category::where('id', $reg->categoryId)
+                ->first();
+
+            // Send the email
+            Mail::to($mail->email)->queue(new NewPost($disc->name, $attributes['title'], date("d-m-Y H:i", strtotime($attributes['date']))));
+        }
 
         return redirect('/tutor/assignment/' . $attributes['registration_id']);
     }

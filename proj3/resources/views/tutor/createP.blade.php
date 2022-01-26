@@ -60,15 +60,23 @@
                         <!-- Description Field -->
                             <div class="mb-3">
                                 <label for="body" class="form-label">Description:</label>
-                                <textarea type="text" class="form-control" id="body" name="body" rows="5" required>
-                                </textarea>
+                                <textarea type="text" class="form-control" id="body" name="body" rows="5"
+                                          required></textarea>
                             </div>
 
                             @error('body')
                             <p class="text-danger"><small> {{ $message }} </small></p>
                             @enderror
 
-                        <!-- Submit -->
+                            <div class="mb-3">
+                                <input class="form-check-input" type="checkbox" value=true name="sendMail"
+                                       id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Notify Student
+                                </label>
+                            </div>
+
+                            <!-- Submit -->
                             <input type="hidden" value="{{ $regId }}" name="registration_id">
 
                             <div class="text-center">

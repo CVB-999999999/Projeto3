@@ -25,7 +25,9 @@ class StudentPost extends Controller
         // Get all post id from the registrations for a student
         $query = DB::table('registrations')
             ->join('posts', 'registrations.id', '=', 'posts.registration_id')
-            ->where('userId', '=', $userId);
+            ->where('userId', '=', $userId)
+            ->where('posts.deleted', '=', "false")
+            ->where('posts.hidden', '=', "false");
 
         // Get all posts
         $posts = Post::whereIn('id', $query->select('posts.id'))

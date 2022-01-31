@@ -26,6 +26,9 @@ que gerir todos os acessos, criar permissões para os explicadores e para os alu
 #### Admin
 * Crição de utilizadores
 * Alteração de permissões
+* Criação de disicplinas
+* Edição de disciplinas
+* Inscrição de utilizadores a disciplinas
 #### Explicador
 * Upload dos PDFs
 * Download das resoluções
@@ -34,6 +37,6 @@ que gerir todos os acessos, criar permissões para os explicadores e para os alu
 ## Instalação <a name="instalacao"></a>
 1. Seguir as instruções na [Documentação do Laravel](https://laravel.com/docs/8.x/installation) para instalar os pré-requesitos
 2. Configurar o [MySQL](https://www.mysql.com/) e colocar as credenciais de acesso no ficheiro .env
-3. Preencher a informação de email no .env para o sistema puder enviar emails
+3. Preencher a informação de email no .env para o sistema poder enviar emails
 4. Abrir um terminal na localização do projeto e executar `php artisan make:fresh --seed` e `php artisan storage:link`
 5. Para iniciar, executar no terminal previamente aberto `php artisan serve`

@@ -31,7 +31,7 @@ class AssignDiscTutor extends Mailable
     public function build()
     {
         return $this
-            ->from('atc02012022@gmail.com', 'A Tutoring Company Admin')
+            ->from(env('MAIL_USERNAME'), 'A Tutoring Company Admin')
             ->view('mail.assign-disc-tutor')
             ->subject('New Assigment');
     }

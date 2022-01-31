@@ -18,12 +18,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-//        Because of foreign keys this can't be used
-//        Registration::truncate();
-//        User::truncate();
-//        Post::truncate();
-//        Category::truncate();
-
         $user = User::factory()->create([
             'name' => 'Paulo',
             'active' => false
